@@ -14,7 +14,10 @@ struct OverviewView: View {
         NavigationView {
             List {
                 ForEach(categories, id: \.name) { category in
-                    Section(header: Text(category.name)){
+                    Section(
+                        header: Text(category.name)
+                            .font(.headline)
+                    ){
                         ForEach(category.features) { feature in
                             NavigationLink(destination: EmptyView()) {
                                 Text(feature)
