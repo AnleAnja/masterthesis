@@ -26,5 +26,10 @@ object Features {
             "Fingerabdruck / Face ID"
         )
     )
-    val overview = listOf(ux, functions)
+    val performance = Category("Algorithmen",
+        listOf(
+            "Fakultätsberechnung"
+        )
+    )
+    val overview = listOf(ux, functions, performance)
 }
