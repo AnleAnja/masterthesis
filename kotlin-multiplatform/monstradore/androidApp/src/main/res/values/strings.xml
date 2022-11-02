@@ -1,3 +1,5 @@
 <resources>
     <string name="title_activity_overview">OverviewActivity</string>
+    <string name="title_activity_uielements">UIElementsActivity</string>
+    <string name="sample_img">Beispielbild von https://picsum.photos/</string>
 </resources>

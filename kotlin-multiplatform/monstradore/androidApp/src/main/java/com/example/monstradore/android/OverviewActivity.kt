@@ -19,6 +19,12 @@ import androidx.compose.ui.unit.sp
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
+/*import androidx.navigation.NavController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument*/
 
 class OverviewActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
