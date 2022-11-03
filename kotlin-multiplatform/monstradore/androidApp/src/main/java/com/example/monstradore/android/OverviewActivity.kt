@@ -16,7 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
+import com.example.monstradore.android.uiux.UIElementsContent
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
 
@@ -40,12 +45,18 @@ fun Content() {
                 title = { Text(text = "monstradore") }
             )
         }
-    ) { CategoryList(categories) }
+    ) {
+        val navController = rememberNavController()
+        NavHost(navController = navController, startDestination = "categories") {
+            composable("categories") { CategoryList(categories, navController) }
+            composable("uielements") { UIElementsContent() }
+        }
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterialApi::class)
 @Composable
-fun CategoryList(categories: List<Category>) {
+fun CategoryList(categories: List<Category>, navController: NavController) {
     val headerBackground = if (isSystemInDarkTheme()) Color.Black else Color.White
     val headerForeground = if (isSystemInDarkTheme()) Color.White else Color.Black
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
@@ -64,7 +75,11 @@ fun CategoryList(categories: List<Category>) {
                 }
             }
             items(features) { feature ->
-                ListItem(modifier = Modifier.clickable(onClick = { })) {
+                ListItem(modifier = Modifier.clickable(onClick = {
+                    when(feature) {
+                        "Reichhaltige UI Elemente" -> navController.navigate("uielements")
+                    }
+                })) {
                     Text(
                         text = feature,
                         fontSize = 20.sp

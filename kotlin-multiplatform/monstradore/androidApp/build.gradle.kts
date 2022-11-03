@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.7.0")
     implementation("androidx.appcompat:appcompat:1.5.1")
