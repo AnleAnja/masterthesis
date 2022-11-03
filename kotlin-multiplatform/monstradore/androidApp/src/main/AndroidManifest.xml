@@ -7,14 +7,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AndroidElementsActivity"
+            android:name=".OverviewActivity"
             android:exported="false"
-            android:label="@string/title_activity_android_elements"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".uiux.UIElementsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_uielements"
+            android:label="@string/title_activity_overview"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".OverviewActivity"
-            android:exported="false"
-            android:label="@string/title_activity_overview"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
