@@ -31,7 +31,7 @@ class UIElementsActivity : ComponentActivity() {
                 Column(
                     modifier = Modifier
                         .padding(5.dp)
-                        .verticalScroll(rememberScrollState())
+                        //.verticalScroll(rememberScrollState())
                 ) {
                     Text(
                         text = "Grundlegende Elemente",
@@ -50,7 +50,7 @@ class UIElementsActivity : ComponentActivity() {
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    AdvancedElements()
+                    ActionElements()
                 }
             }
         }
@@ -59,7 +59,7 @@ class UIElementsActivity : ComponentActivity() {
 
 @Composable
 fun BasicElements() {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
+    Column {
         Text(text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
         Image(
             painter = painterResource(id = R.drawable.sample),
@@ -98,57 +98,73 @@ fun StateElements() {
     }
 }
 
+@Composable
+fun ActionElements() {
+    Column {
+        BottomSheetElement()
+        MenuElement()
+        DialogElement()
+    }
+}
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun AdvancedElements() {
+fun BottomSheetElement() {
+    val scope = rememberCoroutineScope()
+    val scaffoldState = rememberBottomSheetScaffoldState(
+        bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
+    )
+    BottomSheetScaffold(
+        sheetContent = {
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .height(500.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Text in Bottom Sheet")
+            }
+        },
+        scaffoldState = scaffoldState
+    ) {
+        Button(onClick = {
+            scope.launch {
+                if (scaffoldState.bottomSheetState.isCollapsed) {
+                    scaffoldState.bottomSheetState.expand()
+                } else {
+                    scaffoldState.bottomSheetState.collapse()
+                }
+            }
+        }) {
+            Text(text = "Bottom Sheet")
+        }
+    }
+}
+
+@Composable
+fun MenuElement() {
+    var showMenu by remember { mutableStateOf(false) }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Button(onClick = { showMenu = !showMenu }) {
+            Text(text = "Menu")
+        }
+        DropdownMenu(
+            expanded = showMenu,
+            onDismissRequest = { showMenu = false }) {
+            DropdownMenuItem(onClick = { }) {
+                Text(text = "Menu Item")
+            }
+        }
+    }
+}
+
+@Composable
+fun DialogElement() {
     Column {
-        val scope = rememberCoroutineScope()
-        val scaffoldState = rememberBottomSheetScaffoldState(
-            bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
-        )
-        var showMenu by remember { mutableStateOf(false) }
         val openDialog = remember { mutableStateOf(false) }
-        BottomSheetScaffold(
-            sheetContent = {
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .height(300.dp)
-                        .background(Color.LightGray),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text("Text in Bottom Sheet")
-                }
-            },
-            scaffoldState = scaffoldState
-        ) {
-            Button(onClick = {
-                scope.launch {
-                    if (scaffoldState.bottomSheetState.isCollapsed) {
-                        scaffoldState.bottomSheetState.expand()
-                    } else {
-                        scaffoldState.bottomSheetState.collapse()
-                    }
-                }
-            }) {
-                Text(text = "Bottom Sheet")
-            }
-        }
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            Button(onClick = { showMenu = !showMenu }) {
-                Text(text = "Menu")
-            }
-            DropdownMenu(
-                expanded = showMenu,
-                onDismissRequest = { showMenu = false }) {
-                DropdownMenuItem(onClick = { }) {
-                    Text(text = "Menu Item")
-                }
-            }
-        }
         Button(onClick = {
             openDialog.value = true
         }) {
@@ -176,7 +192,6 @@ fun AdvancedElements() {
                 },
                 dismissButton = {
                     Button(
-
                         onClick = {
                             openDialog.value = false
                         }) {
