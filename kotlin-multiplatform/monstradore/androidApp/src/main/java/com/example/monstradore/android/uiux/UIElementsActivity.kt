@@ -5,15 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.monstradore.android.R
@@ -34,7 +29,9 @@ class UIElementsActivity : ComponentActivity() {
         setContent {
             MonstradoreTheme {
                 Column(
-                    Modifier.padding(5.dp)
+                    modifier = Modifier
+                        .padding(5.dp)
+                        .verticalScroll(rememberScrollState())
                 ) {
                     Text(
                         text = "Grundlegende Elemente",
@@ -73,7 +70,7 @@ fun BasicElements() {
                 Text(text = "Item: $index")
             }
         }
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { }) {
             Text(text = "Button")
         }
     }
@@ -86,7 +83,8 @@ fun StateElements() {
     val checkedState = remember { mutableStateOf(true) }
     Column {
         Slider(value = sliderValue, onValueChange = { newValue ->
-            sliderValue = newValue}
+            sliderValue = newValue
+        }
         )
         TextField(
             value = text,
@@ -109,6 +107,7 @@ fun AdvancedElements() {
             bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
         )
         var showMenu by remember { mutableStateOf(false) }
+        val openDialog = remember { mutableStateOf(false) }
         BottomSheetScaffold(
             sheetContent = {
                 Box(
@@ -149,6 +148,42 @@ fun AdvancedElements() {
                     Text(text = "Menu Item")
                 }
             }
+        }
+        Button(onClick = {
+            openDialog.value = true
+        }) {
+            Text("Dialog")
+        }
+        if (openDialog.value) {
+            AlertDialog(
+                onDismissRequest = {
+                    openDialog.value = false
+                },
+                title = {
+                    Text(text = "Dialog Titel")
+                },
+                text = {
+                    Text("Dialog Text")
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            openDialog.value = false
+                        }) {
+                        Text("OK")
+                    }
+
+                },
+                dismissButton = {
+                    Button(
+
+                        onClick = {
+                            openDialog.value = false
+                        }) {
+                        Text("Cancel")
+                    }
+                }
+            )
         }
     }
 }
