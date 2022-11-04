@@ -1,72 +1,98 @@
 package com.example.monstradore.android.uiux
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.monstradore.android.R
 import kotlinx.coroutines.launch
 
 @Composable
-fun UIElementsContent() {
+fun UIElementsContent(navController: NavController) {
     Column(
         modifier = Modifier
             .padding(5.dp)
-        //.verticalScroll(rememberScrollState())
+            .verticalScroll(rememberScrollState())
     ) {
         Text(
             text = "Reichhaltige UI Elemente",
-            fontSize = 25.sp,
+            fontSize = 30.sp,
             fontWeight = FontWeight.Bold
         )
         Text(
             text = "Grundlegende Elemente",
-            fontSize = 18.sp,
+            fontSize = 25.sp,
             fontWeight = FontWeight.Bold
         )
         BasicElements()
         Text(
             text = "Elemente mit Statusverwaltung",
-            fontSize = 18.sp,
+            fontSize = 25.sp,
             fontWeight = FontWeight.Bold
         )
         StateElements()
         Text(
+            text = "Plattformspezifische Elemente",
+            fontSize = 25.sp,
+            fontWeight = FontWeight.Bold
+        )
+        SpecificNavigation(navController)
+        Text(
             text = "Fortgeschrittene Elemente",
-            fontSize = 18.sp,
+            fontSize = 25.sp,
             fontWeight = FontWeight.Bold
         )
         ActionElements()
-        Text(
-            text = "Plattformspezifische Elemente",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold
-        )
-        SpecificNavigation()
     }
 }
 
 @Composable
 fun BasicElements() {
     Column {
+        Text(
+            text = "Text",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
         Text(text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
+        Text(
+            text = "Bild",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
         Image(
             painter = painterResource(id = R.drawable.sample),
             contentDescription = stringResource(id = R.string.sample_img)
         )
-        LazyColumn {
-            items(5) { index ->
-                Text(text = "Item: $index")
+        Text(
+            text = "Liste",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
+        Column {
+            repeat(5) {
+                Text(text = "Item: $it")
             }
         }
+        Text(
+            text = "Button",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
         Button(onClick = { }) {
             Text(text = "Button")
         }
@@ -79,14 +105,29 @@ fun StateElements() {
     var text by remember { mutableStateOf("") }
     val checkedState = remember { mutableStateOf(true) }
     Column {
+        Text(
+            text = "Slider",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
         Slider(value = sliderValue, onValueChange = { newValue ->
             sliderValue = newValue
         }
+        )
+        Text(
+            text = "Textfeld",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
         )
         TextField(
             value = text,
             onValueChange = { text = it },
             label = { Text("Label") }
+        )
+        Text(
+            text = "Switch / Toggle",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
         )
         Switch(
             checked = checkedState.value,
@@ -97,10 +138,12 @@ fun StateElements() {
 
 @Composable
 fun ActionElements() {
-    Column {
-        BottomSheetElement()
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(5.dp)
+    ) {
         MenuElement()
         DialogElement()
+        //BottomSheetElement()
     }
 }
 
@@ -122,7 +165,8 @@ fun BottomSheetElement() {
                 Text("Text in Bottom Sheet")
             }
         },
-        scaffoldState = scaffoldState
+        scaffoldState = scaffoldState,
+        sheetPeekHeight = 0.dp
     ) {
         Button(onClick = {
             scope.launch {
@@ -141,10 +185,7 @@ fun BottomSheetElement() {
 @Composable
 fun MenuElement() {
     var showMenu by remember { mutableStateOf(false) }
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
+    Box {
         Button(onClick = { showMenu = !showMenu }) {
             Text(text = "Menu")
         }
@@ -201,9 +242,11 @@ fun DialogElement() {
 }
 
 @Composable
-fun SpecificNavigation() {
-    Row {
-        Button(onClick = { }) {
+fun SpecificNavigation(navController: NavController) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(5.dp)
+    ) {
+        Button(onClick = { navController.navigate("androidelements") }) {
             Text(text = "Android")
         }
         Button(onClick = { }) {
