@@ -23,6 +23,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
 import com.example.monstradore.android.uiux.UIElementsContent
+import com.example.monstradore.android.uiux.iOSElementsContent
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
 
@@ -46,6 +47,7 @@ fun Content() {
             composable("categories") { CategoryList(categories, navController) }
             composable("uielements") { UIElementsContent(navController) }
             composable("androidelements") { AndroidElementsContent() }
+            composable("ioselements") { iOSElementsContent() }
         }
     }
 }

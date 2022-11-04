@@ -8,6 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -104,7 +105,7 @@ fun BasicElements() {
             fontWeight = FontWeight.Bold
         )
         IconButton(onClick = { }) {
-            Icon(Icons.Outlined.Lock, contentDescription = "Icon Button description")
+            Icon(Icons.Outlined.Home, contentDescription = "Icon Button description")
         }
     }
 }
@@ -259,7 +260,7 @@ fun SpecificNavigation(navController: NavController) {
         Button(onClick = { navController.navigate("androidelements") }) {
             Text(text = "Android")
         }
-        Button(onClick = { }) {
+        Button(onClick = { navController.navigate("ioselements") }) {
             Text(text = "iOS")
         }
     }
