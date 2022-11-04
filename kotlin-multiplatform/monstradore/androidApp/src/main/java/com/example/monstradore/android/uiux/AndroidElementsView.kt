@@ -56,7 +56,7 @@ fun AndroidElementsContent() {
     ) {
         Column(
             modifier = Modifier
-                .padding(5.dp)
+                .padding(5.dp, 0.dp, 0.dp, 75.dp)
                 .verticalScroll(rememberScrollState())
         ) {
             Text(
