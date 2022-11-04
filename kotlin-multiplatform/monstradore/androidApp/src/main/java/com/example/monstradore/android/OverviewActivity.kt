@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
+import com.example.monstradore.android.uiux.AndroidElementsContent
 import com.example.monstradore.android.uiux.UIElementsContent
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
@@ -39,17 +40,12 @@ class OverviewActivity : ComponentActivity() {
 @Composable
 fun Content() {
     val categories = Features.overview
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "monstradore") }
-            )
-        }
-    ) {
+    Scaffold {
         val navController = rememberNavController()
         NavHost(navController = navController, startDestination = "categories") {
             composable("categories") { CategoryList(categories, navController) }
-            composable("uielements") { UIElementsContent() }
+            composable("uielements") { UIElementsContent(navController) }
+            composable("androidelements") { AndroidElementsContent() }
         }
     }
 }
