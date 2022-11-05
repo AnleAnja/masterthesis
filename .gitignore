@@ -1,2 +1,6 @@
 *.xcuserstate
 .idea
+intermediates
+compileDebugKotlin
+compileDebugKotlinAndroid
+debug
