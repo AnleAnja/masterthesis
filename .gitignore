@@ -1,4 +1,4 @@
-
+*.xcuserstate
 .idea
 intermediates
 compileDebugKotlin
