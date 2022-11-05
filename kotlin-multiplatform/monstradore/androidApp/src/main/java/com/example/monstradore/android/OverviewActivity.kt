@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.interactiondesign.InteractionDesignContent
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
 import com.example.monstradore.android.uiux.UIElementsContent
@@ -48,6 +49,7 @@ fun Content() {
             composable("uielements") { UIElementsContent(navController) }
             composable("androidelements") { AndroidElementsContent() }
             composable("ioselements") { iOSElementsContent() }
+            composable("interactiondesign") { InteractionDesignContent() }
         }
     }
 }
@@ -76,6 +78,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                 ListItem(modifier = Modifier.clickable(onClick = {
                     when(feature) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
+                        "Interaktionsdesign" -> navController.navigate("interactiondesign")
                     }
                 })) {
                     Text(
