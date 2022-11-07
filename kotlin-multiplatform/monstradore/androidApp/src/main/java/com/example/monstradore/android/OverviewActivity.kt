@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.navigation.NavigationContent
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
@@ -50,6 +51,7 @@ fun Content() {
             composable("androidelements") { AndroidElementsContent() }
             composable("ioselements") { iOSElementsContent() }
             composable("navigation") { NavigationContent() }
+            composable("inputmethods") { InputMethodsContent() }
         }
     }
 }
@@ -79,6 +81,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                     when(feature) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
                         "Navigation" -> navController.navigate("navigation")
+                        "Eingabemethoden" -> navController.navigate("inputmethods")
                     }
                 })) {
                     Text(
