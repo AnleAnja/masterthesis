@@ -4,53 +4,60 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun NavigationContent() {
-    TabContent()
-    BottomNavigationContent()
+    Scaffold(
+        bottomBar = { BottomNavigationBar() }
+    ) {
+        TabBar()
+    }
 }
 
 @Composable
-fun TabContent() {
-    var state by remember { mutableStateOf(0) }
+fun TabBar() {
+    var tabState by remember { mutableStateOf(0) }
     val titles = listOf("Tab 1", "Tab 2", "Tab 3")
     Column {
-        TabRow(selectedTabIndex = state) {
+        TabRow(selectedTabIndex = tabState) {
             titles.forEachIndexed { index, title ->
                 Tab(
                     text = { Text(title) },
-                    selected = state == index,
-                    onClick = { state = index }
+                    selected = tabState == index,
+                    onClick = { tabState = index }
                 )
             }
         }
-        Text(
-            text = "Tab ${state + 1} Content",
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
-        )
+        TabContent(tabState)
     }
 }
 
 @Composable
-fun BottomNavigationContent() {
-    var selectedItem by remember { mutableStateOf(0) }
-    val items = listOf("Songs", "Artists", "Playlists")
+fun BottomNavigationBar() {
+    var bottomNavState by remember { mutableStateOf(0) }
+    val titles = listOf("Item 1", "Item 2", "Item 3")
 
     BottomNavigation {
-        items.forEachIndexed { index, item ->
+        titles.forEachIndexed { index, title ->
             BottomNavigationItem(
-                icon = { Icon(Icons.Filled.Favorite, contentDescription = null) },
-                label = { Text(item) },
-                selected = selectedItem == index,
-                onClick = { selectedItem = index }
+                icon = { Icon(Icons.Filled.Home, contentDescription = null) },
+                label = { Text(title) },
+                selected = bottomNavState == index,
+                onClick = { bottomNavState = index }
             )
         }
     }
+}
+
+@Composable
+fun TabContent(state: Int) {
+    Text(
+        text = "Tab ${state + 1} Content",
+        textAlign = TextAlign.Center,
+        modifier = Modifier.fillMaxWidth()
+    )
 }
