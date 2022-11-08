@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.navigation.NavigationContent
 import com.example.monstradore.android.networkcall.NetworkCallContent
@@ -54,6 +55,7 @@ fun Content() {
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
             composable("networkcalls") { NetworkCallContent() }
+            composable("fileaccess") { FileAccessContent() }
         }
     }
 }
@@ -85,6 +87,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
+                        "Dateizugriff + Persistierung" -> navController.navigate("fileaccess")
                     }
                 })) {
                     Text(
