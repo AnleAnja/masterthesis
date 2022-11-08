@@ -60,22 +60,12 @@ fun VideoContent() {
     val context = LocalContext.current
     val mediaPlayer = MediaPlayer.create(
         context,
-
+        R.raw.video
     )
-    Column(modifier = Modifier.fillMaxSize()) {
-        // video player
-        VideoPlayer(
-            modifier =
-            Modifier.fillMaxWidth()
-                .weight(1f, fill = true)
-                .background(Color.Black)
-        )
-
-        // video playlist
-        VideoPlayList(
-            Modifier.fillMaxWidth()
-                .weight(1f, fill = true)
-                .background(Color.Gray)
-        )
+    Column {
+        mediaPlayer.setVideoScalingMode(1)
+        IconButton(onClick = { mediaPlayer.start() }) {
+            Icon(Icons.Outlined.PlayArrow, contentDescription = "")
+        }
     }
 }
