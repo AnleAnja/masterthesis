@@ -8,7 +8,9 @@ class NetworkApi {
     private val client = HttpClient()
 
     suspend fun getResponse(): String {
-        val response = client.get("https://random-data-api.com/api/v2/blood_types")
+        val response = client.get(
+            "https://random-data-api.com/api/v2/blood_types"
+        )
         return response.bodyAsText()
     }
 }
