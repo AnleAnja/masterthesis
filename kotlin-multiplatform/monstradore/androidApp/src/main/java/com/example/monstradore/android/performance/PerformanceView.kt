@@ -2,6 +2,7 @@ package com.example.monstradore.android.performance
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Slider
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material3.Button
@@ -20,6 +21,7 @@ fun PerformanceContent() {
     var input by remember { mutableStateOf("20000") }
     var result by remember { mutableStateOf(0) }
     var time by remember { mutableStateOf(0L) }
+    var sliderValue by remember { mutableStateOf(0f) }
     Column (
         modifier = Modifier.padding(10.dp)
     ) {
@@ -49,5 +51,9 @@ fun PerformanceContent() {
         }
         Text("Ergebnis: $result")
         Text("Benötigte Zeit: $time Sekunden")
+        Slider(value = sliderValue, onValueChange = { newValue ->
+            sliderValue = newValue
+        }
+        )
     }
 }

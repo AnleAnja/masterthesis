@@ -84,7 +84,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
-                        "Fakultätsberechnung" -> navController.navigate("performance")
+                        "Primzahlberechnung" -> navController.navigate("performance")
                     }
                 })) {
                     Text(
