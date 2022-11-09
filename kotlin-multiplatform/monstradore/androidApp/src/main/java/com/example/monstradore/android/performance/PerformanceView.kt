@@ -11,11 +11,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.monstradore.structures.prime
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
+@OptIn(DelicateCoroutinesApi::class)
 @Composable
 fun PerformanceContent() {
-    val coroutineScope = rememberCoroutineScope()
 
     var input by remember { mutableStateOf("20000") }
     var result by remember { mutableStateOf(0) }
@@ -35,11 +35,14 @@ fun PerformanceContent() {
                 label = { Text("Zahl eingeben") }
             )
             Button(onClick = {
-                coroutineScope.launch {
+                GlobalScope.launch(Dispatchers.IO) {
                     val starttime = System.currentTimeMillis()
-                    result = prime(input.toInt())
+                    val primeResult = prime(input.toInt())
                     val endtime = System.currentTimeMillis()
                     time = (endtime - starttime) / 1000
+                    withContext(Dispatchers.Main) {
+                        result = primeResult
+                    }
                 }
             }) {
                 Text("Berechnen")
