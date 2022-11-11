@@ -3,6 +3,7 @@ package com.example.monstradore.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,6 +31,7 @@ import com.example.monstradore.android.uiux.UIElementsContent
 import com.example.monstradore.android.uiux.iOSElementsContent
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
+import java.io.File
 
 class OverviewActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +89,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
-                        "Dateizugriff + Persistierung" -> navController.navigate("fileaccess")
+                        "Dateizugriff" -> navController.navigate("fileaccess")
                     }
                 })) {
                     Text(

@@ -18,7 +18,8 @@ object Features {
     val functions = Category("Gerätespezifische Funktionen",
         listOf(
             "Netzwerkcalls",
-            "Dateizugriff + Persistierung",
+            "Dateizugriff",
+            "Persistierung",
             "Zugriff auf native Anwendungen",
             "Kamera",
             "GPS",
