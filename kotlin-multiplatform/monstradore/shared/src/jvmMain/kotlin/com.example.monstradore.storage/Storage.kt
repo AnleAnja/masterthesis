@@ -1,4 +1,4 @@
-package com.example.oradore.storage
+package com.example.monstradore.storage
 
 actual typealias Storage = Nothing
 
