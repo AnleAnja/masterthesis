@@ -37,6 +37,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.navigation.NavigationContent
@@ -113,8 +114,10 @@ fun Content(
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
-            composable("contactaccess") { ContactPicker(
-                context = LocalContext.current, contactName, contactNumber
+            composable("contactaccess") { ContactPickerContent(
+                context = LocalContext.current,
+                contactName,
+                contactNumber
             ) }
         }
     }
@@ -158,76 +161,6 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                     )
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun ContactPicker(
-    context: Context,
-    contactName: String,
-    contactNumber: String,
-) {
-    // on below line we are creating variable for activity.
-    val activity = LocalContext.current as Activity
-
-    // on below line we are creating a column,
-    Column(
-        // on below line we are adding a modifier to it,
-        modifier = Modifier
-            .fillMaxSize()
-            // on below line we are adding a padding.
-            .padding(all = 30.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        // on below line we are adding a text for heading.
-        Text(
-            // on below line we are specifying text
-            text = "Contact in Android",
-            // on below line we are specifying
-            // text color, font size and font weight
-            fontSize = 20.sp, fontWeight = FontWeight.Bold
-        )
-
-        // on below line adding a spacer
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // on below line creating a text for contact name
-        Text(text = contactName, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-
-        // on below line adding a spacer
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // on below line creating a text for contact number.
-        Text(text = contactNumber, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-
-        // on below line adding a spacer
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // on below line creating a button to pick contact.
-        Button(
-            // on below line adding on click for button.
-            onClick = {
-                // on below line checking if permission is granted.
-                if (hasContactPermission(context)) {
-                    // if permission granted open intent to pick contact/
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE
-                    startActivityForResult(activity, intent, 1, null)
-                } else {
-                    // if permission not granted requesting permission .
-                    requestContactPermission(context, activity)
-                }
-            },
-            // adding padding to button.
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp)
-        ) {
-            // displaying text in our button.
-            Text(text = "Pick Contact")
-
         }
     }
 }
