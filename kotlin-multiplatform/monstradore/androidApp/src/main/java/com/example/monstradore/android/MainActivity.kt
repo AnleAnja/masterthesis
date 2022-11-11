@@ -97,6 +97,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
                         "Dateizugriff" -> navController.navigate("fileaccess")
+                        "Persistierung" -> navController.navigate("persistence")
                     }
                 })) {
                     Text(

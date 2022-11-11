@@ -18,7 +18,7 @@ fun PersistenceContent(
     storage: UserStorage
 ) {
     var text by remember { mutableStateOf("") }
-    var users by remember { mutableStateOf(storage.getUsers().toSet())}
+    var users by remember { mutableStateOf(storage.getUsers().toSet()) }
     Column(
         modifier = Modifier.padding(10.dp)
     ) {
@@ -33,21 +33,14 @@ fun PersistenceContent(
             onValueChange = { text = it },
             label = { Text("Name") }
         )
-        Row {
-            Button(
-                modifier = Modifier.padding(0.dp, 0.dp, 5.dp, 0.dp),
-                onClick = {
-                    users += text
-                    storage.saveUsers(users.toList())
-                }
-            ) {
-                Text("User speichern")
+        Button(
+            modifier = Modifier.padding(0.dp, 0.dp, 5.dp, 0.dp),
+            onClick = {
+                users += text
+                storage.saveUsers(users.toList())
             }
-            Button(
-                onClick = { }
-            ) {
-                Text("User laden")
-            }
+        ) {
+            Text("User speichern")
         }
         users.forEach { user ->
             Text(user + "\n")
