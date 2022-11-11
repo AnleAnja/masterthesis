@@ -36,6 +36,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
+import com.example.monstradore.android.gestures.GesturesContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.navigation.NavigationContent
@@ -177,11 +178,17 @@ fun Content(
             composable("uielements") { UIElementsContent(navController) }
             composable("androidelements") { AndroidElementsContent() }
             composable("ioselements") { iOSElementsContent() }
+            composable("gestures") { GesturesContent() }
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
+            composable("contactaccess") { ContactPickerContent(
+                context = LocalContext.current,
+                contactName,
+                contactNumber
+            ) }
             composable("camera") {
                 CameraContent(
                     outputDirectory = outputDirectory,
@@ -192,11 +199,6 @@ fun Content(
                     showPhoto = shouldShowPhoto
                 )
             }
-            composable("contactaccess") { ContactPickerContent(
-                context = LocalContext.current,
-                contactName,
-                contactNumber
-            ) }
             composable("performance") { PerformanceContent() }
         }
     }
@@ -226,6 +228,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                 ListItem(modifier = Modifier.clickable(onClick = {
                     when(feature) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
+                        "Gesten" -> navController.navigate("gestures")
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
