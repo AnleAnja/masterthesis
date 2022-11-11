@@ -1,5 +1,6 @@
 package com.example.monstradore.android
 
+import android.Manifest
 import android.Manifest.permission.READ_CONTACTS
 import android.app.Activity
 import android.content.Context
@@ -9,7 +10,9 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -19,19 +22,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -39,9 +36,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
+import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.navigation.NavigationContent
 import com.example.monstradore.android.networkcall.NetworkCallContent
+import com.example.monstradore.android.performance.PerformanceContent
 import com.example.monstradore.android.persistence.PersistenceContent
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
@@ -50,18 +49,82 @@ import com.example.monstradore.android.uiux.iOSElementsContent
 import com.example.monstradore.storage.UserStorage
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
+import java.io.File
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     var contactName by mutableStateOf("")
     var contactNumber by mutableStateOf("")
+
+    private lateinit var outputDirectory: File
+    private lateinit var cameraExecutor: ExecutorService
+    private var shouldShowCamera: MutableState<Boolean> = mutableStateOf(false)
+    private var shouldShowPhoto: MutableState<Boolean> = mutableStateOf(false)
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        shouldShowCamera.value = isGranted
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val storage = UserStorage(this)
         setContent {
             MonstradoreTheme {
-                Content(storage, contactName, contactNumber)
+                Content(
+                    outputDirectory,
+                    cameraExecutor,
+                    ::handleImageCapture,
+                    shouldShowCamera,
+                    shouldShowPhoto,
+                    storage,
+                    contactName,
+                    contactNumber
+                )
             }
         }
+        requestCameraPermission()
+        outputDirectory = getOutputDirectory()
+        cameraExecutor = Executors.newSingleThreadExecutor()
+    }
+
+    private fun requestCameraPermission() {
+        when {
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                shouldShowCamera.value = true
+                Log.d("anja", "Permission granted")
+            }
+
+            ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.CAMERA
+            ) -> requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+
+            else -> requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+        }
+    }
+
+    private fun handleImageCapture(uri: Uri) {
+        shouldShowCamera.value = false
+        shouldShowPhoto.value = true
+        Log.d("anja", "camera: ${shouldShowCamera.value}, photo: ${shouldShowPhoto.value} ")
+    }
+
+    private fun getOutputDirectory(): File {
+        val mediaDir = externalMediaDirs.firstOrNull()?.let {
+            File(it, resources.getString(R.string.app_name)).apply { mkdirs() }
+        }
+        return if(mediaDir != null && mediaDir.exists()) mediaDir else filesDir
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutor.shutdown()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -97,6 +160,11 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun Content(
+    outputDirectory: File,
+    cameraExecutor: ExecutorService,
+    handleImageCapture: (Uri) -> Unit,
+    shouldShowCamera: MutableState<Boolean>,
+    shouldShowPhoto: MutableState<Boolean>,
     storage: UserStorage,
     contactName: String,
     contactNumber: String
@@ -114,11 +182,22 @@ fun Content(
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
+            composable("camera") {
+                CameraContent(
+                    outputDirectory = outputDirectory,
+                    executor = cameraExecutor,
+                    onImageCaptured = handleImageCapture,
+                    onError = { print("View error: $it") },
+                    showCamera = shouldShowCamera,
+                    showPhoto = shouldShowPhoto
+                )
+            }
             composable("contactaccess") { ContactPickerContent(
                 context = LocalContext.current,
                 contactName,
                 contactNumber
             ) }
+            composable("performance") { PerformanceContent() }
         }
     }
 }
@@ -153,6 +232,8 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Dateizugriff" -> navController.navigate("fileaccess")
                         "Persistierung" -> navController.navigate("persistence")
                         "Zugriff auf native Anwendungen" -> navController.navigate("contactaccess")
+                        "Kamera" -> navController.navigate("camera")
+                        "Primzahlberechnung" -> navController.navigate("performance")
                     }
                 })) {
                     Text(

@@ -23,6 +23,7 @@ kotlin {
     }
     
     sourceSets {
+<<<<<<< HEAD
         val ktorVersion = "2.1.3"
         val coroutineVersion = "1.6.4"
         val serializationVersion = "1.3.3"
@@ -36,6 +37,11 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+=======
+        val commonMain by getting {
+            dependencies {
+                implementation("androidx.core:core:1.9.0")
+>>>>>>> main
             }
         }
         val commonTest by getting {
@@ -81,6 +87,9 @@ android {
         targetSdk = 32
     }
 }
+<<<<<<< HEAD
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 }
+=======
+>>>>>>> main

@@ -29,7 +29,7 @@ object Features {
     )
     val performance = Category("Algorithmen",
         listOf(
-            "Fakultätsberechnung"
+            "Primzahlberechnung"
         )
     )
     val overview = listOf(ux, functions, performance)
