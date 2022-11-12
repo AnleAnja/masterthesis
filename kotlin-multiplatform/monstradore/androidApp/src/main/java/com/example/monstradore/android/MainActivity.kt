@@ -39,6 +39,7 @@ import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.gestures.GesturesContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
+import com.example.monstradore.android.multimedia.MultimediaContent
 import com.example.monstradore.android.navigation.NavigationContent
 import com.example.monstradore.android.networkcall.NetworkCallContent
 import com.example.monstradore.android.performance.PerformanceContent
@@ -181,6 +182,7 @@ fun Content(
             composable("gestures") { GesturesContent() }
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
+            composable("multimedia") { MultimediaContent() }
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
@@ -231,6 +233,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Gesten" -> navController.navigate("gestures")
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
+                        "Multimedia" -> navController.navigate("multimedia")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
                         "Dateizugriff" -> navController.navigate("fileaccess")
                         "Persistierung" -> navController.navigate("persistence")
