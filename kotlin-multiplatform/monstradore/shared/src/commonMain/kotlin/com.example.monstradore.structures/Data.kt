@@ -18,7 +18,8 @@ object Features {
     val functions = Category("Gerätespezifische Funktionen",
         listOf(
             "Netzwerkcalls",
-            "Dateizugriff + Persistierung",
+            "Dateizugriff",
+            "Persistierung",
             "Zugriff auf native Anwendungen",
             "Kamera",
             "GPS",
@@ -28,7 +29,7 @@ object Features {
     )
     val performance = Category("Algorithmen",
         listOf(
-            "Fakultätsberechnung"
+            "Primzahlberechnung"
         )
     )
     val overview = listOf(ux, functions, performance)
