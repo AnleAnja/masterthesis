@@ -33,3 +33,11 @@ object Features {
     )
     val overview = listOf(ux, functions, performance)
 }
+
+fun generateInteractionDesignList(): List<String> {
+    val list = mutableListOf<String>()
+    repeat(25) {
+        list.add("Dieses Element hat den Index $it.")
+    }
+    return list
+}
