@@ -40,6 +40,7 @@ import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.gestures.GesturesContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
+import com.example.monstradore.android.interactiondesign.InteractionDesignContent
 import com.example.monstradore.android.multimedia.MultimediaContent
 import com.example.monstradore.android.navigation.NavigationContent
 import com.example.monstradore.android.networkcall.NetworkCallContent
@@ -180,6 +181,7 @@ fun Content(
             composable("uielements") { UIElementsContent(navController) }
             composable("androidelements") { AndroidElementsContent() }
             composable("ioselements") { iOSElementsContent() }
+            composable("interactiondesign") { InteractionDesignContent() }
             composable("gestures") { GesturesContent() }
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
@@ -232,6 +234,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                 ListItem(modifier = Modifier.clickable(onClick = {
                     when(feature) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
+                        "Interaktionsdesign" -> navController.navigate("interactiondesign")
                         "Gesten" -> navController.navigate("gestures")
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
