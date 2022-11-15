@@ -34,6 +34,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.animations.AnimationsContent
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.gestures.GesturesContent
@@ -183,6 +184,7 @@ fun Content(
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
             composable("multimedia") { MultimediaContent() }
+            composable("animations") { AnimationsContent() }
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
@@ -234,6 +236,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Navigation" -> navController.navigate("navigation")
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Multimedia" -> navController.navigate("multimedia")
+                        "Animationen" -> navController.navigate("animations")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
                         "Dateizugriff" -> navController.navigate("fileaccess")
                         "Persistierung" -> navController.navigate("persistence")
