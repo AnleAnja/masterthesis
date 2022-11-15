@@ -13,23 +13,22 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
+import com.example.monstradore.structures.generateInteractionDesignList
 
 @Composable
 fun InteractionDesignContent() {
-    var listElements = mutableListOf<String>()
-    var showMenu by remember { mutableStateOf(false) }
-    repeat(25) {
-        listElements.add("Dieses Element hat den Index $it.")
-    }
-    LazyColumn(
-        modifier = Modifier.pointerInput(Unit) {
-            detectTapGestures(
-                onLongPress = { showMenu = !showMenu }
-            )
-        }
-    ) {
+    val listElements = remember { mutableStateListOf<String>() }
+    listElements.addAll(generateInteractionDesignList())
+    var showMenuIndex by remember { mutableStateOf(-1) }
+    LazyColumn {
             items(listElements) { element ->
-                Box {
+                Box(
+                    modifier = Modifier.pointerInput(Unit) {
+                        detectTapGestures(
+                            onLongPress = { showMenuIndex = listElements.indexOf(element)+1 }
+                        )
+                    }
+                ) {
                     Box {
                         Text(
                             element,
@@ -38,9 +37,12 @@ fun InteractionDesignContent() {
                         Divider()
                     }
                     DropdownMenu(
-                        expanded = showMenu,
-                        onDismissRequest = { showMenu = false }) {
-                        DropdownMenuItem(onClick = { listElements.remove(element) }) {
+                        expanded = (listElements.indexOf(element)+1  == showMenuIndex),
+                        onDismissRequest = { showMenuIndex = -1 }) {
+                        DropdownMenuItem(onClick = {
+                            listElements.remove(element)
+                            showMenuIndex = -1
+                        }) {
                             Text("Löschen")
                         }
                     }
