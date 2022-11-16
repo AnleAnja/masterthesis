@@ -1,5 +1,6 @@
 package com.example.monstradore.android
 
+import GPSContent
 import android.Manifest
 import android.Manifest.permission.READ_CONTACTS
 import android.app.Activity
@@ -63,7 +64,7 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity() {
     var contactName by mutableStateOf("")
     var contactNumber by mutableStateOf("")
-
+    var location by mutableStateOf<Location?>(null)
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private var shouldShowCamera: MutableState<Boolean> = mutableStateOf(false)
@@ -89,7 +90,8 @@ class MainActivity : AppCompatActivity() {
                     shouldShowPhoto,
                     storage,
                     contactName,
-                    contactNumber
+                    contactNumber,
+                    location
                 )
             }
         }
@@ -119,7 +121,8 @@ class MainActivity : AppCompatActivity() {
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location : Location? ->
                 Log.d("anja", location.toString())
-                // Got last known location. In some rare situations this can be null.
+                this.location = location
+            // Got last known location. In some rare situations this can be null.
             }
     }
 
@@ -208,7 +211,8 @@ fun Content(
     shouldShowPhoto: MutableState<Boolean>,
     storage: UserStorage,
     contactName: String,
-    contactNumber: String
+    contactNumber: String,
+    location: Location?
 ) {
     val categories = Features.overview
     Scaffold {
@@ -243,6 +247,7 @@ fun Content(
                 )
             }
             composable("performance") { PerformanceContent() }
+            composable("gps") { GPSContent(location) }
         }
     }
 }
@@ -283,6 +288,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Zugriff auf native Anwendungen" -> navController.navigate("contactaccess")
                         "Kamera" -> navController.navigate("camera")
                         "Primzahlberechnung" -> navController.navigate("performance")
+                        "GPS" -> navController.navigate("gps")
                     }
                 })) {
                     Text(
