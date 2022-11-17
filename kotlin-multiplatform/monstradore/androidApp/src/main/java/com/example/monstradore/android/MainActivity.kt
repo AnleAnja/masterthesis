@@ -39,6 +39,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.monstradore.android.animations.AnimationsContent
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
+import com.example.monstradore.android.fingerprint.FingerprintContent
 import com.example.monstradore.android.gestures.GesturesContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
@@ -91,7 +92,8 @@ class MainActivity : AppCompatActivity() {
                     storage,
                     contactName,
                     contactNumber,
-                    location
+                    location,
+                    this
                 )
             }
         }
@@ -122,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener { location : Location? ->
                 Log.d("anja", location.toString())
                 this.location = location
-            // Got last known location. In some rare situations this can be null.
+                // Got last known location. In some rare situations this can be null.
             }
     }
 
@@ -212,7 +214,8 @@ fun Content(
     storage: UserStorage,
     contactName: String,
     contactNumber: String,
-    location: Location?
+    location: Location?,
+    activity: Activity
 ) {
     val categories = Features.overview
     Scaffold {
@@ -248,6 +251,8 @@ fun Content(
             }
             composable("performance") { PerformanceContent() }
             composable("gps") { GPSContent(location) }
+            composable("acceleration") { AccelerationContent() }
+            composable("fingerprint") { FingerprintContent(activity) }
         }
     }
 }
@@ -289,6 +294,8 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Kamera" -> navController.navigate("camera")
                         "Primzahlberechnung" -> navController.navigate("performance")
                         "GPS" -> navController.navigate("gps")
+                        "Beschleunigung" -> navController.navigate("acceleration")
+                        "Fingerabdruck / Face ID" -> navController.navigate("fingerprint")
                     }
                 })) {
                     Text(
