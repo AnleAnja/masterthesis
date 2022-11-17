@@ -36,6 +36,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.acceleration.AccelerationContent
 import com.example.monstradore.android.animations.AnimationsContent
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
@@ -248,6 +249,7 @@ fun Content(
             }
             composable("performance") { PerformanceContent() }
             composable("gps") { GPSContent(location) }
+            composable("acceleration") { AccelerationContent() }
         }
     }
 }
@@ -289,6 +291,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Kamera" -> navController.navigate("camera")
                         "Primzahlberechnung" -> navController.navigate("performance")
                         "GPS" -> navController.navigate("gps")
+                        "Beschleunigung" -> navController.navigate("acceleration")
                     }
                 })) {
                     Text(
