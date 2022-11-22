@@ -1,5 +1,6 @@
 package com.example.monstradore.android
 
+import GPSContent
 import android.Manifest
 import android.Manifest.permission.READ_CONTACTS
 import android.app.Activity
@@ -7,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -34,9 +36,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.monstradore.android.acceleration.AccelerationContent
 import com.example.monstradore.android.animations.AnimationsContent
 import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
+import com.example.monstradore.android.fingerprint.FingerprintContent
 import com.example.monstradore.android.gestures.GesturesContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
@@ -53,6 +57,8 @@ import com.example.monstradore.android.uiux.iOSElementsContent
 import com.example.monstradore.storage.UserStorage
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -60,11 +66,12 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity() {
     var contactName by mutableStateOf("")
     var contactNumber by mutableStateOf("")
-
+    var location by mutableStateOf<Location?>(null)
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private var shouldShowCamera: MutableState<Boolean> = mutableStateOf(false)
     private var shouldShowPhoto: MutableState<Boolean> = mutableStateOf(false)
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -85,13 +92,49 @@ class MainActivity : AppCompatActivity() {
                     shouldShowPhoto,
                     storage,
                     contactName,
-                    contactNumber
+                    contactNumber,
+                    location,
+                    this
                 )
             }
         }
         requestCameraPermission()
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestLocationPermission(this, this)
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location : Location? ->
+                Log.d("anja", location.toString())
+                this.location = location
+                // Got last known location. In some rare situations this can be null.
+            }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private fun requestCameraPermission() {
@@ -171,7 +214,9 @@ fun Content(
     shouldShowPhoto: MutableState<Boolean>,
     storage: UserStorage,
     contactName: String,
-    contactNumber: String
+    contactNumber: String,
+    location: Location?,
+    activity: Activity
 ) {
     val categories = Features.overview
     Scaffold {
@@ -206,6 +251,9 @@ fun Content(
                 )
             }
             composable("performance") { PerformanceContent() }
+            composable("gps") { GPSContent(location) }
+            composable("acceleration") { AccelerationContent() }
+            composable("fingerprint") { FingerprintContent(activity) }
         }
     }
 }
@@ -246,6 +294,9 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Zugriff auf native Anwendungen" -> navController.navigate("contactaccess")
                         "Kamera" -> navController.navigate("camera")
                         "Primzahlberechnung" -> navController.navigate("performance")
+                        "GPS" -> navController.navigate("gps")
+                        "Beschleunigung" -> navController.navigate("acceleration")
+                        "Fingerabdruck / Face ID" -> navController.navigate("fingerprint")
                     }
                 })) {
                     Text(
@@ -269,4 +320,9 @@ fun requestContactPermission(context: Context, activity: Activity) {
     if (!hasContactPermission(context)) {
         ActivityCompat.requestPermissions(activity, arrayOf(READ_CONTACTS), 1)
     }
+}
+
+fun requestLocationPermission(context: Context, activity: Activity) {
+    // on below line if permission is not granted requesting permissions.
+        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
 }

@@ -19,9 +19,11 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            NavigationLink(destination: EmptyView()) {
-                                Text(feature)
-                                    .font(.body)
+                            if(feature == "Reichhaltige UI Elemente") {
+                                NavigationLink(destination: UIElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                             }
                         }
                     }
