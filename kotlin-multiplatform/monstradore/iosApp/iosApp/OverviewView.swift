@@ -31,6 +31,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                             }
+                            if(feature == "Gesten") {
+                                NavigationLink(destination: GestureView()) {
+                                Text(feature)
+                                        .font(.body)
+                                }
+                            }
                         }
                     }
                 }
