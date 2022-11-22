@@ -25,6 +25,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                             }
+                            if(feature == "Interaktionsdesign") {
+                                NavigationLink(destination: InteractionDesignView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
                         }
                     }
                 }

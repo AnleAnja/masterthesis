@@ -10,19 +10,17 @@ import SwiftUI
 
 struct UIElementsView: View {
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading)
-                {
-                    BasicElements()
-                    ButtonElements()
-                    StateElements()
-                    PlatformspecificElements()
-                    AdvancedElements()
-                }
-                .padding()
-                .navigationBarTitleDisplayMode(.inline)
+        ScrollView {
+            VStack(alignment: .leading)
+            {
+                BasicElements()
+                ButtonElements()
+                StateElements()
+                PlatformspecificElements()
+                AdvancedElements()
             }
+            .padding()
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -116,19 +114,19 @@ struct PlatformspecificElements: View {
         Text("Plattformspezifische Elemente")
             .font(.title)
             .multilineTextAlignment(.leading)
-            HStack {
-                NavigationLink(destination: AndroidElementsView(), tag: 1, selection: $showView) {
-                    EmptyView()
-                }
-                NavigationLink(destination: iOSElementsView(), tag: 2, selection: $showView) {
-                    EmptyView()
-                }
-                Button("Android", action: {
-                    self.showView = 1
-                })
-                Button("iOS", action: {
-                    self.showView = 2
-                })
+        HStack {
+            NavigationLink(destination: AndroidElementsView(), tag: 1, selection: $showView) {
+                EmptyView()
+            }
+            NavigationLink(destination: iOSElementsView(), tag: 2, selection: $showView) {
+                EmptyView()
+            }
+            Button("Android", action: {
+                self.showView = 1
+            })
+            Button("iOS", action: {
+                self.showView = 2
+            })
         }
     }
 }
