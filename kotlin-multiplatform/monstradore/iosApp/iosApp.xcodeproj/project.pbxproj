@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* OverviewView.swift */; };
+		85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C87292D73C70058ED2E /* InputMethodsView.swift */; };
 		85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C84292D6DCC0058ED2E /* GestureView.swift */; };
 		85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7C292BE0990058ED2E /* AndroidElementsView.swift */; };
 		85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */; };
@@ -27,6 +28,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85076C87292D73C70058ED2E /* InputMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodsView.swift; sourceTree = "<group>"; };
 		85076C84292D6DCC0058ED2E /* GestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
 		85076C7C292BE0990058ED2E /* AndroidElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidElementsView.swift; sourceTree = "<group>"; };
 		85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSElementsView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				85076C86292D73B30058ED2E /* inputmethods */,
 				85076C83292D6DB90058ED2E /* gestures */,
 				85076C80292D57240058ED2E /* interactiondesign */,
 				851F8B5D29290D040072C099 /* uiux */,
@@ -98,6 +101,12 @@
 			path = iosApp;
 			sourceTree = "<group>";
 		};
+		85076C86292D73B30058ED2E /* inputmethods */ = {
+			isa = PBXGroup;
+			children = (
+				85076C87292D73C70058ED2E /* InputMethodsView.swift */,
+			);
+			path = inputmethods;
 		85076C83292D6DB90058ED2E /* gestures */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */,
 				85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */,
 				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
 				85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */,

@@ -37,7 +37,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                             }
-                        }
+                            if(feature == "Eingabemethoden") {
+                                NavigationLink(destination: InputMethodsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                           }
                     }
                 }
             }
