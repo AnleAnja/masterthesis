@@ -12,6 +12,10 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* OverviewView.swift */; };
 		85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C84292D6DCC0058ED2E /* GestureView.swift */; };
+		85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7C292BE0990058ED2E /* AndroidElementsView.swift */; };
+		85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */; };
+		85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C81292D57460058ED2E /* InteractionDesignView.swift */; };
+		851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F8B5E29290D360072C099 /* UIElementsView.swift */; };
 		FF0FF33A810A590684E0B7E7 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCEA02849808D97C951A812 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,10 @@
 		7555FF82242A565900829871 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85076C84292D6DCC0058ED2E /* GestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
+		85076C7C292BE0990058ED2E /* AndroidElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidElementsView.swift; sourceTree = "<group>"; };
+		85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSElementsView.swift; sourceTree = "<group>"; };
+		85076C81292D57460058ED2E /* InteractionDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionDesignView.swift; sourceTree = "<group>"; };
+		851F8B5E29290D360072C099 /* UIElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsView.swift; sourceTree = "<group>"; };
 		BFCEA02849808D97C951A812 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E62FA93C72A5BC355C4B53 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				85076C83292D6DB90058ED2E /* gestures */,
+				85076C80292D57240058ED2E /* interactiondesign */,
+				851F8B5D29290D040072C099 /* uiux */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* OverviewView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -94,6 +104,22 @@
 				85076C84292D6DCC0058ED2E /* GestureView.swift */,
 			);
 			path = gestures;
+		85076C80292D57240058ED2E /* interactiondesign */ = {
+			isa = PBXGroup;
+			children = (
+				85076C81292D57460058ED2E /* InteractionDesignView.swift */,
+			);
+			path = interactiondesign;
+			sourceTree = "<group>";
+		};
+		851F8B5D29290D040072C099 /* uiux */ = {
+			isa = PBXGroup;
+			children = (
+				851F8B5E29290D360072C099 /* UIElementsView.swift */,
+				85076C7C292BE0990058ED2E /* AndroidElementsView.swift */,
+				85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */,
+			);
+			path = uiux;
 			sourceTree = "<group>";
 		};
 		A32DC7E76DF551B628A0BDDB /* Frameworks */ = {
@@ -201,8 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */,
 				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
 				85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */,
+				85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */,
+				851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */,
+				85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

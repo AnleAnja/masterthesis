@@ -19,9 +19,21 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
+                            if(feature == "Reichhaltige UI Elemente") {
+                                NavigationLink(destination: UIElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Interaktionsdesign") {
+                                NavigationLink(destination: InteractionDesignView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
                             if(feature == "Gesten") {
                                 NavigationLink(destination: GestureView()) {
-                                    Text(feature)
+                                Text(feature)
                                         .font(.body)
                                 }
                             }
