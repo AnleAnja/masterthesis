@@ -1,5 +1,5 @@
 //
-//  NavigationView.swift
+//  NavigationElementsView.swift
 //  iosApp
 //
 //  Created by Anja on 23.11.22.
@@ -7,27 +7,43 @@
 //
 
 import SwiftUI
+import shared
 
-struct NavigationView: View {
-    @State private var favoriteColor = "Red"
-    var colors = ["Red", "Green", "Blue"]
-    
+struct NavigationElementsView: View {
+    var titles = Navigation.shared.tabTitles
+    @State private var currentTab = "Tab 1"
     var body: some View {
         VStack {
-            Picker("What is your favorite color?", selection: $favoriteColor) {
-                ForEach(colors, id: \.self) {
+            Picker("Auswahl", selection: $currentTab) {
+                ForEach(titles, id: \.self) {
                     Text($0)
                 }
             }
             .pickerStyle(.segmented)
             
-            Text("Value: \(favoriteColor)")
+            Text(currentTab)
+            TabView {
+                Text("Tab 1")
+                    .tabItem {
+                        Label("Tab 1", systemImage: "house")
+                    }
+                
+                Text("Tab 2")
+                    .tabItem {
+                        Label("Tab 2", systemImage: "house")
+                    }
+                Text("Tab 3")
+                    .tabItem {
+                        Label("Tab 3", systemImage: "house")
+                    }
+            }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-//struct NavigationView_Previews: PreviewProvider {
+//struct NavigationElementsView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        NavigationView()
+//        NavigationElementsView()
 //    }
 //}
