@@ -43,16 +43,21 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                            }
+                           if(feature == "Navigation") {
+                                NavigationLink(destination: NavigationElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                     }
                 }
+                .navigationTitle("monstradore")
             }
-            .navigationTitle("monstradore")
         }
     }
 }
 
 //struct ContentView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		ContentView()
-//	}
+//    static var previews: some View {
+//        ContentView()
+//    }
 //}
