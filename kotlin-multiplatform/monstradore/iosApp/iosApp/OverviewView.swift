@@ -19,21 +19,23 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            NavigationLink(destination: EmptyView()) {
-                                Text(feature)
-                                    .font(.body)
+                            if(feature == "Navigation") {
+                                NavigationLink(destination: NavigationView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                             }
                         }
                     }
                 }
+                .navigationTitle("monstradore")
             }
-            .navigationTitle("monstradore")
         }
     }
 }
 
 //struct ContentView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		ContentView()
-//	}
+//    static var previews: some View {
+//        ContentView()
+//    }
 //}
