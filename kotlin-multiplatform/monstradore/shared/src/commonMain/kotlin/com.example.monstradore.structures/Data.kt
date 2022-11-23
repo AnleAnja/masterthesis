@@ -33,3 +33,7 @@ object Features {
     )
     val overview = listOf(ux, functions, performance)
 }
+
+object Navigation {
+    val tabTitles = listOf("Tab 1", "Tab 2", "Tab 3")
+}
