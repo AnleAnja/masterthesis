@@ -20,7 +20,7 @@ struct OverviewView: View {
                     ){
                         ForEach(category.features) { feature in
                             if(feature == "Navigation") {
-                                NavigationLink(destination: NavigationView()) {
+                                NavigationLink(destination: NavigationElementsView()) {
                                     Text(feature)
                                         .font(.body)
                                 }
