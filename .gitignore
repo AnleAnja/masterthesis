@@ -1,3 +1,6 @@
 
 kotlin-multiplatform/monstradore/iosApp/iosApp.xcworkspace/xcuserdata/anja.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
+.DS_Store
+kotlin-multiplatform/monstradore/androidApp/src/main/res/raw/sampleaudio.mp3
+kotlin-multiplatform/monstradore/androidApp/src/main/res/raw/samplevideo.mp4

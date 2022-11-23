@@ -19,13 +19,35 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            if(feature == "Navigation") {
-                                NavigationLink(destination: NavigationElementsView()) {
+                            if(feature == "Reichhaltige UI Elemente") {
+                                NavigationLink(destination: UIElementsView()) {
                                     Text(feature)
                                         .font(.body)
                                 }
                             }
-                        }
+                            if(feature == "Interaktionsdesign") {
+                                NavigationLink(destination: InteractionDesignView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Gesten") {
+                                NavigationLink(destination: GestureView()) {
+                                Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Eingabemethoden") {
+                                NavigationLink(destination: InputMethodsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                           }
+                           if(feature == "Navigation") {
+                                NavigationLink(destination: NavigationElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                     }
                 }
                 .navigationTitle("monstradore")
