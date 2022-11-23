@@ -48,6 +48,13 @@ struct OverviewView: View {
                                     Text(feature)
                                         .font(.body)
                                 }
+                          }
+                          if(feature == "Multimedia") {
+                                NavigationLink(destination: MultimediaView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                          }
                     }
                 }
                 .navigationTitle("monstradore")

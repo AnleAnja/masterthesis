@@ -11,6 +11,8 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* OverviewView.swift */; };
+		85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDF3D292E67DB0056AF96 /* MultimediaView.swift */; };
+		85BBDF40292E68660056AF96 /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 85BBDF3F292E68660056AF96 /* sample.mp3 */; };
 		85FD8B8E292E5D900027B3BC /* NavigationElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD8B8D292E5D900027B3BC /* NavigationElementsView.swift */; };
 		85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C87292D73C70058ED2E /* InputMethodsView.swift */; };
 		85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C84292D6DCC0058ED2E /* GestureView.swift */; };
@@ -29,6 +31,8 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85BBDF3D292E67DB0056AF96 /* MultimediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultimediaView.swift; sourceTree = "<group>"; };
+		85BBDF3F292E68660056AF96 /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = "../../../../../../../../Dropbox/Dropbox Transfer/sample.mp3"; sourceTree = "<group>"; };
 		85FD8B8D292E5D900027B3BC /* NavigationElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationElementsView.swift; sourceTree = "<group>"; };
 		85076C87292D73C70058ED2E /* InputMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodsView.swift; sourceTree = "<group>"; };
 		85076C84292D6DCC0058ED2E /* GestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				85BBDF3C292E67C30056AF96 /* multimedia */,
 				85FD8B8C292E5D820027B3BC /* navigation */,
 				85076C86292D73B30058ED2E /* inputmethods */,
 				85076C83292D6DB90058ED2E /* gestures */,
@@ -104,6 +109,13 @@
 			path = iosApp;
 			sourceTree = "<group>";
 		};
+		85BBDF3C292E67C30056AF96 /* multimedia */ = {
+			isa = PBXGroup;
+			children = (
+				85BBDF3F292E68660056AF96 /* sample.mp3 */,
+				85BBDF3D292E67DB0056AF96 /* MultimediaView.swift */,
+			);
+			path = multimedia;
 		85FD8B8C292E5D820027B3BC /* navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				85BBDF40292E68660056AF96 /* sample.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +262,7 @@
 				85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */,
 				85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */,
 				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
+				85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */,
 				85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */,
 				85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */,
 				851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */,
