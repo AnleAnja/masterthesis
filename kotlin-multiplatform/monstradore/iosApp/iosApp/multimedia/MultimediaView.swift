@@ -31,6 +31,7 @@ struct MultimediaView: View {
                     Text("Video")
                         .font(.headline)
                         .multilineTextAlignment(.leading)
+                    VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
                 }
             .onAppear {
                 let sound = Bundle.main.path(forResource: "sample", ofType: "mp3")
