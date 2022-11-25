@@ -55,6 +55,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                           }
+                          if(feature == "Animationen") {
+                                NavigationLink(destination: AnimationsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                         }
                     }
                 }
                 .navigationTitle("monstradore")
