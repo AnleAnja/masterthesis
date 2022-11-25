@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import com.example.monstradore.structures.Navigation.tabTitles
 
 @Composable
 fun NavigationContent() {
@@ -21,7 +22,7 @@ fun NavigationContent() {
 @Composable
 fun TabBar() {
     var tabState by remember { mutableStateOf(0) }
-    val titles = listOf("Tab 1", "Tab 2", "Tab 3")
+    val titles = tabTitles
     Column {
         TabRow(selectedTabIndex = tabState) {
             titles.forEachIndexed { index, title ->
