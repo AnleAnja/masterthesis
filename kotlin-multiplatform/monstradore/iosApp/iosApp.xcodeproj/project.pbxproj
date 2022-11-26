@@ -11,6 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* OverviewView.swift */; };
+		858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69BD292F8ABF0013791E /* NetworkCallView.swift */; };
+		858E69C129310DDA0013791E /* PersistenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69C029310DD90013791E /* PersistenceView.swift */; };
+		858E69C429311DBE0013791E /* FileAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69C329311DBE0013791E /* FileAccessView.swift */; };
 		FF0FF33A810A590684E0B7E7 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCEA02849808D97C951A812 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +25,9 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858E69BD292F8ABF0013791E /* NetworkCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallView.swift; sourceTree = "<group>"; };
+		858E69C029310DD90013791E /* PersistenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceView.swift; sourceTree = "<group>"; };
+		858E69C329311DBE0013791E /* FileAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAccessView.swift; sourceTree = "<group>"; };
 		BFCEA02849808D97C951A812 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E62FA93C72A5BC355C4B53 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +82,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				858E69C22931127D0013791E /* file-access */,
+				858E69BF29310DCE0013791E /* persistence */,
+				858E69BC292F8AB10013791E /* networkcall */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* OverviewView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -83,6 +92,30 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		858E69BC292F8AB10013791E /* networkcall */ = {
+			isa = PBXGroup;
+			children = (
+				858E69BD292F8ABF0013791E /* NetworkCallView.swift */,
+			);
+			path = networkcall;
+			sourceTree = "<group>";
+		};
+		858E69BF29310DCE0013791E /* persistence */ = {
+			isa = PBXGroup;
+			children = (
+				858E69C029310DD90013791E /* PersistenceView.swift */,
+			);
+			path = persistence;
+			sourceTree = "<group>";
+		};
+		858E69C22931127D0013791E /* file-access */ = {
+			isa = PBXGroup;
+			children = (
+				858E69C329311DBE0013791E /* FileAccessView.swift */,
+			);
+			path = "file-access";
 			sourceTree = "<group>";
 		};
 		A32DC7E76DF551B628A0BDDB /* Frameworks */ = {
@@ -189,7 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858E69C129310DDA0013791E /* PersistenceView.swift in Sources */,
+				858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				858E69C429311DBE0013791E /* FileAccessView.swift in Sources */,
 				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
