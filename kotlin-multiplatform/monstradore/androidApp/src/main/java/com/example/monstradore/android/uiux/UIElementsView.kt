@@ -32,11 +32,6 @@ fun UIElementsContent(navController: NavController) {
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = "Reichhaltige UI Elemente",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold
-        )
-        Text(
             text = "Grundlegende Elemente",
             fontSize = 25.sp,
             fontWeight = FontWeight.Bold
