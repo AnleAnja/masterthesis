@@ -21,7 +21,7 @@ kotlin {
             baseName = "shared"
         }
     }
-    
+
     sourceSets {
         val ktorVersion = "2.1.3"
         val coroutineVersion = "1.6.4"
@@ -85,4 +85,3 @@ android {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 }
-

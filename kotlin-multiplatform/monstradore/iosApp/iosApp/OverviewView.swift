@@ -19,35 +19,76 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            if(feature == "Netzwerkcalls") {
+                            if(feature == "Reichhaltige UI Elemente") {
+                                NavigationLink(destination: UIElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Interaktionsdesign") {
+                                NavigationLink(destination: InteractionDesignView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Gesten") {
+                                NavigationLink(destination: GestureView()) {
+                                Text(feature)
+                                        .font(.body)
+                                }
+                            }
+                            if(feature == "Navigation") {
+                                NavigationLink(destination: NavigationElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                          }
+                            if(feature == "Eingabemethoden") {
+                                NavigationLink(destination: InputMethodsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                           }
+                          if(feature == "Multimedia") {
+                                NavigationLink(destination: MultimediaView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                          }
+                          if(feature == "Animationen") {
+                                NavigationLink(destination: AnimationsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                         }
+                         if(feature == "Netzwerkcalls") {
                                 NavigationLink(destination: NetworkCallView()) {
-                                    Text(feature)
+                                Text(feature)
                                         .font(.body)
                                 }
-                            }
-                            if(feature == "Dateizugriff") {
+                         }
+                         if(feature == "Dateizugriff") {
                                 NavigationLink(destination: FileAccessView()) {
-                                    Text(feature)
+                                Text(feature)
                                         .font(.body)
                                 }
-                            }
-                            if(feature == "Persistierung") {
+                         }
+                         if(feature == "Persistierung") {
                                 NavigationLink(destination: PersistenceView()) {
                                     Text(feature)
                                         .font(.body)
                                 }
-                            }
-                        }
+                         }
                     }
                 }
+                .navigationTitle("monstradore")
             }
-            .navigationTitle("monstradore")
         }
     }
 }
 
 //struct ContentView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		ContentView()
-//	}
+//    static var previews: some View {
+//        ContentView()
+//    }
 //}
