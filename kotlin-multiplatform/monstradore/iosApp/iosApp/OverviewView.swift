@@ -19,9 +19,11 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            NavigationLink(destination: EmptyView()) {
-                                Text(feature)
-                                    .font(.body)
+                            if(feature == "Kamera") {
+                                NavigationLink(destination: CameraView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                             }
                         }
                     }
