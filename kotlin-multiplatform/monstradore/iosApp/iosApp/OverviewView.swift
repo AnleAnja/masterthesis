@@ -25,6 +25,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                             }
+                            if(feature == "Persistierung") {
+                                NavigationLink(destination: PersistenceView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                            }
                         }
                     }
                 }
