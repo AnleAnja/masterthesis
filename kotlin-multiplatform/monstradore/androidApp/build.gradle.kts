@@ -52,7 +52,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.ui:ui-graphics:1.3.0")
+    implementation("androidx.compose.ui:ui-graphics:1.3.1")
+    implementation ("com.google.android.exoplayer:exoplayer:2.18.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
@@ -61,4 +62,5 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:1.1.0")
     implementation("androidx.camera:camera-view:1.1.0")
     implementation("io.coil-kt:coil-compose:2.2.0")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
 }
