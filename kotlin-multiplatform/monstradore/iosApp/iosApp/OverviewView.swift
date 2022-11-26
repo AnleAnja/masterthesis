@@ -79,6 +79,12 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                                 }
+                                if(feature == "Kamera") {
+                                NavigationLink(destination: CameraView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                                }
                     }
                 }
                 .navigationTitle("monstradore")
