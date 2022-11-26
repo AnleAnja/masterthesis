@@ -37,18 +37,18 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                             }
+                            if(feature == "Navigation") {
+                                NavigationLink(destination: NavigationElementsView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                          }
                             if(feature == "Eingabemethoden") {
                                 NavigationLink(destination: InputMethodsView()) {
                                     Text(feature)
                                         .font(.body)
                                 }
                            }
-                           if(feature == "Navigation") {
-                                NavigationLink(destination: NavigationElementsView()) {
-                                    Text(feature)
-                                        .font(.body)
-                                }
-                          }
                           if(feature == "Multimedia") {
                                 NavigationLink(destination: MultimediaView()) {
                                     Text(feature)
@@ -61,6 +61,24 @@ struct OverviewView: View {
                                         .font(.body)
                                 }
                          }
+                         if(feature == "Netzwerkcalls") {
+                                NavigationLink(destination: NetworkCallView()) {
+                                Text(feature)
+                                        .font(.body)
+                                }
+                                }
+                                if(feature == "Dateizugriff") {
+                                NavigationLink(destination: FileAccessView()) {
+                                Text(feature)
+                                        .font(.body)
+                                }
+                                }
+                            if(feature == "Persistierung") {
+                                NavigationLink(destination: PersistenceView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
+                                }
                     }
                 }
                 .navigationTitle("monstradore")
