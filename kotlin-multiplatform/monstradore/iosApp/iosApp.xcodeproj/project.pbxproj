@@ -312,24 +312,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85EF06C629322B890035EAB7 /* FrameView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
+				85EF06C629322B890035EAB7 /* FrameView.swift in Sources */,
 				85EF06C829323A890035EAB7 /* FrameHandler.swift in Sources */,
 				85EF06CA293245D30035EAB7 /* CameraView.swift in Sources */,
-				858E69C129310DDA0013791E /* PersistenceView.swift in Sources */,
 				858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */,
-				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				858E69C129310DDA0013791E /* PersistenceView.swift in Sources */,
 				858E69C429311DBE0013791E /* FileAccessView.swift in Sources */,
 				858E69BB292F80660013791E /* AnimationsView.swift in Sources */,
+				85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */,
 				85FD8B8E292E5D900027B3BC /* NavigationElementsView.swift in Sources */,
 				85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */,
-				85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */,
-				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
-				85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */,
 				85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */,
+				85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */,
+				85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */,
 				85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */,
 				851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */,
-				85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
