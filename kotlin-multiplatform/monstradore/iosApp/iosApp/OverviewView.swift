@@ -55,7 +55,7 @@ struct OverviewView: View {
                             element(feature, "Kamera", CameraView())
                             element(feature, "GPS", GPSView())
                             element(feature, "Beschleunigung", AccelerationView())
-                            //element(feature, "Fingerabdruck / Face ID", FingerprintView())
+                            element(feature, "Fingerabdruck / Face ID", FingerprintView())
                             element(feature, "Primzahlberechnung", PerformanceView())
                         }
                     }
