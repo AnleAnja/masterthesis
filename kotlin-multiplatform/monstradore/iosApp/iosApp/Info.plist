@@ -18,8 +18,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>access gps sensor</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera required for feature</string>
 	<key>NSContactsUsageDescription</key>
