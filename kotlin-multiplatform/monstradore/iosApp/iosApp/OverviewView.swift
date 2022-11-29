@@ -48,7 +48,7 @@ struct OverviewView: View {
                                 element(feature, "Eingabemethoden", InputMethodsView())
                                 element(feature, "Multimedia", MultimediaView())
                                 element(feature, "Animationen", AnimationsView())
-                                //element(feature, "2D und 3D Grafiken", 3DGraphicsView())
+                                element(feature, "2D und 3D Grafiken", ObjectView())
                             }
                             Group {
                                 element(feature, "Netzwerkcalls", NetworkCallView())
@@ -60,7 +60,7 @@ struct OverviewView: View {
                                 element(feature, "Beschleunigung", AccelerationView())
                                 element(feature, "Fingerabdruck / Face ID", FingerprintView())
                             }
-                            element(feature, "Primzahlberechnung", PerformanceView())
+                            //element(feature, "Primzahlberechnung", PerformanceView())
                         }
                     }
                     .navigationTitle("monstradore")
