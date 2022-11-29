@@ -34,7 +34,7 @@ struct MultimediaView: View {
                     VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
                 }
             .onAppear {
-                let sound = Bundle.main.path(forResource: "sample", ofType: "mp3")
+                let sound = Bundle.main.path(forResource: "sampleaudio", ofType: "mp3")
                 self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
             }
         }
