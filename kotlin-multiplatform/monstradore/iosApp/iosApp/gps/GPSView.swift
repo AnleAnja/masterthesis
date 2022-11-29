@@ -23,7 +23,6 @@ struct GPSView: View {
         VStack {
             Text("Location")
                 .font(.headline)
-            Text("location status: \(locationManager.statusString)")
             HStack {
                 Text("Latitude: \(userLatitude), Longitude \(userLongitude)")
             }
