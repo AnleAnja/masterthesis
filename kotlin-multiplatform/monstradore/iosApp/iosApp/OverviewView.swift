@@ -8,6 +8,16 @@ extension String: Identifiable {
     }
 }
 
+@ViewBuilder
+func element(_ feature: String, _ desired: String, _ dest: some View) -> some View {
+    if(feature == desired) {
+        NavigationLink(destination: dest) {
+            Text(feature)
+                .font(.body)
+            }
+    }
+}
+
 struct OverviewView: View {
     let categories = Features.shared.overview
     var body: some View {
@@ -19,10 +29,23 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            NavigationLink(destination: EmptyView()) {
-                                Text(feature)
-                                    .font(.body)
-                            }
+                            //element(feature, "Reichhaltige UI Elemente", UIElementsView())
+                            //element(feature, "Interaktionsdesign", InteractionDesignView())
+                            //element(feature, "Gesten", GestureView())
+                            //element(feature, "Navigation", NavigationElementsView())
+                            //element(feature, "Eingabemethoden", InputMethodsView())
+                            //element(feature, "Multimedia", MultimediaView())
+                            //element(feature, "Animationen", AnimationsView())
+                            //element(feature, "2D und 3D Grafiken", 3DGraphicsView())
+                            //element(feature, "Netzwerkcalls", NetworkCallView())
+                            //element(feature, "Dateizugriff", FileAccessView())
+                            //element(feature, "Persistierung", PersistenceView())
+                            //element(feature, "Zugriff auf native Anwendungen", AppAccessView())
+                            //element(feature, "Kamera", CameraView())
+                            element(feature, "GPS", GPSView())
+                            element(feature, "Beschleunigung", AccelerationView())
+                            //element(feature, "Fingerabdruck / Face ID", FingerprintView())
+                            //element(feature, "Primzahlberechnung", PerformanceView())
                         }
                     }
                 }
