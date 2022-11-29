@@ -42,7 +42,7 @@ struct OverviewView: View {
                             //element(feature, "Persistierung", PersistenceView())
                             //element(feature, "Zugriff auf native Anwendungen", AppAccessView())
                             //element(feature, "Kamera", CameraView())
-                            element(feature, "GPS", GPSView())
+                            //element(feature, "GPS", GPSView())
                             element(feature, "Beschleunigung", AccelerationView())
                             //element(feature, "Fingerabdruck / Face ID", FingerprintView())
                             //element(feature, "Primzahlberechnung", PerformanceView())

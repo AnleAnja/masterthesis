@@ -18,6 +18,8 @@ struct AccelerationView: View {
     @State private var roll = Double.zero
     var body: some View {
         VStack{
+            Text("Beschleunigung")
+                .font(.headline)
             Text("Pitch: \(pitch)")
             Text("Yaw: \(yaw)")
             Text("Roll: \(roll)")
@@ -29,10 +31,6 @@ struct AccelerationView: View {
                         return
                     }
                     let attitude: CMAttitude = data.attitude
-
-                    print("pitch: \(attitude.pitch)")
-                    print("yaw: \(attitude.yaw)")
-                    print("roll: \(attitude.roll)")
 
                     DispatchQueue.main.async {
                         self.pitch = attitude.pitch
