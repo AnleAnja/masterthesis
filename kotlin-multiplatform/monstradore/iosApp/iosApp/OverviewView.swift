@@ -8,6 +8,16 @@ extension String: Identifiable {
     }
 }
 
+@ViewBuilder
+func element(_ feature: String, _ desired: String, _ dest: some View) -> some View {
+    if(feature == desired) {
+        NavigationLink(destination: dest) {
+            Text(feature)
+                .font(.body)
+            }
+    }
+}
+
 struct OverviewView: View {
     let categories = Features.shared.overview
     
@@ -38,15 +48,15 @@ struct OverviewView: View {
                             element(feature, "Multimedia", MultimediaView())
                             element(feature, "Animationen", AnimationsView())
                             //element(feature, "2D und 3D Grafiken", 3DGraphicsView())
-                            //element(feature, "Netzwerkcalls", NetworkCallView())
-                            //element(feature, "Dateizugriff", FileAccessView())
-                            //element(feature, "Persistierung", PersistenceView())
+                            element(feature, "Netzwerkcalls", NetworkCallView())
+                            element(feature, "Dateizugriff", FileAccessView())
+                            element(feature, "Persistierung", PersistenceView())
                             element(feature, "Zugriff auf native Anwendungen", AppAccessView())
-                            //element(feature, "Kamera", CameraView())
-                            //element(feature, "GPS", GPSView())
-                            //element(feature, "Beschleunigung", AccelerationView())
+                            element(feature, "Kamera", CameraView())
+                            element(feature, "GPS", GPSView())
+                            element(feature, "Beschleunigung", AccelerationView())
                             //element(feature, "Fingerabdruck / Face ID", FingerprintView())
-                            //element(feature, "Primzahlberechnung", PerformanceView())
+                            element(feature, "Primzahlberechnung", PerformanceView())
                         }
                     }
                     .navigationTitle("monstradore")
