@@ -19,9 +19,11 @@ struct OverviewView: View {
                             .font(.headline)
                     ){
                         ForEach(category.features) { feature in
-                            NavigationLink(destination: EmptyView()) {
-                                Text(feature)
-                                    .font(.body)
+                                if(feature == "Fingerabdruck / Face ID") {
+                                    NavigationLink(destination: FingerprintView()) {
+                                    Text(feature)
+                                        .font(.body)
+                                }
                             }
                         }
                     }
