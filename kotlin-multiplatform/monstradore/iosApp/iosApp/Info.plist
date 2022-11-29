@@ -18,10 +18,18 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
 	<string>access biometric authentication</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>access gps sensor</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera required for feature</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Reason for accessing contacts</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
