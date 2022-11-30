@@ -9,23 +9,29 @@
 import SwiftUI
 import shared
 
+private func prime(n: Int32) async -> Int32 {
+    PerformanceKt.prime(n: n)
+}
+
 struct PerformanceView: View {
     @State private var primeValue = ""
     @State private var speed = 0.0
     @State private var isEditing = false
-    @State private var result = ""
+    @State private var result = Int32(0)
     @State private var time = 0
     var body: some View {
         VStack {
             Text("Performance")
                 .font(.headline)
-            Text("Die wievielte Primzahl soll berechneet werden?")
+            Text("Die wievielte Primzahl soll berechnet werden?")
             TextField("Zahl eingeben", text: $primeValue)
             Button(action: {
                 let startTime = Int64(NSDate().timeIntervalSince1970 * 1000)
-                result = prime(Int(primeValue))
-                let endTime = Int64(NSDate().timeIntervalSince1970 * 1000)
-                time = (endTime - startTime) / 1000
+                Task {
+                    result = await prime(n: Int32(primeValue) ?? 0)
+                    let endTime = Int64(NSDate().timeIntervalSince1970 * 1000)
+                    time = Int(endTime - startTime) / 1000
+                }
             }) {
                 Text("Berechnen")
             }
@@ -39,11 +45,12 @@ struct PerformanceView: View {
                 }
             )
         }
+        .padding()
     }
 }
 
-struct PerformanceView_Previews: PreviewProvider {
-    static var previews: some View {
-        PerformanceView()
-    }
-}
+//struct PerformanceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PerformanceView()
+//    }
+//}
