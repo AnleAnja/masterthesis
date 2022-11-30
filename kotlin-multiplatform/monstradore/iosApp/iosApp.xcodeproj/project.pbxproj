@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* OverviewView.swift */; };
+		858A1163293578C5009AF797 /* PerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1162293578C5009AF797 /* PerformanceView.swift */; };
 		85076C7D292BE0990058ED2E /* AndroidElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7C292BE0990058ED2E /* AndroidElementsView.swift */; };
 		85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */; };
 		85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C81292D57460058ED2E /* InteractionDesignView.swift */; };
@@ -47,6 +48,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858A1162293578C5009AF797 /* PerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceView.swift; sourceTree = "<group>"; };
 		85076C7C292BE0990058ED2E /* AndroidElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidElementsView.swift; sourceTree = "<group>"; };
 		85076C7E292D2E0D0058ED2E /* iOSElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSElementsView.swift; sourceTree = "<group>"; };
 		85076C81292D57460058ED2E /* InteractionDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionDesignView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				858A1161293577DC009AF797 /* performance */,
 				858A11732936ACFB009AF797 /* objects */,
 				858A116C29364053009AF797 /* fingerprint */,
 				858A116929358B51009AF797 /* acceleration */,
@@ -296,6 +299,14 @@
 			path = navigation;
 			sourceTree = "<group>";
 		};
+    		858A1161293577DC009AF797 /* performance */ = {
+			isa = PBXGroup;
+			children = (
+				858A1162293578C5009AF797 /* PerformanceView.swift */,
+			);
+			path = performance;
+      sourceTree = "<group>";
+		};
 		A32DC7E76DF551B628A0BDDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +423,7 @@
 				858E69C129310DDA0013791E /* PersistenceView.swift in Sources */,
 				858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				858A1163293578C5009AF797 /* PerformanceView.swift in Sources */,
 				858A116B29358B68009AF797 /* AccelerationView.swift in Sources */,
 				858A1168293581C9009AF797 /* GPSView.swift in Sources */,
 				858A1166293581A9009AF797 /* LocationManager.swift in Sources */,

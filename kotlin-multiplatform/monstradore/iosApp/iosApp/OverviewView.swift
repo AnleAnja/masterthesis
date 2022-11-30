@@ -60,7 +60,7 @@ struct OverviewView: View {
                                 element(feature, "Beschleunigung", AccelerationView())
                                 element(feature, "Fingerabdruck / Face ID", FingerprintView())
                             }
-                            //element(feature, "Primzahlberechnung", PerformanceView())
+                            element(feature, "Primzahlberechnung", PerformanceView())
                         }
                     }
                     .navigationTitle("monstradore")
