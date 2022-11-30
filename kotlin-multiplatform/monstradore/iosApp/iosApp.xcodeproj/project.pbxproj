@@ -18,6 +18,11 @@
 		85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C84292D6DCC0058ED2E /* GestureView.swift */; };
 		85076C88292D73C70058ED2E /* InputMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85076C87292D73C70058ED2E /* InputMethodsView.swift */; };
 		851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F8B5E29290D360072C099 /* UIElementsView.swift */; };
+		858E69BB292F80660013791E /* AnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69BA292F80660013791E /* AnimationsView.swift */; };
+		858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69BD292F8ABF0013791E /* NetworkCallView.swift */; };
+		858E69C129310DDA0013791E /* PersistenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858E69C029310DD90013791E /* PersistenceView.swift */; };
+		85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDF3D292E67DB0056AF96 /* MultimediaView.swift */; };
+		85DA73262937899C0094ACCE /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA73252937899C0094ACCE /* ImagePickerView.swift */; };
 		854AA2C8293556FC0066D034 /* AppAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AA2C7293556FC0066D034 /* AppAccessView.swift */; };
 		858A1166293581A9009AF797 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1165293581A9009AF797 /* LocationManager.swift */; };
 		858A1168293581C9009AF797 /* GPSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1167293581C9009AF797 /* GPSView.swift */; };
@@ -55,6 +60,11 @@
 		85076C84292D6DCC0058ED2E /* GestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
 		85076C87292D73C70058ED2E /* InputMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodsView.swift; sourceTree = "<group>"; };
 		851F8B5E29290D360072C099 /* UIElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsView.swift; sourceTree = "<group>"; };
+		858E69BA292F80660013791E /* AnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsView.swift; sourceTree = "<group>"; };
+		858E69BD292F8ABF0013791E /* NetworkCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallView.swift; sourceTree = "<group>"; };
+		858E69C029310DD90013791E /* PersistenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceView.swift; sourceTree = "<group>"; };
+		85BBDF3D292E67DB0056AF96 /* MultimediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultimediaView.swift; sourceTree = "<group>"; };
+		85DA73252937899C0094ACCE /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		854AA2C7293556FC0066D034 /* AppAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAccessView.swift; sourceTree = "<group>"; };
 		858A1165293581A9009AF797 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		858A1167293581C9009AF797 /* GPSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSView.swift; sourceTree = "<group>"; };
@@ -284,9 +294,8 @@
 		85EF06C429322B540035EAB7 /* hardwarefunctions */ = {
 			isa = PBXGroup;
 			children = (
-				85EF06C529322B890035EAB7 /* FrameView.swift */,
-				85EF06C729323A890035EAB7 /* FrameHandler.swift */,
 				85EF06C9293245D30035EAB7 /* CameraView.swift */,
+				85DA73252937899C0094ACCE /* ImagePickerView.swift */,
 			);
 			path = hardwarefunctions;
 			sourceTree = "<group>";
@@ -418,7 +427,6 @@
 				858A116E29364062009AF797 /* FingerprintView.swift in Sources */,
 				85EF06C629322B890035EAB7 /* FrameView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				85EF06C829323A890035EAB7 /* FrameHandler.swift in Sources */,
 				85EF06CA293245D30035EAB7 /* CameraView.swift in Sources */,
 				858E69C129310DDA0013791E /* PersistenceView.swift in Sources */,
 				858E69BE292F8ABF0013791E /* NetworkCallView.swift in Sources */,
@@ -437,6 +445,7 @@
 				7555FF83242A565900829871 /* OverviewView.swift in Sources */,
 				85BBDF3E292E67DB0056AF96 /* MultimediaView.swift in Sources */,
 				85076C85292D6DCC0058ED2E /* GestureView.swift in Sources */,
+				85DA73262937899C0094ACCE /* ImagePickerView.swift in Sources */,
 				85076C82292D57460058ED2E /* InteractionDesignView.swift in Sources */,
 				851F8B5F29290D360072C099 /* UIElementsView.swift in Sources */,
 				85076C7F292D2E0D0058ED2E /* iOSElementsView.swift in Sources */,
