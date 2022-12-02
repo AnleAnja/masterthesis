@@ -9,10 +9,15 @@
 import SwiftUI
 
 struct CameraView: View {
-    @StateObject private var model = FrameHandler()
+    @State private var image : Image? = nil
     var body: some View {
-        FrameView(image: model.frame)
-            .ignoresSafeArea()
+        if let image {
+            image
+                .resizable()
+                .scaledToFit()
+        } else {
+            ImagePickerView(image: $image)
+        }
     }
 }
 

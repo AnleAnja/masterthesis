@@ -48,7 +48,7 @@ struct OverviewView: View {
                                 element(feature, "Eingabemethoden", InputMethodsView())
                                 element(feature, "Multimedia", MultimediaView())
                                 element(feature, "Animationen", AnimationsView())
-                                element(feature, "3D Grafiken", 3DGraphicsView())
+                                element(feature, "3D Grafiken", ObjectView())
                             }
                             Group {
                                 element(feature, "Netzwerkcalls", NetworkCallView())
@@ -69,9 +69,9 @@ struct OverviewView: View {
         }
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+    
+    //struct ContentView_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        ContentView()
+    //    }
+    //}

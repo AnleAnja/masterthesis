@@ -14,7 +14,7 @@ struct ObjectView: View {
         VStack {
             Text("3D Objekte")
                 .font(.headline)
-            SceneView(scene: SCNScene(named: "NHMW-Zoo1-HS-23783-Komodowaran_low res.obj"), options: [.autoenablesDefaultLighting, .allowsCameraControl])
+            SceneView(scene: SCNScene(named: "sampleobject.obj"), options: [.autoenablesDefaultLighting, .allowsCameraControl])
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.8)
         }
     }
