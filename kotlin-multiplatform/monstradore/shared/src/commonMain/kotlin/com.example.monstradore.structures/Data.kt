@@ -12,7 +12,7 @@ object Features {
             "Eingabemethoden",
             "Multimedia",
             "Animationen",
-            "2D und 3D Grafiken"
+            "3D Grafiken"
         )
     )
     val functions = Category("Gerätespezifische Funktionen",

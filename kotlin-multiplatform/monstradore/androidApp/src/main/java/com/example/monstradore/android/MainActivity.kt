@@ -10,11 +10,13 @@ import android.content.pm.PackageManager
 import android.database.Cursor
 import android.location.Location
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -53,7 +55,7 @@ import com.example.monstradore.android.persistence.PersistenceContent
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
 import com.example.monstradore.android.uiux.UIElementsContent
-import com.example.monstradore.android.uiux.iOSElementsContent
+import com.example.monstradore.android.uiux.NonNativeContent
 import com.example.monstradore.storage.UserStorage
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
@@ -79,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         shouldShowCamera.value = isGranted
     }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val storage = UserStorage(this)
@@ -205,6 +208,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.R)
 @Composable
 fun Content(
     outputDirectory: File,
@@ -225,13 +229,14 @@ fun Content(
             composable("categories") { CategoryList(categories, navController) }
             composable("uielements") { UIElementsContent(navController) }
             composable("androidelements") { AndroidElementsContent() }
-            composable("ioselements") { iOSElementsContent() }
+            composable("ioselements") { NonNativeContent() }
             composable("interactiondesign") { InteractionDesignContent() }
             composable("gestures") { GesturesContent() }
             composable("navigation") { NavigationContent() }
             composable("inputmethods") { InputMethodsContent() }
             composable("multimedia") { MultimediaContent() }
             composable("animations") { AnimationsContent() }
+            composable("objects") { NonNativeContent() }
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
@@ -250,10 +255,10 @@ fun Content(
                     showPhoto = shouldShowPhoto
                 )
             }
-            composable("performance") { PerformanceContent() }
             composable("gps") { GPSContent(location) }
             composable("acceleration") { AccelerationContent() }
             composable("fingerprint") { FingerprintContent(activity) }
+            composable("performance") { PerformanceContent() }
         }
     }
 }
@@ -288,6 +293,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
                         "Eingabemethoden" -> navController.navigate("inputmethods")
                         "Multimedia" -> navController.navigate("multimedia")
                         "Animationen" -> navController.navigate("animations")
+                        "3D Grafiken" -> navController.navigate("objects")
                         "Netzwerkcalls" -> navController.navigate("networkcalls")
                         "Dateizugriff" -> navController.navigate("fileaccess")
                         "Persistierung" -> navController.navigate("persistence")
