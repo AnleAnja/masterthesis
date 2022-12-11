@@ -78,13 +78,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           itemBuilder: (c, element) {
-            return Container(
+            return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      switch (element['name']) {
+                        case 'Multimedia':
+                          return const Multimedia();
+                        default:
+                          return const Text("Unbekanntes Feature");
+                      }
+                    }),
+                  );
+                },
+            child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 10.0,
                   vertical: 10.0),
               child: Text(
                   element['name'],
                   style: const TextStyle(fontSize: 16),
                 ),
+            )
             );
           },
         ),
