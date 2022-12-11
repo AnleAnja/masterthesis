@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/navigation/navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -78,13 +79,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           itemBuilder: (c, element) {
-            return Container(
+            return GestureDetector(
+                onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  switch (element['name']) {
+                    case 'Navigation':
+                      return const Navigation();
+                    default:
+                      return const Text("Unbekanntes Feature");
+                  }
+                }),
+              );
+            },
+            child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 10.0,
                   vertical: 10.0),
               child: Text(
                   element['name'],
                   style: const TextStyle(fontSize: 16),
                 ),
+            )
             );
           },
         ),
