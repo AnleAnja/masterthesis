@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:video_player/video_player.dart';
 
 class Multimedia extends StatefulWidget {
   const Multimedia({super.key});
@@ -10,11 +11,11 @@ class Multimedia extends StatefulWidget {
 }
 
 class _MultimediaState extends State<Multimedia> {
-
   AudioPlayer player = AudioPlayer();
   bool isPlaying = false;
   bool audioPlayed = false;
   late Uint8List audioBytes;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -23,8 +24,15 @@ class _MultimediaState extends State<Multimedia> {
 
     Future.delayed(Duration.zero, () async {
       ByteData bytes = await rootBundle.load(audioAsset);
-      audioBytes = bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
+      audioBytes =
+          bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
     });
+
+    _controller = VideoPlayerController.network(
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+      ..initialize().then((_) {
+        setState(() {});
+      });
   }
 
   @override
@@ -33,56 +41,87 @@ class _MultimediaState extends State<Multimedia> {
     final textTheme = theme.textTheme;
 
     return Scaffold(
-        body: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                  child: Text("Audio", style: textTheme.headline6),
-                ),
-                Row(
-                  children: [
-                    IconButton(onPressed: () async {
-                      if(!isPlaying && !audioPlayed){
-                        int result = await player.playBytes(audioBytes);
-                        if(result == 1){
-                          setState(() {
-                            isPlaying = true;
-                            audioPlayed = true;
-                          });
-                        } else {
-                          const snackBar = SnackBar(content: Text("Error while playing audio."));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      } else if (!isPlaying && audioPlayed){
-                        int result = await player.resume();
-                        if(result == 1){
-                          setState(() {
-                            isPlaying = true;
-                            audioPlayed = true;
-                          });
-                        } else {
-                          const snackBar = SnackBar(content: Text("Error while resuming audio."));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      }
-                    }, icon: const Icon(Icons.play_arrow)),
-                    IconButton(onPressed: () async {
-                      if (isPlaying) {
-                        int result = await player.pause();
-                        if(result == 1){ //pause success
-                          setState(() {
-                            isPlaying = false;
-                          });
-                        }else{
-                          const snackBar = SnackBar(content: Text("Error while pausing audio."));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      }
-                    }, icon: const Icon(Icons.pause))
-                  ],
+      body: Column(children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+          child: Text("Audio", style: textTheme.headline6),
+        ),
+        Row(
+          children: [
+            IconButton(
+                onPressed: () async {
+                  if (!isPlaying && !audioPlayed) {
+                    int result = await player.playBytes(audioBytes);
+                    if (result == 1) {
+                      setState(() {
+                        isPlaying = true;
+                        audioPlayed = true;
+                      });
+                    } else {
+                      const snackBar =
+                          SnackBar(content: Text("Error while playing audio."));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  } else if (!isPlaying && audioPlayed) {
+                    int result = await player.resume();
+                    if (result == 1) {
+                      setState(() {
+                        isPlaying = true;
+                        audioPlayed = true;
+                      });
+                    } else {
+                      const snackBar = SnackBar(
+                          content: Text("Error while resuming audio."));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  }
+                },
+                icon: const Icon(Icons.play_arrow)),
+            IconButton(
+                onPressed: () async {
+                  if (isPlaying) {
+                    int result = await player.pause();
+                    if (result == 1) {
+                      //pause success
+                      setState(() {
+                        isPlaying = false;
+                      });
+                    } else {
+                      const snackBar =
+                          SnackBar(content: Text("Error while pausing audio."));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  }
+                },
+                icon: const Icon(Icons.pause))
+          ],
+        ),
+        Text("Video", style: textTheme.headline6),
+        _controller.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
                 )
-              ],
+              : Container(),
+        Row(
+          children: [
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _controller.play();
+                  });
+                },
+                icon: const Icon(Icons.play_arrow)),
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _controller.pause();
+                  });
+                },
+                icon: const Icon(Icons.pause))
+          ],
         )
+      ]),
     );
   }
 }
