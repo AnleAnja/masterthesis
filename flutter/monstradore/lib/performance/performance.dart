@@ -39,9 +39,9 @@ class _PrimeState extends State<Prime> {
         },
       ),
       TextButton(
-          onPressed: () {
+          onPressed: () async {
             var startTime = DateTime.now().millisecondsSinceEpoch;
-            result = primeCalc(value);
+            result = await primeCalc(value);
             var endTime = DateTime.now().millisecondsSinceEpoch;
             setState(() {
               result = result;
@@ -63,22 +63,25 @@ class _PrimeState extends State<Prime> {
     ]));
   }
 
-  int primeCalc(int n) {
-    var num = 1;
-    var count = 0;
-    while (count < n) {
-      num++;
-      var i = 2;
-      while (i <= num) {
-        if (num % i == 0) {
-          break;
+  Future<int> primeCalc(int n) {
+    return Future.delayed(const Duration(seconds: 2), ()
+    {
+      var num = 1;
+      var count = 0;
+      while (count < n) {
+        num++;
+        var i = 2;
+        while (i <= num) {
+          if (num % i == 0) {
+            break;
+          }
+          i++;
         }
-        i++;
+        if (i == num) {
+          count++;
+        }
       }
-      if (i == num) {
-        count++;
-      }
-    }
-    return num;
+      return num;
+    });
   }
 }
