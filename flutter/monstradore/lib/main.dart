@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 
@@ -88,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       switch (element['name']) {
                         case 'Eingabemethoden':
                           return const InputMethods();
+                        case 'Gesten':
+                          return const Gestures();
                         case 'Navigation':
                           return const Navigation();
                         default:
