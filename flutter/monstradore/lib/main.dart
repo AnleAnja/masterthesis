@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/animations/animations.dart';
+import 'package:monstradore/fileaccess/fileaccess.dart';
 import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
@@ -97,9 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         return const Objects();
                       case 'Netzwerkcalls':
                         return const NetworkCall();
-                      /*case 'Dateizugriff':
-                        return const FileAccess();
-                      case 'Persistierung':
+                      case 'Dateizugriff':
+                        return FileAccess(storage: FileStorage());
+                      /*case 'Persistierung':
                         return const Persistence();
                       case 'Zugriff auf native Anwendungen':
                         return const AppAccess();*/
