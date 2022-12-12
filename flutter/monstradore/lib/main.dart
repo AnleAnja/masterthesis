@@ -4,6 +4,7 @@ import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/objects/objects.dart';
+import 'package:monstradore/performance/performance.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,6 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Navigation();
                         case '3D Grafiken':
                           return const Objects();
+                        case 'Primzahlberechnung':
+                          return const Prime();
                         default:
                           return const Text("Unbekanntes Feature");
                       }
