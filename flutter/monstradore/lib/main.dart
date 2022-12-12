@@ -4,6 +4,7 @@ import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
+import 'package:monstradore/networkcall/networkcall.dart';
 import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
 
@@ -45,38 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
     {'name': 'Multimedia', 'group': 'UI / UX', 'order': 5},
     {'name': 'Animationen', 'group': 'UI / UX', 'order': 6},
     {'name': '3D Grafiken', 'group': 'UI / UX', 'order': 7},
-    {
-      'name': 'Netzwerkcalls',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 0
-    },
-    {
-      'name': 'Dateizugriff',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 1
-    },
-    {
-      'name': 'Persistierung',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 2
-    },
-    {
-      'name': 'Zugriff auf native Anwendungen',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 3
-    },
+    {'name': 'Netzwerkcalls', 'group': 'Gerätespezifische Funktionen', 'order': 0},
+    {'name': 'Dateizugriff', 'group': 'Gerätespezifische Funktionen', 'order': 1},
+    {'name': 'Persistierung', 'group': 'Gerätespezifische Funktionen', 'order': 2},
+    {'name': 'Zugriff auf native Anwendungen', 'group': 'Gerätespezifische Funktionen', 'order': 3},
     {'name': 'Kamera', 'group': 'Gerätespezifische Funktionen', 'order': 4},
     {'name': 'GPS', 'group': 'Gerätespezifische Funktionen', 'order': 5},
-    {
-      'name': 'Beschleunigung',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 6
-    },
-    {
-      'name': 'Fingerabdruck / Face ID',
-      'group': 'Gerätespezifische Funktionen',
-      'order': 7
-    },
+    {'name': 'Beschleunigung', 'group': 'Gerätespezifische Funktionen', 'order': 6},
+    {'name': 'Fingerabdruck / Face ID', 'group': 'Gerätespezifische Funktionen', 'order': 7},
     {'name': 'Primzahlberechnung', 'group': 'Algorithmen', 'order': 0},
   ];
 
@@ -95,47 +72,55 @@ class _MyHomePageState extends State<MyHomePage> {
         order: GroupedListOrder.ASC,
         // useStickyGroupSeparators: true,
         groupSeparatorBuilder: (String value) => Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-            value,
-            textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          itemBuilder: (c, element) {
-            return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      switch (element['name']) {
-                        case 'Gesten':
-                          return const Gestures();
-                        case 'Navigation':
-                          return const Navigation();
-                        case 'Eingabemethoden':
-                          return const InputMethods();
-                        case 'Animationen':
-                          return const Animations();
-                        case '3D Grafiken':
-                          return const Objects();
-                        case 'Primzahlberechnung':
-                          return const Prime();
-                        default:
-                          return const Text("Unbekanntes Feature");
-                      }
-                    }),
-                  );
-                },
-                child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10.0,
-                  vertical: 10.0),
-              child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              value,
+              textAlign: TextAlign.left,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            )),
+        itemBuilder: (c, element) {
+          return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    switch (element['name']) {
+                      case 'Gesten':
+                        return const Gestures();
+                      case 'Navigation':
+                        return const Navigation();
+                      case 'Eingabemethoden':
+                        return const InputMethods();
+                      case 'Animationen':
+                        return const Animations();
+                      case '3D Grafiken':
+                        return const Objects();
+                      case 'Netzwerkcalls':
+                        return const NetworkCall();
+                      /*case 'Dateizugriff':
+                        return const FileAccess();
+                      case 'Persistierung':
+                        return const Persistence();
+                      case 'Zugriff auf native Anwendungen':
+                        return const AppAccess();*/
+                      case 'Primzahlberechnung':
+                        return const Prime();
+                      default:
+                        return const Text("Unbekanntes Feature");
+                    }
+                  }),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(
+                    horizontal: 10.0, vertical: 10.0),
+                child: Text(
                   element['name'],
                   style: const TextStyle(fontSize: 16),
                 ),
-            ));
-          },
-        ),
-        );
+              ));
+        },
+      ),
+    );
   }
 }
