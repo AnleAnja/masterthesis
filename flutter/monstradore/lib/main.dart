@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/animations/animations.dart';
+import 'package:monstradore/gestures/gestures.dart';
+import 'package:monstradore/navigation/navigation.dart';
+import 'package:monstradore/inputmethods/inputmethods.dart';
+import 'package:monstradore/objects/objects.dart';
+import 'package:monstradore/performance/performance.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,32 +101,41 @@ class _MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.left,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-        ),
-        itemBuilder: (c, element) {
-          return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    switch (element['name']) {
-                      case 'Animationen':
-                        return const Animations();
-                      default:
-                        return const Text("Unbekanntes Feature");
-                    }
-                  }),
-                );
-              },
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                    horizontal: 10.0, vertical: 10.0),
-                child: Text(
+          itemBuilder: (c, element) {
+            return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      switch (element['name']) {
+                        case 'Gesten':
+                          return const Gestures();
+                        case 'Navigation':
+                          return const Navigation();
+                        case 'Eingabemethoden':
+                          return const InputMethods();
+                        case 'Animationen':
+                          return const Animations();
+                        case '3D Grafiken':
+                          return const Objects();
+                        case 'Primzahlberechnung':
+                          return const Prime();
+                        default:
+                          return const Text("Unbekanntes Feature");
+                      }
+                    }),
+                  );
+                },
+                child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10.0,
+                  vertical: 10.0),
+              child: Text(
                   element['name'],
                   style: const TextStyle(fontSize: 16),
                 ),
-              ));
-        },
-      ),
-    );
+            ));
+          },
+        ),
+        );
   }
 }
