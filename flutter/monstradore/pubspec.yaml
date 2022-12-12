@@ -34,6 +34,8 @@ dependencies:
   grouped_list: ^5.1.2
   pinch_zoom: ^1.0.0
   flutter_cube: ^0.1.1
+  sensors_plus: ^1.2.2
+  local_auth: 2.1.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
