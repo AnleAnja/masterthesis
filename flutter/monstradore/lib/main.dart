@@ -103,12 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         return FileAccess(storage: FileStorage());
                       case 'Persistierung':
                         return const Persistence();
-                      /*case 'Zugriff auf native Anwendungen':
-                        return const AppAccess();*/
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:
-                        return const Text("Unbekanntes Feature");
+                        return const Text("Nicht nativ verfügbar");
                     }
                   }),
                 );

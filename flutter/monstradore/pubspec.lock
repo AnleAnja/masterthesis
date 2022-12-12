@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
+  contact_picker:
+    dependency: "direct main"
+    description:
+      name: contact_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -169,7 +176,7 @@ packages:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.22"
+    version: "2.0.9"
   path_provider_ios:
     dependency: transitive
     description:
@@ -190,14 +197,14 @@ packages:
       name: path_provider_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6"
+    version: "2.0.3"
   path_provider_platform_interface:
     dependency: transitive
     description:
       name: path_provider_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.0"
   path_provider_windows:
     dependency: transitive
     description:
@@ -205,6 +212,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
+  permission_handler:
+    dependency: "direct main"
+    description:
+      name: permission_handler
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.0+2"
+  permission_handler_platform_interface:
+    dependency: transitive
+    description:
+      name: permission_handler_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   pinch_zoom:
     dependency: "direct main"
     description:
@@ -225,7 +246,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.3"
+    version: "1.0.3"
   process:
     dependency: transitive
     description:
@@ -274,7 +295,7 @@ packages:
       name: shared_preferences_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.0.0"
   shared_preferences_web:
     dependency: transitive
     description:
