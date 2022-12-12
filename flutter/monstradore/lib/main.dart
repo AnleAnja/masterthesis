@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 
 void main() {
@@ -87,6 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       switch (element['name']) {
                         case 'Eingabemethoden':
                           return const InputMethods();
+                        case 'Navigation':
+                          return const Navigation();
                         default:
                           return const Text("Unbekanntes Feature");
                       }
