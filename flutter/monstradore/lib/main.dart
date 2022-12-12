@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/gestures/gestures.dart';
+import 'package:monstradore/location/location.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/objects/objects.dart';
@@ -100,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
             value,
             textAlign: TextAlign.left,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          )),
           itemBuilder: (c, element) {
             return GestureDetector(
                 onTap: () {
@@ -118,6 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Animations();
                         case '3D Grafiken':
                           return const Objects();
+                        case 'GPS':
+                          return const Location();
                         case 'Primzahlberechnung':
                           return const Prime();
                         default:
