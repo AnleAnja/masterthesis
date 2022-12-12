@@ -8,6 +8,7 @@ import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/networkcall/networkcall.dart';
 import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
+import 'package:monstradore/persistence/persistence.dart';
 
 void main() {
   runApp(const MyApp());
@@ -100,9 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         return const NetworkCall();
                       case 'Dateizugriff':
                         return FileAccess(storage: FileStorage());
-                      /*case 'Persistierung':
+                      case 'Persistierung':
                         return const Persistence();
-                      case 'Zugriff auf native Anwendungen':
+                      /*case 'Zugriff auf native Anwendungen':
                         return const AppAccess();*/
                       case 'Primzahlberechnung':
                         return const Prime();
