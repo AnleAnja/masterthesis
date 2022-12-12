@@ -3,6 +3,7 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
+import 'package:monstradore/performance/performance.dart';
 
 void main() {
   runApp(const MyApp());
@@ -93,6 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Gestures();
                         case 'Navigation':
                           return const Navigation();
+                        case 'Primzahlberechnung':
+                          return const Prime();
                         default:
                           return const Text("Unbekanntes Feature");
                       }
