@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
-class AndroidElements extends StatelessWidget {
+class AndroidElements extends StatefulWidget {
   const AndroidElements({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _AndroidElementsState();
+}
+
+class _AndroidElementsState extends State<AndroidElements> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +23,42 @@ class AndroidElements extends StatelessWidget {
           child: Text("Navigation Drawer Content"),
         ),
       ),
-      body: Column(
-        children: const [
-          AndroidNavElements(),
-          AndroidBasicElements(),
-          AndroidInteractiveElements()
-        ],
-      ),
+      body: Row(children: <Widget>[
+        NavigationRail(
+          destinations: const <NavigationRailDestination>[
+            NavigationRailDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: Text('First'),
+            ),
+            NavigationRailDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: Text('Second'),
+            ),
+            NavigationRailDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: Text('Third'),
+            ),
+          ],
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+        ),
+        const VerticalDivider(thickness: 1, width: 1),
+        Expanded(
+            child: Column(
+          children: const [
+            //AndroidNavElements(),
+            //AndroidBasicElements(),
+            AndroidInteractiveElements()
+          ],
+        ))
+      ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.home),
@@ -47,44 +83,28 @@ class AndroidNavElements extends StatefulWidget {
 }
 
 class _AndroidNavElementsState extends State<AndroidNavElements> {
+  bool showLeading = false;
+  bool showTrailing = false;
+  NavigationRailLabelType labelType = NavigationRailLabelType.all;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
-    return Column(
-      children: [
-        Text("Struktur und Navigation", style: textTheme.headline5),
-        Text("App Bar Top", style: textTheme.headline6),
-        const Text("Verfügbar, s.o.", style: TextStyle(color: Colors.blue)),
-        Text("App Bar Bottom", style: textTheme.headline6),
-        const Text("Verfügbar, s.u.", style: TextStyle(color: Colors.blue)),
-        Text("Navigation Drawer", style: textTheme.headline6),
-        const Text("Verfügbar, swipe left to right",
-            style: TextStyle(color: Colors.blue)),
-        Text("Navigation Rail", style: textTheme.headline6),
-        /*NavigationRail(
-            selectedIndex: selectedIndex,
-            destinations: const <NavigationRailDestination>[
-            NavigationRailDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: Text(""),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.add_box_outlined),
-              selectedIcon: Icon(Icons.add_box),
-              label: Text(""),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.contacts_outlined),
-              selectedIcon: Icon(Icons.contacts),
-              label: Text(""),
-            ),
-          ],
-          ),*/
-      ],
-    );
+    return Column(children: [
+      Text("Struktur und Navigation", style: textTheme.headline5),
+      Text("App Bar Top", style: textTheme.headline6),
+      const Text("Verfügbar, s.o.", style: TextStyle(color: Colors.blue)),
+      Text("App Bar Bottom", style: textTheme.headline6),
+      const Text("Verfügbar, s.u.", style: TextStyle(color: Colors.blue)),
+      Text("Navigation Drawer", style: textTheme.headline6),
+      const Text("Verfügbar, swipe left to right",
+          style: TextStyle(color: Colors.blue)),
+      Text("Navigation Rail", style: textTheme.headline6),
+      const Text("Verfügbar, s. links",
+          style: TextStyle(color: Colors.blue)),
+    ]);
   }
 }
 
@@ -231,10 +251,6 @@ class _AndroidInteractiveElementsState
   }
 
   Future displayTimePicker(BuildContext context) async {
-    await showTimePicker(
-        context: context,
-        initialTime: TimeOfDay.now()
-    );
+    await showTimePicker(context: context, initialTime: TimeOfDay.now());
   }
-
 }
