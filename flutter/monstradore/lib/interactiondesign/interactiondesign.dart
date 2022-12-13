@@ -21,44 +21,7 @@ class _InteractionDesignState extends State<InteractionDesign> {
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return Scaffold(
-        body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return Dismissible(
-                key: Key(item),
-                onDismissed: (direction) {
-                  setState(() {
-                    items.removeAt(index);
-                  });
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text('$item gelöscht')));
-                },
-                background: Container(color: Colors.red),
-                child: ListTile(
-                  title: Text(items[index]),
-                )
-                /*ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return GestureDetector(
-                        onLongPress: () {
-                          popupDialog = createPopupDialog(item);
-                          Overlay.of(context)?.insert(popupDialog);
-                        },
-                        onLongPressEnd: (details) => popupDialog.remove(),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(item)
-                    )
-                    );
-                  }
-              ),*/
-                );
-          },
-        ),
-      );
+          body: ListView(children: items.map(_createList).toList()));
     }
     if (Platform.isAndroid) {
       return Scaffold(
@@ -82,9 +45,50 @@ class _InteractionDesignState extends State<InteractionDesign> {
     throw Exception();
   }
 
+  Widget _createList(String content) => Builder(
+      // use Builder here in order to show the snakbar
+      builder: (context) => Listener(
+          child: Dismissible(
+              key: Key(content),
+              onDismissed: (direction) {
+                setState(() {
+                  var index = items.indexOf(content);
+                  items.removeAt(index);
+                });
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('$content gelöscht')));
+              },
+              background: Container(color: Colors.red),
+              child: _listElement(content)),
+            /*GestureDetector(
+              onLongPress: () {
+                popupDialog = createPopupDialog(content);
+                Overlay.of(context)!.insert(popupDialog);
+              },
+              // remove the OverlayEntry from Overlay, so it would be hidden
+              onLongPressEnd: (details) => popupDialog.remove(),
+
+              onTap: () => ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text('$content gelöscht'))),
+              child: _listElement(content)
+            )*/
+      ));
+
   Offset getTapPosition(TapDownDetails details) {
     final RenderBox referenceBox = context.findRenderObject() as RenderBox;
     return referenceBox.globalToLocal(details.globalPosition);
+  }
+
+  Widget _listElement(String content) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Text(content),
+          )),
+    );
   }
 
   void showContextMenu(
@@ -111,16 +115,16 @@ class _InteractionDesignState extends State<InteractionDesign> {
   }
 
   OverlayEntry createPopupDialog(String item) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return OverlayEntry(
-        builder: (context) => Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        builder: (context) => Center(
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
-                  child: Text(item,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ))),
+                  child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      color: Colors.grey,
+                      child: Text(item, style: textTheme.headline4))),
             ));
   }
 }
