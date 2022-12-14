@@ -1,8 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/fileaccess/fileaccess.dart';
 import 'package:monstradore/gestures/gestures.dart';
+import 'package:monstradore/hardwarefunctions/camera.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/networkcall/networkcall.dart';
@@ -10,12 +12,19 @@ import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
 import 'package:monstradore/persistence/persistence.dart';
 
-void main() {
-  runApp(const MyApp());
+//late final firstCamera;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+  runApp(MyApp(camera: firstCamera));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.camera});
+
+  final CameraDescription camera;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +33,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'monstradore'),
+      home: MyHomePage(title: 'monstradore', camera: camera),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.camera});
 
   final String title;
+  final CameraDescription camera;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -103,6 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         return FileAccess(storage: FileStorage());
                       case 'Persistierung':
                         return const Persistence();
+                      case 'Kamera':
+                        return CameraWidget(camera: widget.camera);
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:
