@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               value,
               textAlign: TextAlign.left,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ))),
+            )),
         itemBuilder: (c, element) {
           return GestureDetector(
               onTap: () {
