@@ -9,13 +9,19 @@ import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
 
+//late final firstCamera;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+  runApp(MyApp(camera: firstCamera));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.camera});
+
+  final CameraDescription camera;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +30,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'monstradore'),
+      home: MyHomePage(title: 'monstradore', camera: camera),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.camera});
 
   final String title;
+  final CameraDescription camera;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -122,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       case '3D Grafiken':
                         return const Objects();
                       case 'Kamera':
-                        return const CameraWidget();
+                        return CameraWidget(camera: widget.camera);
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:
