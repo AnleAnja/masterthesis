@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/multimedia/multimedia.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/fileaccess/fileaccess.dart';
 import 'package:monstradore/gestures/gestures.dart';
@@ -11,8 +12,6 @@ import 'package:monstradore/networkcall/networkcall.dart';
 import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
 import 'package:monstradore/persistence/persistence.dart';
-
-//late final firstCamera;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               value,
               textAlign: TextAlign.left,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            )),
+            ))),
         itemBuilder: (c, element) {
           return GestureDetector(
               onTap: () {
@@ -105,6 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         return const InputMethods();
                       case 'Animationen':
                         return const Animations();
+                      case 'Multimedia':
+                        return const Multimedia();
                       case '3D Grafiken':
                         return const Objects();
                       case 'Netzwerkcalls':
