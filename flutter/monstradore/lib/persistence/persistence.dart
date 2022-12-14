@@ -10,8 +10,6 @@ class Persistence extends StatefulWidget {
 
 class _PersistenceState extends State<Persistence> {
   TextEditingController textController = TextEditingController();
-  int _counter = 0;
-  String _user = "";
   List<String> _users = [];
 
   @override
@@ -23,17 +21,15 @@ class _PersistenceState extends State<Persistence> {
   Future<void> _loadUsers () async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      for(var i = 0; i <= _counter; i++) {
-        _users.add(prefs.getString('$i') ?? "");
-      }
+        _users = prefs.getStringList('users') ?? [];
     });
   }
 
   Future<void> _setUsers() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      prefs.setString('$_counter', _user);
-      _counter++;
+      _users.add(textController.text);
+      prefs.setStringList('users', _users);
     });
   }
 
@@ -55,7 +51,6 @@ class _PersistenceState extends State<Persistence> {
             ),
             TextButton(onPressed: () {
               _setUsers();
-              _loadUsers();
             }, child: const Text("User speichern")),
             Column(
               children: _users.map((e) => Text(e)).toList(),
