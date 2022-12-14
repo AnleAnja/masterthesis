@@ -1,18 +1,27 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/gestures/gestures.dart';
+import 'package:monstradore/hardwarefunctions/camera.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
 import 'package:monstradore/objects/objects.dart';
 import 'package:monstradore/performance/performance.dart';
 
-void main() {
-  runApp(const MyApp());
+//late final firstCamera;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+  runApp(MyApp(camera: firstCamera));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.camera});
+
+  final CameraDescription camera;
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +30,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'monstradore'),
+      home: MyHomePage(title: 'monstradore', camera: camera),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.camera});
 
   final String title;
+  final CameraDescription camera;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -95,41 +105,43 @@ class _MyHomePageState extends State<MyHomePage> {
         order: GroupedListOrder.ASC,
         // useStickyGroupSeparators: true,
         groupSeparatorBuilder: (String value) => Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-            value,
-            textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          itemBuilder: (c, element) {
-            return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      switch (element['name']) {
-                        case 'Gesten':
-                          return const Gestures();
-                        case 'Navigation':
-                          return const Navigation();
-                        case 'Eingabemethoden':
-                          return const InputMethods();
-                        case 'Animationen':
-                          return const Animations();
-                        case '3D Grafiken':
-                          return const Objects();
-                        case 'Primzahlberechnung':
-                          return const Prime();
-                        default:
-                          return const Text("Unbekanntes Feature");
-                      }
-                    }),
-                  );
-                },
-                child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10.0,
-                  vertical: 10.0),
-              child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              value,
+              textAlign: TextAlign.left,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            )),
+        itemBuilder: (c, element) {
+          return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    switch (element['name']) {
+                      case 'Gesten':
+                        return const Gestures();
+                      case 'Navigation':
+                        return const Navigation();
+                      case 'Eingabemethoden':
+                        return const InputMethods();
+                      case 'Animationen':
+                        return const Animations();
+                      case '3D Grafiken':
+                        return const Objects();
+                      case 'Kamera':
+                        return CameraWidget(camera: widget.camera);
+                      case 'Primzahlberechnung':
+                        return const Prime();
+                      default:
+                        return const Text("Nicht nativ verfügbar");
+                    }
+                  }),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(
+                    horizontal: 10.0, vertical: 10.0),
+                child: Text(
                   element['name'],
                   style: const TextStyle(fontSize: 16),
                 ),
