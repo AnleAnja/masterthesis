@@ -37,7 +37,7 @@ class _NetworkCallState extends State<NetworkCall> {
             if (snapshot.hasData) {
               return Text(snapshot.data!);
             } else if (snapshot.hasError) {
-              return const Text('Error');
+              return Text('${snapshot.error}');
             }
             return const Text('Loading');
           })
@@ -52,7 +52,7 @@ Future<String> fetchUrl() async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    return jsonDecode(response.body);
+    return response.body;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
