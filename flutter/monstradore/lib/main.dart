@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/uiux/uielements.dart';
 import 'package:monstradore/multimedia/multimedia.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/fileaccess/fileaccess.dart';
@@ -32,22 +33,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'monstradore', camera: camera),
+      home: OverviewView(title: 'monstradore', camera: camera),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title, required this.camera});
+class OverviewView extends StatefulWidget {
+  const OverviewView({super.key, required this.title, required this.camera});
 
   final String title;
   final CameraDescription camera;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<OverviewView> createState() => _OverviewViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _OverviewViewState extends State<OverviewView> {
+
   final List _features = [
     {'name': 'Reichhaltige UI Elemente', 'group': 'UI / UX', 'order': 0},
     {'name': 'Interaktionsdesign', 'group': 'UI / UX', 'order': 1},
@@ -96,6 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   MaterialPageRoute(builder: (context) {
                     switch (element['name']) {
+                      case 'Reichhaltige UI Elemente':
+                        return const UIElements();
                       case 'Gesten':
                         return const Gestures();
                       case 'Navigation':
