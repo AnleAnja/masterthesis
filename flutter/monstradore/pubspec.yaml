@@ -37,6 +37,7 @@ dependencies:
   video_player: 2.4.9
   pinch_zoom: ^1.0.0
   flutter_cube: ^0.1.1
+  sensors_plus: ^1.2.2
   geolocator: ^8.0.0
   path_provider: 2.0.11
   shared_preferences: 2.0.15

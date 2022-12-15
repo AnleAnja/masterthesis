@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/acceleration/acceleration.dart';
 import 'package:monstradore/uiux/uielements.dart';
 import 'package:monstradore/multimedia/multimedia.dart';
 import 'package:monstradore/animations/animations.dart';
@@ -86,7 +87,7 @@ class _OverviewViewState extends State<OverviewView> {
         order: GroupedListOrder.ASC,
         // useStickyGroupSeparators: true,
         groupSeparatorBuilder: (String value) => Padding(
-            padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
             child: Text(
               value,
               textAlign: TextAlign.left,
@@ -123,6 +124,8 @@ class _OverviewViewState extends State<OverviewView> {
                         return CameraWidget(camera: widget.camera);
                       case 'GPS':
                         return const Location();
+                      case 'Beschleunigung':
+                         return const Acceleration();
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:
