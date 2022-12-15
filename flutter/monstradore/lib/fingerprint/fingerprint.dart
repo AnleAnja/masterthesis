@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:local_auth/local_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/error_codes.dart' as local_auth_error;
+import 'package:local_auth/local_auth.dart';
 
 class Fingerprint extends StatefulWidget {
   const Fingerprint({super.key});
@@ -36,8 +36,8 @@ class _FingerprintState extends State<Fingerprint> {
 
   @override
   void initState() {
-    authenticateUser();
     super.initState();
+    authenticateUser();
   }
 
   @override
@@ -47,7 +47,7 @@ class _FingerprintState extends State<Fingerprint> {
 
     return Scaffold(
       body: Center(
-        child: Column(
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Fingerabdruck / Face ID", style: textTheme.headline6),
