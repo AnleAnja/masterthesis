@@ -5,6 +5,7 @@ import 'package:monstradore/acceleration/acceleration.dart';
 import 'package:monstradore/uiux/uielements.dart';
 import 'package:monstradore/multimedia/multimedia.dart';
 import 'package:monstradore/animations/animations.dart';
+import 'package:monstradore/fingerprint/fingerprint.dart';
 import 'package:monstradore/fileaccess/fileaccess.dart';
 import 'package:monstradore/gestures/gestures.dart';
 import 'package:monstradore/location/location.dart';
@@ -122,6 +123,8 @@ class _OverviewViewState extends State<OverviewView> {
                         return const Persistence();
                       case 'Kamera':
                         return CameraWidget(camera: widget.camera);
+                      case 'Fingerabdruck / Face ID':
+                          return const Fingerprint();
                       case 'GPS':
                         return const Location();
                       case 'Beschleunigung':
