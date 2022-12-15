@@ -23,42 +23,44 @@ class _AndroidElementsState extends State<AndroidElements> {
           child: Text("Navigation Drawer Content"),
         ),
       ),
-      body: Row(children: <Widget>[
-        NavigationRail(
-          destinations: const <NavigationRailDestination>[
-            NavigationRailDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: Text('First'),
+      body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            NavigationRail(
+              destinations: const [
+                NavigationRailDestination(
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home),
+                  label: Text('First'),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home),
+                  label: Text('Second'),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home),
+                  label: Text('Third'),
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: (int index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
             ),
-            NavigationRailDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: Text('Second'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: Text('Third'),
-            ),
-          ],
-          selectedIndex: _selectedIndex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-        ),
-        const VerticalDivider(thickness: 1, width: 1),
-        Expanded(
-            child: Column(
-          children: const [
-            //AndroidNavElements(),
-            //AndroidBasicElements(),
-            AndroidInteractiveElements()
-          ],
-        ))
-      ]),
+            const VerticalDivider(thickness: 1, width: 1),
+            SingleChildScrollView(
+                child: Column(
+              children: const [
+                AndroidNavElements(),
+                AndroidBasicElements(),
+                AndroidInteractiveElements(),
+              ],
+            ))
+          ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.home),
@@ -102,8 +104,7 @@ class _AndroidNavElementsState extends State<AndroidNavElements> {
       const Text("Verfügbar, swipe left to right",
           style: TextStyle(color: Colors.blue)),
       Text("Navigation Rail", style: textTheme.headline6),
-      const Text("Verfügbar, s. links",
-          style: TextStyle(color: Colors.blue)),
+      const Text("Verfügbar, s. links", style: TextStyle(color: Colors.blue)),
     ]);
   }
 }
@@ -133,7 +134,8 @@ class _AndroidBasicElementsState extends State<AndroidBasicElements> {
 
     return Column(
       children: [
-        Text("Grundlegende Android Elemente", style: textTheme.headline5),
+        Text("Grundlegende", style: textTheme.headline5),
+        Text("Android Elemente", style: textTheme.headline5),
         Text("Card", style: textTheme.headline6),
         const Card(
           child: Padding(
@@ -178,20 +180,19 @@ class AndroidInteractiveElements extends StatefulWidget {
   State<StatefulWidget> createState() => _AndroidInteractiveElementsState();
 }
 
-enum Items { item1, item2, item3 }
-
 class _AndroidInteractiveElementsState
     extends State<AndroidInteractiveElements> {
   bool isChecked = false;
+  int item = 1;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    Items? item = Items.item1;
 
     return Column(children: [
-      Text("Interaktive Android Elemente", style: textTheme.headline5),
+      Text("Interaktive", style: textTheme.headline5),
+      Text("Android Elemente", style: textTheme.headline5),
       Text("Checkbox", style: textTheme.headline6),
       Checkbox(
           value: isChecked,
@@ -201,43 +202,35 @@ class _AndroidInteractiveElementsState
             });
           }),
       Text("Radio Buttons", style: textTheme.headline6),
-      /*Row(
-          children: [
-            ListTile(
-              leading: Radio<Items>(
-                value: Items.item1,
-                groupValue: item,
-                onChanged: (Items? value) {
-                  setState(() {
-                    item = value;
-                  });
-                  }
-              )
-            ),
-            ListTile(
-                title: const Text(""),
-                leading: Radio<Items>(
-                  value: Items.item2,
-                  groupValue: item,
-                  onChanged: (Items? value) {
-                    setState(() {
-                      item = value;
-                    });
-                    }
-                    )
-            )
-          ]
-      ),*/
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Radio(
+              value: 0,
+              groupValue: item,
+              onChanged: (index) {
+                setState(() {
+                  item = index!;
+                });
+              }),
+          Radio(
+              value: 1,
+              groupValue: item,
+              onChanged: (index) {
+                setState(() {
+                  item = index!;
+                });
+              }),
+        ],
+      ),
       Text("Time Picker", style: textTheme.headline6),
       TextButton(
           child: const Text("Time Picker"),
-          onPressed: () => displayTimePicker(context)
-      ),
+          onPressed: () => displayTimePicker(context)),
       Text("Date Picker", style: textTheme.headline6),
       TextButton(
-        child: const Text("Date Picker"),
-          onPressed: () => displayDatePicker(context)
-      )
+          child: const Text("Date Picker"),
+          onPressed: () => displayDatePicker(context))
     ]);
   }
 
