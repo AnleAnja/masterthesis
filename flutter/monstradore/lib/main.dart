@@ -6,6 +6,7 @@ import 'package:monstradore/multimedia/multimedia.dart';
 import 'package:monstradore/animations/animations.dart';
 import 'package:monstradore/fileaccess/fileaccess.dart';
 import 'package:monstradore/gestures/gestures.dart';
+import 'package:monstradore/location/location.dart';
 import 'package:monstradore/hardwarefunctions/camera.dart';
 import 'package:monstradore/navigation/navigation.dart';
 import 'package:monstradore/inputmethods/inputmethods.dart';
@@ -120,6 +121,8 @@ class _OverviewViewState extends State<OverviewView> {
                         return const Persistence();
                       case 'Kamera':
                         return CameraWidget(camera: widget.camera);
+                      case 'GPS':
+                        return const Location();
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:
