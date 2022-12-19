@@ -21,11 +21,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final cameras = await availableCameras();
   final firstCamera = cameras.first;
-  runApp(MyApp(camera: firstCamera));
+  runApp(Monstradore(camera: firstCamera));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.camera});
+class Monstradore extends StatelessWidget {
+  const Monstradore({super.key, required this.camera});
 
   final CameraDescription camera;
 
@@ -109,10 +109,10 @@ class _OverviewViewState extends State<OverviewView> {
                         return const Navigation();
                       case 'Eingabemethoden':
                         return const InputMethods();
-                      case 'Animationen':
-                        return const Animations();
                       case 'Multimedia':
                         return const Multimedia();
+                      case 'Animationen':
+                        return const Animations();
                       case '3D Grafiken':
                         return const Objects();
                       case 'Netzwerkcalls':
@@ -123,12 +123,12 @@ class _OverviewViewState extends State<OverviewView> {
                         return const Persistence();
                       case 'Kamera':
                         return CameraWidget(camera: widget.camera);
-                      case 'Fingerabdruck / Face ID':
-                          return const Fingerprint();
                       case 'GPS':
                         return const Location();
                       case 'Beschleunigung':
                          return const Acceleration();
+                      case 'Fingerabdruck / Face ID':
+                        return const Fingerprint();
                       case 'Primzahlberechnung':
                         return const Prime();
                       default:

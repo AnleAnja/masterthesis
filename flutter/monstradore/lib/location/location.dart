@@ -40,18 +40,13 @@ class _LocationState extends State<Location> {
       } else {
         haspermission = true;
       }
-
       if (haspermission) {
-        setState(() {
-          //refresh the UI
-        });
-
+        setState(() { });
         getLocation();
       }
     } else {
       print("GPS Service is not enabled, turn on GPS location");
     }
-
     setState(() { });
   }
 
@@ -60,7 +55,6 @@ class _LocationState extends State<Location> {
         desiredAccuracy: LocationAccuracy.high);
     long = position.longitude.toString();
     lat = position.latitude.toString();
-
     setState(() { });
 
     LocationSettings locationSettings = const LocationSettings(
