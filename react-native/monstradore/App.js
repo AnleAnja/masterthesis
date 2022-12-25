@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, SafeAreaView, SectionList} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import EmptyScreen from './EmptyScreen';
+import InputMethodsScreen from './inputmethods/InputMethodsScreen';
 
 const DATA = [
   {
@@ -75,7 +76,7 @@ function OverviewScreen({navigation}) {
                 } else if (item === 'Navigation') {
                   navigation.navigate();
                 } else if (item === 'Eingabemethoden') {
-                  navigation.navigate();
+                  navigation.navigate('InputMethods');
                 } else if (item === 'Multimedia') {
                   navigation.navigate();
                 } else if (item === 'Animationen') {
@@ -124,6 +125,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Overview" component={OverviewScreen} />
+        <Stack.Screen name="InputMethods" component={InputMethodsScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
