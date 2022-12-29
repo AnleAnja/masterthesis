@@ -41,22 +41,24 @@ export default {
 </script>
 
 <template>
-	<li class="category" v-for="(element) in data">
+    <div>
+	<div class="category" v-for="(element) in data">
   	    {{ element.category }}
-        <li class="items" v-for="(item) in element.items">
+        <div class="items" v-for="(item) in element.items">
             {{ item.message }}
-        </li>
-	</li>
+        </div>
+	</div>
+</div>
 </template>
 
 <style scoped>
 
-category {
+.category {
   font-weight: bold;
   font-size: large;
 }
 
-items {
+.items {
     font-size: medium;
 }
 
