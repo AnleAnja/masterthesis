@@ -67,7 +67,7 @@ function OverviewScreen({navigation}) {
           <View style={styles.item}>
             <Text
               onPress={() => {
-                if (item === 'Reichhaltige UI Elemente') {
+                /*if (item === 'Reichhaltige UI Elemente') {
                   navigation.navigate();
                 } else if (item === 'Interaktionsdesign') {
                   navigation.navigate();
@@ -75,9 +75,9 @@ function OverviewScreen({navigation}) {
                   navigation.navigate();
                 } else if (item === 'Navigation') {
                   navigation.navigate();
-                } else if (item === 'Eingabemethoden') {
+                } else*/ if (item === 'Eingabemethoden') {
                   navigation.navigate('InputMethods');
-                } else if (item === 'Multimedia') {
+                /*} else if (item === 'Multimedia') {
                   navigation.navigate();
                 } else if (item === 'Animationen') {
                   navigation.navigate();
@@ -100,11 +100,12 @@ function OverviewScreen({navigation}) {
                 } else if (item === 'Fingerabdruck / Face ID') {
                   navigation.navigate();
                 } else if (item === 'Primzahlberechnung') {
-                  navigation.navigate();
+                  navigation.navigate();*/
                 } else {
                   navigation.navigate('Empty');
                 }
-              }}
+              }
+              }
               style={styles.title}>
               {item}
             </Text>
