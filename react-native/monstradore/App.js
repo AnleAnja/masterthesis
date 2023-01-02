@@ -74,9 +74,9 @@ function OverviewScreen({navigation}) {
                   navigation.navigate();
                 } else*/ if (item === 'Gesten') {
                   navigation.navigate('Gestures');
-                } /*else if (item === 'Navigation') {
-                  navigation.navigate();
-                } */else if (item === 'Eingabemethoden') {
+                /*} else if (item === 'Navigation') {
+                  navigation.navigate();*/
+                } else if (item === 'Eingabemethoden') {
                   navigation.navigate('InputMethods');
                 /*} else if (item === 'Multimedia') {
                   navigation.navigate();
