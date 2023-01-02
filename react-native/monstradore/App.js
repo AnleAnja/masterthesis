@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import EmptyScreen from './EmptyScreen';
 import InputMethodsScreen from './inputmethods/InputMethodsScreen';
 import GesturesScreen from './gestures/GesturesScreen';
+import NavigationScreen from './navigation/NavigationScreen';
 
 const DATA = [
   {
@@ -74,8 +75,8 @@ function OverviewScreen({navigation}) {
                   navigation.navigate();
                 } else*/ if (item === 'Gesten') {
                   navigation.navigate('Gestures');
-                /*} else if (item === 'Navigation') {
-                  navigation.navigate();*/
+                } else if (item === 'Navigation') {
+                  navigation.navigate('Navigation');
                 } else if (item === 'Eingabemethoden') {
                   navigation.navigate('InputMethods');
                 /*} else if (item === 'Multimedia') {
@@ -128,6 +129,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Overview" component={OverviewScreen} />
         <Stack.Screen name="Gestures" component={GesturesScreen} />
+        <Stack.Screen name="Navigation" component={NavigationScreen} />
         <Stack.Screen name="InputMethods" component={InputMethodsScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
