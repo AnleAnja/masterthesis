@@ -8,7 +8,9 @@ const renderIndicator = () => '';
 
 function GesturesScreen() {
     return (
-        <ImageViewer imageUrls={images} renderIndicator={renderIndicator} style={styles.container} saveToLocalByLongPress={false}/>
+        <View style={styles.container}>
+            <ImageViewer imageUrls={images} renderIndicator={renderIndicator} saveToLocalByLongPress={false}/>
+        </View>
     )
 }
 
@@ -17,6 +19,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
+        backgroundColor: 'black',
     },
 });
 
