@@ -1,8 +1,6 @@
 import {Text, View, StyleSheet, Button} from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
-// import React, {useState, useRef} from 'react';
 import Video from 'react-native-video';
-// import MediaControls, {PLAYER_STATES} from 'react-native-media-controls';
 
 function MultimediaScreen() {
     try {
@@ -16,11 +14,11 @@ function MultimediaScreen() {
         <View style={styles.container}>
             <Text style={styles.headline3}>Audio</Text>
             <View style={styles.audioRow}>
-                <Button title="Play" onPress={SoundPlayer.play} />
-                <Button title="Pause" onPress={SoundPlayer.pause} />
+                <Button title="Play" onPress={SoundPlayer.play}/>
+                <Button title="Pause" onPress={SoundPlayer.pause}/>
             </View>
+            <Text style={styles.headline3}>Video</Text>
             <View style={styles.videoRow}>
-                <Text style={styles.headline3}>Video</Text>
                 <Video
                     source={{
                         uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
