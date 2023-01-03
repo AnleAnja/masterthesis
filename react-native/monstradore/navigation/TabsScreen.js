@@ -7,7 +7,7 @@ function Items({route, navigation}) {
     navigators.push(navigation);
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize: 20, color: 'black', fontStyle: 'bold'}}>Item {route.params.n} Content</Text>
+            <Text style={{fontSize: 20, color: 'black'}}>Item {route.params.n} Content</Text>
         </View>
     );
 }
@@ -18,7 +18,7 @@ function Tabs({route}) {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{fontSize: 20, color: 'black', fontStyle: 'bold'}}>Tab {route.params.n} Content</Text>
+                <Text style={{fontSize: 20, color: 'black'}}>Tab {route.params.n} Content</Text>
             </View>
 
             <View style={{flex: 5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
@@ -26,22 +26,19 @@ function Tabs({route}) {
                     <Item.Screen name="Item 1" component={Items} initialParams={{n: 1}} options={{headerShown: false}}
                                  listeners={{
                                      tabPress: (e) => {
-                                         e.preventDefault();
-                                         list.forEach((it) => it.navigate('Item 1'))
+                                         navigators.forEach((it) => it.navigate('Item 1'))
                                      }
                                  }}/>
                     <Item.Screen name="Item 2" component={Items} initialParams={{n: 2}} options={{headerShown: false}}
                                  listeners={{
                                      tabPress: (e) => {
-                                         e.preventDefault();
-                                         list.forEach((it) => it.navigate('Item 2'))
+                                         navigators.forEach((it) => it.navigate('Item 2'))
                                      }
                                  }}/>
                     <Item.Screen name="Item 3" component={Items} initialParams={{n: 3}} options={{headerShown: false}}
                                  listeners={{
                                      tabPress: (e) => {
-                                         e.preventDefault();
-                                         list.forEach((it) => it.navigate('Item 3'))
+                                         navigators.forEach((it) => it.navigate('Item 3'))
                                      }
                                  }}/>
                 </Item.Navigator>
