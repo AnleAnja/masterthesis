@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-monstradore-monstradoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-monstradore-monstradoreTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		85402BA82964D30600A2951C /* sampleobject.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 85402BA52964D30500A2951C /* sampleobject.mtl */; };
+		85402BA92964D30600A2951C /* sampleobject.png in Resources */ = {isa = PBXBuildFile; fileRef = 85402BA62964D30500A2951C /* sampleobject.png */; };
+		85402BAA2964D30600A2951C /* sampleobject.obj in Resources */ = {isa = PBXBuildFile; fileRef = 85402BA72964D30600A2951C /* sampleobject.obj */; };
+		85402BAC2964D31800A2951C /* sampleaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 85402BAB2964D31800A2951C /* sampleaudio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		5B7EB9410499542E8C5724F5 /* Pods-monstradore-monstradoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monstradore-monstradoreTests.debug.xcconfig"; path = "Target Support Files/Pods-monstradore-monstradoreTests/Pods-monstradore-monstradoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-monstradore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-monstradore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = monstradore/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85402BA52964D30500A2951C /* sampleobject.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sampleobject.mtl; path = ../../../flutter/monstradore/assets/obj/sampleobject.mtl; sourceTree = "<group>"; };
+		85402BA62964D30500A2951C /* sampleobject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sampleobject.png; path = ../../../flutter/monstradore/assets/obj/sampleobject.png; sourceTree = "<group>"; };
+		85402BA72964D30600A2951C /* sampleobject.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sampleobject.obj; path = ../../../flutter/monstradore/assets/obj/sampleobject.obj; sourceTree = "<group>"; };
+		85402BAB2964D31800A2951C /* sampleaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sampleaudio.mp3; path = ../../../flutter/monstradore/assets/sampleaudio.mp3; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-monstradore-monstradoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monstradore-monstradoreTests.release.xcconfig"; path = "Target Support Files/Pods-monstradore-monstradoreTests/Pods-monstradore-monstradoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +124,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				85402BAB2964D31800A2951C /* sampleaudio.mp3 */,
+				85402BA52964D30500A2951C /* sampleobject.mtl */,
+				85402BA72964D30600A2951C /* sampleobject.obj */,
+				85402BA62964D30500A2951C /* sampleobject.png */,
 				13B07FAE1A68108700A75B9A /* monstradore */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* monstradoreTests */,
@@ -242,8 +254,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85402BAA2964D30600A2951C /* sampleobject.obj in Resources */,
+				85402BA92964D30600A2951C /* sampleobject.png in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				85402BA82964D30600A2951C /* sampleobject.mtl in Resources */,
+				85402BAC2964D31800A2951C /* sampleaudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
