@@ -7,6 +7,7 @@ import InputMethodsScreen from './inputmethods/InputMethodsScreen';
 import GesturesScreen from './gestures/GesturesScreen';
 import NavigationScreen from './navigation/NavigationScreen';
 import MultimediaScreen from './multimedia/MultimediaScreen';
+import AnimationsScreen from './animations/AnimationsScreen';
 
 const DATA = [
   {
@@ -82,9 +83,9 @@ function OverviewScreen({navigation}) {
                   navigation.navigate('InputMethods');
                 } else if (item === 'Multimedia') {
                   navigation.navigate('Multimedia');
-                /*} else if (item === 'Animationen') {
-                  navigation.navigate();
-                } else if (item === '3D Grafiken') {
+                } else if (item === 'Animationen') {
+                  navigation.navigate('Animations');
+                /*} else if (item === '3D Grafiken') {
                   navigation.navigate();
                 } else if (item === 'Netzwerkcalls') {
                   navigation.navigate();
@@ -133,6 +134,7 @@ function App() {
         <Stack.Screen name="Navigation" component={NavigationScreen} />
         <Stack.Screen name="InputMethods" component={InputMethodsScreen} />
         <Stack.Screen name="Multimedia" component={MultimediaScreen} />
+        <Stack.Screen name="Animations" component={AnimationsScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
