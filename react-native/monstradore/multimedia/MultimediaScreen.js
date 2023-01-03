@@ -1,7 +1,7 @@
 import {Text, View, StyleSheet, Button} from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 // import React, {useState, useRef} from 'react';
-import VideoPlayer from 'react-native-video-player';
+import Video from 'react-native-video';
 // import MediaControls, {PLAYER_STATES} from 'react-native-media-controls';
 
 function MultimediaScreen() {
@@ -21,6 +21,16 @@ function MultimediaScreen() {
             </View>
             <View style={styles.videoRow}>
                 <Text style={styles.headline3}>Video</Text>
+                <Video
+                    source={{
+                        uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                    }}
+                    style={styles.mediaPlayer}
+                    controls={true}
+                    resizeMode="cover"
+                    hideShutterView={true}
+                    paused={true}
+                />
             </View>
         </View>
     );
@@ -43,8 +53,8 @@ const styles = StyleSheet.create({
     },
     videoRow: {
         flex: 6,
-        // flexdirection: 'row',
-        // alignitems: 'flex-start',
+        flexdirection: 'row',
+        alignItems: 'flex-start',
     },
     toolbar: {
         marginTop: 30,
@@ -53,8 +63,12 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     mediaPlayer: {
-        height: '100%',
-        width: '100%'
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        height: 250,
     },
 });
 
