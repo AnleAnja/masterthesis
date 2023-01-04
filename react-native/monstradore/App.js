@@ -9,6 +9,7 @@ import NavigationScreen from './navigation/NavigationScreen';
 import MultimediaScreen from './multimedia/MultimediaScreen';
 import AnimationsScreen from './animations/AnimationsScreen';
 import ObjectsScreen from './objects/ObjectsScreen';
+import NetworkCallScreen from './networkcall/NetworkCallScreen';
 
 const DATA = [
   {
@@ -88,9 +89,9 @@ function OverviewScreen({navigation}) {
                   navigation.navigate('Animations');
                 } else if (item === '3D Grafiken') {
                   navigation.navigate('Objects');
-                /*} else if (item === 'Netzwerkcalls') {
-                  navigation.navigate();
-                } else if (item === 'Dateizugriff') {
+                } else if (item === 'Netzwerkcalls') {
+                  navigation.navigate('NetworkCall');
+                /*} else if (item === 'Dateizugriff') {
                   navigation.navigate();
                 } else if (item === 'Persistierung') {
                   navigation.navigate();
@@ -137,6 +138,7 @@ function App() {
         <Stack.Screen name="Multimedia" component={MultimediaScreen} />
         <Stack.Screen name="Animations" component={AnimationsScreen} />
         <Stack.Screen name="Objects" component={ObjectsScreen} />
+        <Stack.Screen name="NetworkCall" component={NetworkCallScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
