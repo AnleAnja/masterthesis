@@ -8,8 +8,6 @@ function FileAccessScreen() {
     const path = DocumentDirectoryPath + '/samplefile.txt';
 
     const saveFile = async () => {
-        console.log(path);
-        console.log(text);
         try {
             await writeFile(path, text, 'utf8');
         } catch (e) {
@@ -18,11 +16,9 @@ function FileAccessScreen() {
     };
 
     const displayFile = async () => {
-        console.log(path);
         try {
             let temp = await readFile(path, 'utf8');
             setContent(temp);
-            console.log(content);
         } catch (e) {
             console.log('read', e);
         }
