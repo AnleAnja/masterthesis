@@ -9,6 +9,7 @@ import NavigationScreen from './navigation/NavigationScreen';
 import MultimediaScreen from './multimedia/MultimediaScreen';
 import AnimationsScreen from './animations/AnimationsScreen';
 import ObjectsScreen from './objects/ObjectsScreen';
+import PerformanceScreen from './performance/PerformanceScreen';
 
 const DATA = [
   {
@@ -103,9 +104,9 @@ function OverviewScreen({navigation}) {
                 } else if (item === 'Beschleunigung') {
                   navigation.navigate();
                 } else if (item === 'Fingerabdruck / Face ID') {
-                  navigation.navigate();
-                } else if (item === 'Primzahlberechnung') {
                   navigation.navigate();*/
+                } else if (item === 'Primzahlberechnung') {
+                  navigation.navigate('Performance');
                 } else {
                   navigation.navigate('Empty');
                 }
@@ -137,6 +138,7 @@ function App() {
         <Stack.Screen name="Multimedia" component={MultimediaScreen} />
         <Stack.Screen name="Animations" component={AnimationsScreen} />
         <Stack.Screen name="Objects" component={ObjectsScreen} />
+        <Stack.Screen name="Performance" component={PerformanceScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
