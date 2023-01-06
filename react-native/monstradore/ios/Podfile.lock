@@ -303,6 +303,10 @@ PODS:
   - React-jsinspector (0.70.6)
   - React-logger (0.70.6):
     - glog
+  - react-native-multithreading (1.1.1):
+    - React
+    - React-callinvoker
+    - React-Core
   - react-native-pager-view (6.1.2):
     - React-Core
   - react-native-safe-area-context (4.4.1):
@@ -477,6 +481,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-multithreading (from `../node_modules/react-native-multithreading`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-video (from `../node_modules/react-native-video`)
@@ -563,6 +568,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-multithreading:
+    :path: "../node_modules/react-native-multithreading"
   react-native-pager-view:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
@@ -646,6 +653,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b4a65947391c658450151275aa406f2b8263178f
   React-jsinspector: 60769e5a0a6d4b32294a2456077f59d0266f9a8b
   React-logger: 1623c216abaa88974afce404dc8f479406bbc3a0
+  react-native-multithreading: d512376413a06fdd89ec9e1a4ae76a27b41227dd
   react-native-pager-view: 8af1115b8f477db3a73d8e18083ab90b54a2c84e
   react-native-safe-area-context: ec0d85aca8110dae9327430a9541fec165352dab
   react-native-video: 79a186e378d327b6c08bc3982c17ef455c6bd75c

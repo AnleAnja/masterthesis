@@ -9,6 +9,7 @@ import NavigationScreen from './navigation/NavigationScreen';
 import MultimediaScreen from './multimedia/MultimediaScreen';
 import AnimationsScreen from './animations/AnimationsScreen';
 import ObjectsScreen from './objects/ObjectsScreen';
+import PerformanceScreen from './performance/PerformanceScreen';
 import NetworkCallScreen from './networkcall/NetworkCallScreen';
 import FileAccessScreen from './fileaccess/FileAccessScreen';
 import PersistenceScreen from './persistence/PersistenceScreen';
@@ -107,9 +108,9 @@ function OverviewScreen({navigation}) {
                 } else if (item === 'Beschleunigung') {
                   navigation.navigate();
                 } else if (item === 'Fingerabdruck / Face ID') {
-                  navigation.navigate();
-                } else if (item === 'Primzahlberechnung') {
                   navigation.navigate();*/
+                } else if (item === 'Primzahlberechnung') {
+                  navigation.navigate('Performance');
                 } else {
                   navigation.navigate('Empty');
                 }
@@ -145,6 +146,7 @@ function App() {
         <Stack.Screen name="FileAccess" component={FileAccessScreen} />
         <Stack.Screen name="Persistence" component={PersistenceScreen} />
         <Stack.Screen name="Camera" component={CameraScreen} />
+        <Stack.Screen name="Performance" component={PerformanceScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
