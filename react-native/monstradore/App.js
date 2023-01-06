@@ -10,6 +10,10 @@ import MultimediaScreen from './multimedia/MultimediaScreen';
 import AnimationsScreen from './animations/AnimationsScreen';
 import ObjectsScreen from './objects/ObjectsScreen';
 import PerformanceScreen from './performance/PerformanceScreen';
+import NetworkCallScreen from './networkcall/NetworkCallScreen';
+import FileAccessScreen from './fileaccess/FileAccessScreen';
+import PersistenceScreen from './persistence/PersistenceScreen';
+import CameraScreen from './camera/CameraScreen';
 
 const DATA = [
   {
@@ -89,17 +93,17 @@ function OverviewScreen({navigation}) {
                   navigation.navigate('Animations');
                 } else if (item === '3D Grafiken') {
                   navigation.navigate('Objects');
-                /*} else if (item === 'Netzwerkcalls') {
-                  navigation.navigate();
+                } else if (item === 'Netzwerkcalls') {
+                  navigation.navigate('NetworkCall');
                 } else if (item === 'Dateizugriff') {
-                  navigation.navigate();
+                  navigation.navigate('FileAccess');
                 } else if (item === 'Persistierung') {
-                  navigation.navigate();
+                  navigation.navigate('Persistence');
                 } else if (item === 'Zugriff auf native Anwendungen') {
-                  navigation.navigate();
+                  navigation.navigate('Empty');
                 } else if (item === 'Kamera') {
-                  navigation.navigate();
-                } else if (item === 'GPS') {
+                  navigation.navigate('Camera');
+                /*} else if (item === 'GPS') {
                   navigation.navigate();
                 } else if (item === 'Beschleunigung') {
                   navigation.navigate();
@@ -138,6 +142,10 @@ function App() {
         <Stack.Screen name="Multimedia" component={MultimediaScreen} />
         <Stack.Screen name="Animations" component={AnimationsScreen} />
         <Stack.Screen name="Objects" component={ObjectsScreen} />
+        <Stack.Screen name="NetworkCall" component={NetworkCallScreen} />
+        <Stack.Screen name="FileAccess" component={FileAccessScreen} />
+        <Stack.Screen name="Persistence" component={PersistenceScreen} />
+        <Stack.Screen name="Camera" component={CameraScreen} />
         <Stack.Screen name="Performance" component={PerformanceScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
