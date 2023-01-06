@@ -12,6 +12,7 @@ import ObjectsScreen from './objects/ObjectsScreen';
 import NetworkCallScreen from './networkcall/NetworkCallScreen';
 import FileAccessScreen from './fileaccess/FileAccessScreen';
 import PersistenceScreen from './persistence/PersistenceScreen';
+import CameraScreen from './camera/CameraScreen';
 
 const DATA = [
   {
@@ -97,11 +98,11 @@ function OverviewScreen({navigation}) {
                   navigation.navigate('FileAccess');
                 } else if (item === 'Persistierung') {
                   navigation.navigate('Persistence');
-                /*} else if (item === 'Zugriff auf native Anwendungen') {
-                  navigation.navigate();
+                } else if (item === 'Zugriff auf native Anwendungen') {
+                  navigation.navigate('Empty');
                 } else if (item === 'Kamera') {
-                  navigation.navigate();
-                } else if (item === 'GPS') {
+                  navigation.navigate('Camera');
+                /*} else if (item === 'GPS') {
                   navigation.navigate();
                 } else if (item === 'Beschleunigung') {
                   navigation.navigate();
@@ -143,6 +144,7 @@ function App() {
         <Stack.Screen name="NetworkCall" component={NetworkCallScreen} />
         <Stack.Screen name="FileAccess" component={FileAccessScreen} />
         <Stack.Screen name="Persistence" component={PersistenceScreen} />
+        <Stack.Screen name="Camera" component={CameraScreen} />
         <Stack.Screen name="Empty" component={EmptyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
