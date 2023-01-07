@@ -15,6 +15,7 @@ import FileAccessScreen from './fileaccess/FileAccessScreen';
 import PersistenceScreen from './persistence/PersistenceScreen';
 import CameraScreen from './camera/CameraScreen';
 import GPSScreen from './gps/GPSScreen';
+import AccelerationScreen from './acceleration/AccelerationScreen';
 
 const DATA = [
     {
@@ -107,9 +108,9 @@ function OverviewScreen({navigation}) {
                                     navigation.navigate('Camera');
                                 } else if (item === 'GPS') {
                                     navigation.navigate('GPS');
-                                    /*} else if (item === 'Beschleunigung') {
-                                      navigation.navigate();
-                                    } else if (item === 'Fingerabdruck / Face ID') {
+                                } else if (item === 'Beschleunigung') {
+                                      navigation.navigate('Acceleration');
+                                /*} else if (item === 'Fingerabdruck / Face ID') {
                                       navigation.navigate();*/
                                 } else if (item === 'Primzahlberechnung') {
                                     navigation.navigate('Performance');
@@ -149,6 +150,7 @@ function App() {
                 <Stack.Screen name="Persistence" component={PersistenceScreen}/>
                 <Stack.Screen name="Camera" component={CameraScreen}/>
                 <Stack.Screen name="GPS" component={GPSScreen}/>
+                <Stack.Screen name="Acceleration" component={AccelerationScreen}/>
                 <Stack.Screen name="Performance" component={PerformanceScreen}/>
                 <Stack.Screen name="Empty" component={EmptyScreen}/>
             </Stack.Navigator>
