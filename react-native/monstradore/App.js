@@ -16,6 +16,7 @@ import PersistenceScreen from './persistence/PersistenceScreen';
 import CameraScreen from './camera/CameraScreen';
 import GPSScreen from './gps/GPSScreen';
 import AccelerationScreen from './acceleration/AccelerationScreen';
+import FingerprintScreen from './fingerprint/FingerprintScreen';
 
 const DATA = [
     {
@@ -110,8 +111,8 @@ function OverviewScreen({navigation}) {
                                     navigation.navigate('GPS');
                                 } else if (item === 'Beschleunigung') {
                                       navigation.navigate('Acceleration');
-                                /*} else if (item === 'Fingerabdruck / Face ID') {
-                                      navigation.navigate();*/
+                                } else if (item === 'Fingerabdruck / Face ID') {
+                                      navigation.navigate('Fingerprint');
                                 } else if (item === 'Primzahlberechnung') {
                                     navigation.navigate('Performance');
                                 } else {
@@ -151,6 +152,7 @@ function App() {
                 <Stack.Screen name="Camera" component={CameraScreen}/>
                 <Stack.Screen name="GPS" component={GPSScreen}/>
                 <Stack.Screen name="Acceleration" component={AccelerationScreen}/>
+                <Stack.Screen name="Fingerprint" component={FingerprintScreen}/>
                 <Stack.Screen name="Performance" component={PerformanceScreen}/>
                 <Stack.Screen name="Empty" component={EmptyScreen}/>
             </Stack.Navigator>
