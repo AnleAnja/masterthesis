@@ -17,6 +17,7 @@ import CameraScreen from './camera/CameraScreen';
 import GPSScreen from './gps/GPSScreen';
 import AccelerationScreen from './acceleration/AccelerationScreen';
 import FingerprintScreen from './fingerprint/FingerprintScreen';
+import UIElementsScreen from './uielements/UIElementsScreen';
 
 const DATA = [
     {
@@ -80,12 +81,11 @@ function OverviewScreen({navigation}) {
                     <View style={styles.item}>
                         <Text
                             onPress={() => {
-                                /*if (item === 'Reichhaltige UI Elemente') {
+                                if (item === 'Reichhaltige UI Elemente') {
+                                  navigation.navigate('UIElements');
+                                } /*else if (item === 'Interaktionsdesign') {
                                   navigation.navigate();
-                                } else if (item === 'Interaktionsdesign') {
-                                  navigation.navigate();
-                                } else*/
-                                if (item === 'Gesten') {
+                                }*/ else if (item === 'Gesten') {
                                     navigation.navigate('Gestures');
                                 } else if (item === 'Navigation') {
                                     navigation.navigate('Navigation');
@@ -140,6 +140,7 @@ function App() {
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Overview" component={OverviewScreen}/>
+                <Stack.Screen name="UIElements" component={UIElementsScreen}/>
                 <Stack.Screen name="Gestures" component={GesturesScreen}/>
                 <Stack.Screen name="Navigation" component={NavigationScreen}/>
                 <Stack.Screen name="InputMethods" component={InputMethodsScreen}/>
