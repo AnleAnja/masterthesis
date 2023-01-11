@@ -20,7 +20,7 @@ const routes = [
   {
     path: "/2",
     name: "gestures",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/GesturesView.vue"),
   },
   {
     path: "/3",
