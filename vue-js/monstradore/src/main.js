@@ -1,7 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import Overview from './Overview.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
 
-import './assets/main.css'
-
-createApp(Overview).mount('#app')
+createApp(App).use(store).use(router).mount("#app");
