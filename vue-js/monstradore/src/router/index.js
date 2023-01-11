@@ -30,7 +30,7 @@ const routes = [
   {
     path: "/4",
     name: "input",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/InputMethodsView.vue"),
   },
   {
     path: "/5",
