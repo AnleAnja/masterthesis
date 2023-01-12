@@ -1,7 +1,7 @@
 <template>
-  <div>Texteingabe</div>
+  <h1>Texteingabe</h1>
   <input placeholder="Label" />
-  <div>Passworteingabe</div>
+  <h1>Passworteingabe</h1>
   <input type="password" placeholder="Password Label" />
 </template>
 

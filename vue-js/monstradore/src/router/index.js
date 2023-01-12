@@ -35,7 +35,7 @@ const routes = [
   {
     path: "/5",
     name: "multimedia",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/MultimediaView.vue"),
   },
   {
     path: "/6",
