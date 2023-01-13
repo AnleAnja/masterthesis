@@ -40,7 +40,7 @@ const routes = [
   {
     path: "/6",
     name: "animations",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/AnimationsView.vue"),
   },
   {
     path: "/7",
