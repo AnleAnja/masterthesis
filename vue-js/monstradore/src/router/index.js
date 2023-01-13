@@ -25,7 +25,7 @@ const routes = [
   {
     path: "/3",
     name: "navigation",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/NavigationView.vue"),
   },
   {
     path: "/4",
