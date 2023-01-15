@@ -10,17 +10,17 @@ const routes = [
   {
     path: "/0",
     name: "uielements",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/UIElementsView.vue"),
   },
   {
     path: "/1",
     name: "interaction",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/2",
     name: "gestures",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/3",
@@ -40,12 +40,12 @@ const routes = [
   {
     path: "/6",
     name: "animations",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/7",
     name: "objects",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
 ];
 

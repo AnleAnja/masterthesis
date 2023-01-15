@@ -1,0 +1,72 @@
+<template>
+  <h1>Reichhaltige UI Elemente</h1>
+  <h2>Grundlegende Elemente</h2>
+  <h3>Text</h3>
+  <p>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua.
+  </p>
+  <h3>Bild</h3>
+  <img :src="require(`../assets/sample.jpeg`)" alt="Sample Image" />
+  <h3>Liste</h3>
+  <ul>
+    <li :key="i" v-for="(i, index) in 5">Item: {{ index }}</li>
+  </ul>
+  <h3>Button</h3>
+  <v-btn>Button</v-btn>
+  <h3>Icon Button</h3>
+  <v-btn icon>
+    <v-icon> mdi-home </v-icon>
+  </v-btn>
+  <h2>Elemente mit Statusverwaltung</h2>
+  <h3>Slider</h3>
+  <v-slider />
+  <h3>Textfeld</h3>
+  <v-text-field />
+  <h3>Switch / Toggle</h3>
+  <v-switch v-model="switchVal" color="info" />
+  <h2>Plattformspezifische Elemente</h2>
+  <v-btn>Android</v-btn>
+  <v-btn>iOS</v-btn>
+  <h2>Fortgeschrittene Elemente</h2>
+  <v-btn @click.prevent.stop="menuClick($event, menu)"> {{ menu.name }}</v-btn>
+  <vue-simple-context-menu :options="options" ref="contextMenu" />
+  <v-dialog v-model="dialog" width=" {{ window.screen.width / 2 }}">
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn v-bind="attrs" v-on="on"> Dialog</v-btn>
+    </template>
+    <v-card>
+      <v-card-title>Dialog Title</v-card-title>
+      <v-card-text>Dialog Text</v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn text @click="dialog = false">Cancel</v-btn>
+        <v-btn text @click="dialog = false">OK</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "UIElementsView",
+      switchVal: false,
+      options: "Menu",
+      menu: {
+        name: "Menu",
+      },
+      dialog: false,
+    };
+  },
+  methods: {
+    menuClick(event, item) {
+      this.$refs.contextMenu.showMenu(event, item);
+    },
+  },
+};
+</script>
+
+<style scoped></style>
