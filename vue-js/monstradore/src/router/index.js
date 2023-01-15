@@ -20,7 +20,7 @@ const routes = [
   {
     path: "/0/ios",
     name: "ioselements",
-    component: () => import("../views/UIElementsView.vue"),
+    component: () => import("../views/IOSElementsView.vue"),
   },
   {
     path: "/1",
