@@ -13,6 +13,16 @@ const routes = [
     component: () => import("../views/UIElementsView.vue"),
   },
   {
+    path: "/0/android",
+    name: "androidelements",
+    component: () => import("../views/AndroidElementsView.vue"),
+  },
+  {
+    path: "/0/ios",
+    name: "ioselements",
+    component: () => import("../views/UIElementsView.vue"),
+  },
+  {
     path: "/1",
     name: "interaction",
     component: () => import("../views/EmptyView.vue"),

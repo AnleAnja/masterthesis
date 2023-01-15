@@ -27,8 +27,18 @@
   <h3>Switch / Toggle</h3>
   <v-switch v-model="switchVal" color="info" />
   <h2>Plattformspezifische Elemente</h2>
-  <v-btn>Android</v-btn>
-  <v-btn>iOS</v-btn>
+  <div>
+    <nav>
+      <router-link :to="{ path: '/0/android' }"
+        ><v-btn>Android</v-btn></router-link
+      >
+    </nav>
+    <router-view />
+    <nav>
+      <router-link :to="{ path: '/0/ios' }"><v-btn>iOS</v-btn></router-link>
+    </nav>
+    <router-view />
+  </div>
   <h2>Fortgeschrittene Elemente</h2>
   <v-btn @click.prevent.stop="menuClick($event, menu)"> {{ menu.name }}</v-btn>
   <vue-simple-context-menu :options="options" ref="contextMenu" />
