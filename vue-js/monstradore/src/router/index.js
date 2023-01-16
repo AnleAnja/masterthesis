@@ -47,6 +47,11 @@ const routes = [
     name: "objects",
     component: () => import("../views/AboutView.vue"),
   },
+  {
+    path: "/12",
+    name: "camera",
+    component: () => import("../views/CameraView.vue"),
+  },
 ];
 
 const router = createRouter({
