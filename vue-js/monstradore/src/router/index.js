@@ -45,7 +45,7 @@ const routes = [
   {
     path: "/7",
     name: "objects",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/ObjectsView.vue"),
   },
 ];
 
