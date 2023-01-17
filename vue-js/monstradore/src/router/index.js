@@ -47,6 +47,26 @@ const routes = [
     name: "objects",
     component: () => import("../views/AboutView.vue"),
   },
+  {
+    path: "/8",
+    name: "networkcall",
+    component: () => import("../views/NetworkcallView.vue"),
+  },
+  {
+    path: "/9",
+    name: "fileaccess",
+    component: () => import("../views/AboutView.vue"),
+  },
+  {
+    path: "/10",
+    name: "persistence",
+    component: () => import("../views/PersistenceView.vue"),
+  },
+  {
+    path: "/11",
+    name: "appaccess",
+    component: () => import("../views/AboutView.vue"),
+  },
 ];
 
 const router = createRouter({
