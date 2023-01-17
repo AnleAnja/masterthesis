@@ -72,6 +72,11 @@ const routes = [
     name: "appaccess",
     component: () => import("../views/AboutView.vue"),
   },
+  {
+    path: "/16",
+    name: "prime",
+    component: () => import("../views/PerformanceView.vue"),
+  },
 ];
 
 const router = createRouter({
