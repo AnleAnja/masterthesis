@@ -55,7 +55,7 @@ const routes = [
   {
     path: "/9",
     name: "fileaccess",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/FileAccessView.vue"),
   },
   {
     path: "/10",
