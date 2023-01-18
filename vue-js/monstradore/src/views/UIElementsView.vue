@@ -41,7 +41,11 @@
   </div>
   <h2>Fortgeschrittene Elemente</h2>
   <v-btn @click.prevent.stop="menuClick($event, menu)"> {{ menu.name }}</v-btn>
-  <vue-simple-context-menu :options="options" ref="contextMenu" />
+  <vue-simple-context-menu
+    element-id="myMenu"
+    :options="options"
+    ref="contextMenu"
+  />
   <v-dialog v-model="dialog" width=" {{ window.screen.width / 2 }}">
     <template v-slot:activator="{ on, attrs }">
       <v-btn v-bind="attrs" v-on="on"> Dialog</v-btn>
@@ -59,12 +63,21 @@
 </template>
 
 <script>
+import VueSimpleContextMenu from "vue-simple-context-menu";
 export default {
+  components: {
+    VueSimpleContextMenu,
+  },
   data() {
     return {
       name: "UIElementsView",
       switchVal: false,
-      options: "Menu",
+      options: [
+        {
+          name: "Menu",
+          slug: "menu",
+        },
+      ],
       menu: {
         name: "Menu",
       },
@@ -79,4 +92,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+@import "../../node_modules/vue-simple-context-menu/dist/vue-simple-context-menu.css";
+</style>
