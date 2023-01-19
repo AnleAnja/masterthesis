@@ -87,6 +87,11 @@ const routes = [
     name: "prime",
     component: () => import("../views/PerformanceView.vue"),
   },
+  {
+    path: "/12",
+    name: "camera",
+    component: () => import("../views/CameraView.vue"),
+  },
 ];
 
 const router = createRouter({
