@@ -80,7 +80,7 @@ const routes = [
   {
     path: "/11",
     name: "appaccess",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/16",
