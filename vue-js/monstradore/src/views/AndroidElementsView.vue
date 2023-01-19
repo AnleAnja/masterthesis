@@ -28,6 +28,14 @@
   <v-btn @click="snackbar = true">Snackbar</v-btn>
   <v-snackbar v-model="snackbar">Snackbar Content</v-snackbar>
   <h2>Segmented Buttons</h2>
+  <segmented-control
+    :options="options"
+    label="label"
+    value="value"
+    color="#fff"
+    active-color="#333"
+    :multiple="false"
+  />
   <h2>Floating Action Buttons</h2>
   <v-btn fab rounded>
     <v-icon>mdi-home</v-icon>
@@ -41,48 +49,27 @@
     <v-radio value="radio-2" />
   </v-radio-group>
   <h2>Time Picker</h2>
-  <v-dialog
-    ref="dialog"
-    v-model="modalT"
-    v-model:return-value="time"
-    persistent
-    width="290px"
-  >
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn v-model="time" v-bind="attrs" v-on="on">Time Picker</v-btn>
-    </template>
-    <v-time-picker v-if="modalT" v-model="time" full-width>
-      <v-spacer></v-spacer>
-      <v-btn text color="primary" @click="modalT = false"> Cancel </v-btn>
-      <v-btn text color="primary" @click="modalT = false"> OK </v-btn>
-    </v-time-picker>
-  </v-dialog>
+  <p style="color: darkred">Nicht nativ verfügbar</p>
   <h2>Date Picker</h2>
-  <v-dialog
-    ref="dialog"
-    v-model="modalD"
-    v-model:return-value="date"
-    persistent
-    width="290px"
-  >
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn v-model="date" v-bind="attrs" v-on="on">Date Picker</v-btn>
-    </template>
-    <v-date-picker v-model="date" scrollable>
-      <v-spacer></v-spacer>
-      <v-btn text color="primary" @click="modalD = false"> Cancel </v-btn>
-      <v-btn text color="primary" @click="modalD = false"> OK </v-btn>
-    </v-date-picker>
-  </v-dialog>
+  <p style="color: darkred">Nicht nativ verfügbar</p>
 </template>
 
 <script>
+import SegmentedControl from "vue-segmented-control";
+
 export default {
+  components: {
+    SegmentedControl,
+  },
   data() {
     return {
       snackbar: false,
       name: "AndroidElementsView",
-      options: ["Item 1", "Item 2", "Item 3"],
+      options: [
+        { label: "Item 1", value: "item1" },
+        { label: "Item 2", value: "item2" },
+        { label: "Item 3", value: "item3" },
+      ],
       row: null,
       time: null,
       modalT: false,

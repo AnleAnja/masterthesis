@@ -16,9 +16,7 @@
   <h3>Button</h3>
   <v-btn>Button</v-btn>
   <h3>Icon Button</h3>
-  <v-btn icon>
-    <v-icon> mdi-home </v-icon>
-  </v-btn>
+  <v-btn icon="mdi-home" />
   <h2>Elemente mit Statusverwaltung</h2>
   <h3>Slider</h3>
   <v-slider />
@@ -46,10 +44,11 @@
     :options="options"
     ref="contextMenu"
   />
-  <v-dialog v-model="dialog" width=" {{ window.screen.width / 2 }}">
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn v-bind="attrs" v-on="on"> Dialog</v-btn>
+  <v-dialog v-model="dialog">
+    <template v-slot:activator="{ props }">
+      <v-btn v-bind="props"> Dialog </v-btn>
     </template>
+
     <v-card>
       <v-card-title>Dialog Title</v-card-title>
       <v-card-text>Dialog Text</v-card-text>
