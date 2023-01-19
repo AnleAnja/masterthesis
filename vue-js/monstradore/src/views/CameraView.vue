@@ -1,18 +1,16 @@
 <template>
-  <div v-if="photo">
+  <div v-if="photo" class="screen">
     <video
-      class="video"
       :class="facingMode === 'user' ? 'front' : ''"
       ref="video"
+      class="video"
     />
     <canvas style="display: none" ref="canva" />
     <div class="photo-button-container">
-      <v-btn class="button photo-button" @click="TakePhoto">
-        <v-icon pack="fas" icon="camera" />
-      </v-btn>
+      <v-btn class="button photo-button" @click="TakePhoto" icon="mdi-camera" />
     </div>
   </div>
-  <photos-gallery v-if="photos.length !== 0" class="gallery" :photos="photos" />
+  <photos-gallery v-if="photos.length !== 0" class="screen" :photos="photos" />
 </template>
 
 <script>
@@ -85,17 +83,28 @@ export default {
   background-color: black;
   width: 100%;
   height: 100%;
-  justify-items: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 
 .video {
   height: 100%;
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .photo-button-container {
+  position: fixed;
+  bottom: 5%;
   z-index: 5;
-  width: 100vw;
-  height: 10vh;
+  width: 100%;
+  height: 10%;
   display: flex;
   justify-content: center;
 }
@@ -111,7 +120,7 @@ export default {
   color: black;
 }
 
-.gallery {
+.screen {
   height: 100%;
 }
 </style>
