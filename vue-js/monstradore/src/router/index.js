@@ -10,17 +10,27 @@ const routes = [
   {
     path: "/0",
     name: "uielements",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/UIElementsView.vue"),
+  },
+  {
+    path: "/0/android",
+    name: "androidelements",
+    component: () => import("../views/AndroidElementsView.vue"),
+  },
+  {
+    path: "/0/ios",
+    name: "ioselements",
+    component: () => import("../views/IOSElementsView.vue"),
   },
   {
     path: "/1",
     name: "interaction",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/2",
     name: "gestures",
-    component: () => import("../views/AboutView.vue"),
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/3",
