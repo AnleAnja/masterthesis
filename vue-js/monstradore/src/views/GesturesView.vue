@@ -1,15 +1,18 @@
-import PinchZoom from 'vue-pinch-zoom';
-
 <template>
   <div class="center">
-    <pinch-zoom>
+    <v-zoomer>
       <img class="img" src="../assets/sample.jpeg" alt="image" />
-    </pinch-zoom>
+    </v-zoomer>
   </div>
 </template>
 
 <script>
+import VueZoomer from "vue-zoomer";
+
 export default {
+  components: {
+    VZoomer: VueZoomer.Zoomer,
+  },
   name: "GesturesView",
 };
 </script>
@@ -24,12 +27,15 @@ export default {
 }
 
 .img {
-  display: block;
-  margin: auto;
+  /*display: block;*/
+  /*margin: auto;*/
+  /*width: 100%;*/
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+  object-fit: contain;
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 100%;
 }
 </style>
