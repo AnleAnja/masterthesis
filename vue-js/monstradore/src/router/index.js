@@ -50,12 +50,42 @@ const routes = [
   {
     path: "/6",
     name: "animations",
-    component: () => import("../views/EmptyView.vue"),
+    component: () => import("../views/AnimationsView.vue"),
   },
   {
     path: "/7",
     name: "objects",
-    component: () => import("../views/EmptyView.vue"),
+    component: () => import("../views/ObjectsView.vue"),
+  },
+  {
+    path: "/13",
+    name: "gps",
+    component: () => import("../views/GPSView.vue"),
+  },
+  {
+    path: "/8",
+    name: "networkcall",
+    component: () => import("../views/NetworkcallView.vue"),
+  },
+  {
+    path: "/9",
+    name: "fileaccess",
+    component: () => import("../views/FileAccessView.vue"),
+  },
+  {
+    path: "/10",
+    name: "persistence",
+    component: () => import("../views/PersistenceView.vue"),
+  },
+  {
+    path: "/11",
+    name: "appaccess",
+    component: () => import("../views/AboutView.vue"),
+  },
+  {
+    path: "/16",
+    name: "prime",
+    component: () => import("../views/PerformanceView.vue"),
   },
 ];
 
