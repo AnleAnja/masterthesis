@@ -52,6 +52,11 @@ const routes = [
     name: "gps",
     component: () => import("../views/GPSView.vue"),
   },
+  {
+    path: "/14",
+    name: "acceleration",
+    component: () => import("../views/AccelerationView.vue"),
+  },
 ];
 
 const router = createRouter({
