@@ -58,11 +58,6 @@ const routes = [
     component: () => import("../views/ObjectsView.vue"),
   },
   {
-    path: "/13",
-    name: "gps",
-    component: () => import("../views/GPSView.vue"),
-  },
-  {
     path: "/8",
     name: "networkcall",
     component: () => import("../views/NetworkcallView.vue"),
@@ -81,16 +76,27 @@ const routes = [
     path: "/11",
     name: "appaccess",
     component: () => import("../views/EmptyView.vue"),
-  },
-  {
-    path: "/16",
-    name: "prime",
-    component: () => import("../views/PerformanceView.vue"),
+
   },
   {
     path: "/12",
     name: "camera",
     component: () => import("../views/CameraView.vue"),
+  },
+  {
+    path: "/13",
+    name: "gps",
+    component: () => import("../views/GPSView.vue"),
+  },
+  {
+    path: "/14",
+    name: "acceleration",
+    component: () => import("../views/AccelerationView.vue"),
+  },
+  {
+    path: "/16",
+    name: "prime",
+    component: () => import("../views/PerformanceView.vue"),
   },
 ];
 
