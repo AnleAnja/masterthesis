@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       android: false,
-      ios: true,
+      ios: false,
       options: [
         {
           name: "Delete",
