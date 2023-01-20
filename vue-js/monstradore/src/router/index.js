@@ -25,7 +25,7 @@ const routes = [
   {
     path: "/1",
     name: "interaction",
-    component: () => import("../views/EmptyView.vue"),
+    component: () => import("../views/InteractionDesignView.vue"),
   },
   {
     path: "/2",
