@@ -1,7 +1,7 @@
 <template>
   <div class="center">
     <v-zoomer>
-      <img class="img" src="../assets/sample.jpeg" alt="image" />
+      <img class="img" :src="require(`../assets/sample.jpeg`)" alt="image" />
     </v-zoomer>
   </div>
 </template>
