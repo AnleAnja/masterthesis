@@ -2,7 +2,7 @@
   <h1>Struktur und Navigation</h1>
   <h2>App Bar Top</h2>
   <v-app-bar>
-    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     <v-app-bar-title>Top App Bar</v-app-bar-title>
   </v-app-bar>
   <p style="color: deepskyblue">Verfügbar, s.o.</p>
@@ -11,7 +11,7 @@
     Nur mit Navigation verfügbar, siehe Feature "Navigation"
   </p>
   <h2>Navigation Drawer</h2>
-  <v-navigation-drawer v-model="drawer" absolute temporary>
+  <v-navigation-drawer v-model="drawer" temporary>
     <div>Navigation Drawer Content</div>
   </v-navigation-drawer>
   <p style="color: deepskyblue">Verfügbar, s.o.</p>
@@ -63,6 +63,7 @@ export default {
   },
   data() {
     return {
+      drawer: false,
       snackbar: false,
       name: "AndroidElementsView",
       options: [
