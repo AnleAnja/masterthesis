@@ -1,8 +1,8 @@
 <template>
   <h1>Texteingabe</h1>
-  <input placeholder="Label" />
+  <v-text-field placeholder="Label" />
   <h1>Passworteingabe</h1>
-  <input type="password" placeholder="Password Label" />
+  <v-text-field type="password" placeholder="Password Label" />
 </template>
 
 <script>

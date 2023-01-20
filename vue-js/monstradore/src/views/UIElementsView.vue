@@ -49,7 +49,7 @@
       <v-btn v-bind="props"> Dialog </v-btn>
     </template>
 
-    <v-card>
+    <v-card class="card">
       <v-card-title>Dialog Title</v-card-title>
       <v-card-text>Dialog Text</v-card-text>
       <v-card-actions>
@@ -93,4 +93,11 @@ export default {
 
 <style>
 @import "../../node_modules/vue-simple-context-menu/dist/vue-simple-context-menu.css";
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  min-width: 70%;
+}
 </style>

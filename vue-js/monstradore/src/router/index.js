@@ -76,7 +76,6 @@ const routes = [
     path: "/11",
     name: "appaccess",
     component: () => import("../views/EmptyView.vue"),
-
   },
   {
     path: "/12",
@@ -92,6 +91,11 @@ const routes = [
     path: "/14",
     name: "acceleration",
     component: () => import("../views/AccelerationView.vue"),
+  },
+  {
+    path: "/15",
+    name: "fingerprint",
+    component: () => import("../views/EmptyView.vue"),
   },
   {
     path: "/16",

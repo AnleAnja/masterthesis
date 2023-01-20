@@ -9,7 +9,7 @@
     </v-btn>
   </v-row>
   <h1>Video</h1>
-  <video controls :width="width">
+  <video controls :width="width" playsinline>
     <source
       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       type="video/mp4"

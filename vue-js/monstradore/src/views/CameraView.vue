@@ -1,6 +1,8 @@
 <template>
   <div v-if="photo" class="screen">
     <video
+      autoplay
+      playsinline
       :class="facingMode === 'user' ? 'front' : ''"
       ref="video"
       class="video"
@@ -10,7 +12,9 @@
       <v-btn class="button photo-button" @click="TakePhoto" icon="mdi-camera" />
     </div>
   </div>
-  <photos-gallery v-if="photos.length !== 0" class="screen" :photos="photos" />
+  <div v-if="photos.length !== 0" class="screen">
+    <photos-gallery class="video" :photos="photos" />
+  </div>
 </template>
 
 <script>
@@ -97,6 +101,7 @@ export default {
   display: block;
   overflow-x: hidden;
   max-width: 100%;
+  min-width: 50%;
 }
 
 .photo-button-container {
@@ -122,5 +127,7 @@ export default {
 
 .screen {
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 </style>
