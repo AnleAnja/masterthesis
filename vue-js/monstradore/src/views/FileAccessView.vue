@@ -4,7 +4,15 @@
   <v-text-field v-model="input" placeholder="Label" />
   <div>
     <v-btn @click="writeFile">Datei speichern</v-btn>
-    <v-btn @click="readFile">Datei laden</v-btn>
+    <!--    <v-btn @click="readFile">Datei laden</v-btn>-->
+    <FileSelector
+      class="fs"
+      accept-extensions=".txt"
+      :multiple="false"
+      @changed="readFile"
+    >
+      <v-btn> Datei laden </v-btn>
+    </FileSelector>
   </div>
   <p>{{ content }}</p>
 </template>
@@ -19,42 +27,28 @@ export default {
     };
   },
   methods: {
-    async readFile() {
-      const pickerOpts = {
-        types: [
-          {
-            description: "Text file",
-            accept: { "text/plain": [".txt"] },
-          },
-        ],
-        excludeAcceptAllOption: true,
-        multiple: false,
-      };
-      let fileHandle;
-      [fileHandle] = await window.showOpenFilePicker(pickerOpts);
-      const fileData = await fileHandle.getFile();
-      if (fileData) this.content = await fileData.text();
+    async readFile(files) {
+      if (files.length > 0) this.content = await files[0].text();
     },
     async writeFile() {
-      const pickerOpts = {
-        suggestedName: "sample.txt",
-        types: [
-          {
-            description: "Text file",
-            accept: { "text/plain": [".txt"] },
-          },
-        ],
-        excludeAcceptAllOption: true,
-        multiple: false,
-      };
       const file = new Blob([this.input], { type: "text/plain" });
-      const fileHandle = await window.showSaveFilePicker(pickerOpts);
-      const writableStream = await fileHandle.createWritable();
-      await writableStream.write(file);
-      await writableStream.close();
+      const url = window.URL.createObjectURL(file);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "sample.txt");
+      document.body.appendChild(link);
+      link.click();
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "../../node_modules/vue-file-selector/dist/main.css";
+.fs {
+  justify-content: start;
+  align-content: start;
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
