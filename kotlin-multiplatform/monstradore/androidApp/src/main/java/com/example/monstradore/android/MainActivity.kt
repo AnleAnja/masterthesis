@@ -1,7 +1,7 @@
 package com.example.monstradore.android
 
-import GPSContent
 import android.Manifest
+import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.READ_CONTACTS
 import android.app.Activity
 import android.content.Context
@@ -22,10 +22,13 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ListItem
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -44,6 +47,7 @@ import com.example.monstradore.android.appaccess.ContactPickerContent
 import com.example.monstradore.android.fileaccess.FileAccessContent
 import com.example.monstradore.android.fingerprint.FingerprintContent
 import com.example.monstradore.android.gestures.GesturesContent
+import com.example.monstradore.android.gps.GPSContent
 import com.example.monstradore.android.hardwarefunctions.CameraContent
 import com.example.monstradore.android.inputmethods.InputMethodsContent
 import com.example.monstradore.android.interactiondesign.InteractionDesignContent
@@ -54,8 +58,8 @@ import com.example.monstradore.android.performance.PerformanceContent
 import com.example.monstradore.android.persistence.PersistenceContent
 import com.example.monstradore.android.ui.theme.MonstradoreTheme
 import com.example.monstradore.android.uiux.AndroidElementsContent
-import com.example.monstradore.android.uiux.UIElementsContent
 import com.example.monstradore.android.uiux.NonNativeContent
+import com.example.monstradore.android.uiux.UIElementsContent
 import com.example.monstradore.storage.UserStorage
 import com.example.monstradore.structures.Category
 import com.example.monstradore.structures.Features
@@ -69,6 +73,7 @@ class MainActivity : AppCompatActivity() {
     var contactName by mutableStateOf("")
     var contactNumber by mutableStateOf("")
     var location by mutableStateOf<Location?>(null)
+
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private var shouldShowCamera: MutableState<Boolean> = mutableStateOf(false)
@@ -105,31 +110,6 @@ class MainActivity : AppCompatActivity() {
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestLocationPermission(this, this)
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location : Location? ->
-                Log.d("anja", location.toString())
-                this.location = location
-                // Got last known location. In some rare situations this can be null.
-            }
     }
 
     override fun onRequestPermissionsResult(
@@ -137,17 +117,33 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        if (requestCode == 2) {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                fusedLocationClient.lastLocation
+                    .addOnSuccessListener { location: Location? ->
+                        this.location = location
+                    }
+            }
+        }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private fun requestCameraPermission() {
+        Log.d("ANJA", "requestCameraPermission")
         when {
             ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.CAMERA
             ) == PackageManager.PERMISSION_GRANTED -> {
                 shouldShowCamera.value = true
-                Log.d("anja", "Permission granted")
+                Log.d("ANJA", "Camera Permission granted")
             }
 
             ActivityCompat.shouldShowRequestPermissionRationale(
@@ -169,7 +165,7 @@ class MainActivity : AppCompatActivity() {
         val mediaDir = externalMediaDirs.firstOrNull()?.let {
             File(it, resources.getString(R.string.app_name)).apply { mkdirs() }
         }
-        return if(mediaDir != null && mediaDir.exists()) mediaDir else filesDir
+        return if (mediaDir != null && mediaDir.exists()) mediaDir else filesDir
     }
 
     override fun onDestroy() {
@@ -240,11 +236,13 @@ fun Content(
             composable("networkcalls") { NetworkCallContent() }
             composable("fileaccess") { FileAccessContent() }
             composable("persistence") { PersistenceContent(storage) }
-            composable("contactaccess") { ContactPickerContent(
-                context = LocalContext.current,
-                contactName,
-                contactNumber
-            ) }
+            composable("contactaccess") {
+                ContactPickerContent(
+                    context = LocalContext.current,
+                    contactName,
+                    contactNumber
+                )
+            }
             composable("camera") {
                 CameraContent(
                     outputDirectory = outputDirectory,
@@ -255,7 +253,7 @@ fun Content(
                     showPhoto = shouldShowPhoto
                 )
             }
-            composable("gps") { GPSContent(location) }
+            composable("gps") { GPSContent(context = LocalContext.current, location) }
             composable("acceleration") { AccelerationContent() }
             composable("fingerprint") { FingerprintContent(activity) }
             composable("performance") { PerformanceContent() }
@@ -271,9 +269,10 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         categories.forEach { (name, features) ->
             stickyHeader {
-                ListItem(modifier = Modifier
-                    .fillMaxWidth()
-                    .background(headerBackground)
+                ListItem(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(headerBackground)
                 ) {
                     Text(
                         text = name,
@@ -285,7 +284,7 @@ fun CategoryList(categories: List<Category>, navController: NavController) {
             }
             items(features) { feature ->
                 ListItem(modifier = Modifier.clickable(onClick = {
-                    when(feature) {
+                    when (feature) {
                         "Reichhaltige UI Elemente" -> navController.navigate("uielements")
                         "Interaktionsdesign" -> navController.navigate("interactiondesign")
                         "Gesten" -> navController.navigate("gestures")
@@ -322,6 +321,7 @@ fun hasContactPermission(context: Context): Boolean {
 }
 
 fun requestContactPermission(context: Context, activity: Activity) {
+    Log.d("ANJA", "requestContactPermission")
     // on below line if permission is not granted requesting permissions.
     if (!hasContactPermission(context)) {
         ActivityCompat.requestPermissions(activity, arrayOf(READ_CONTACTS), 1)
@@ -329,6 +329,10 @@ fun requestContactPermission(context: Context, activity: Activity) {
 }
 
 fun requestLocationPermission(context: Context, activity: Activity) {
-    // on below line if permission is not granted requesting permissions.
-        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+    Log.d("ANJA", "requestLocationPermission")
+    ActivityCompat.requestPermissions(
+        activity,
+        arrayOf(ACCESS_FINE_LOCATION),
+        2
+    )
 }

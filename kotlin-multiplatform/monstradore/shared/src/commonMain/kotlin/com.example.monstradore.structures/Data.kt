@@ -37,6 +37,7 @@ object Features {
 
 object Navigation {
     val tabTitles = listOf("Tab 1", "Tab 2", "Tab 3")
+    val itemTitles = listOf("Item 1", "Item 2", "Item 3")
 }
 
 fun generateInteractionDesignList(): List<String> {
