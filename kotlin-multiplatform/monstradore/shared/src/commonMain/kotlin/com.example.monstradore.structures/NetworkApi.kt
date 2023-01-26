@@ -9,7 +9,7 @@ class NetworkApi {
 
     suspend fun getResponse(): String {
         val response = client.get(
-            "https://random-data-api.com/api/v2/blood_types"
+            "https://jsonplaceholder.typicode.com/posts/1"
         )
         return response.bodyAsText()
     }

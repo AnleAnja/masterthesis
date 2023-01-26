@@ -34,6 +34,13 @@ struct GestureView: View {
             .scaleEffect(self.scale * scaleState)
             .offset(x: offset.width + offsetState.width, y: offset.height + offsetState.height)
             .gesture(magnification)
+            .onTapGesture(count: 2, perform: {
+                if scale == 1 {
+                    scale = 4
+                } else {
+                    scale = 1
+                }
+            })
     }
 }
 
