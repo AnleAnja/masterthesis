@@ -1,5 +1,26 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+int calc(int n) {
+  var num = 1;
+  var count = 0;
+  while (count < n) {
+    num++;
+    var i = 2;
+    while (i <= num) {
+      if (num % i == 0) {
+        break;
+      }
+      i++;
+    }
+    if (i == num) {
+      count++;
+    }
+  }
+  return num;
+}
 
 class Prime extends StatefulWidget {
   const Prime({super.key});
@@ -64,24 +85,6 @@ class _PrimeState extends State<Prime> {
   }
 
   Future<int> primeCalc(int n) {
-    return Future.delayed(const Duration(seconds: 2), ()
-    {
-      var num = 1;
-      var count = 0;
-      while (count < n) {
-        num++;
-        var i = 2;
-        while (i <= num) {
-          if (num % i == 0) {
-            break;
-          }
-          i++;
-        }
-        if (i == num) {
-          count++;
-        }
-      }
-      return num;
-    });
+    return compute(calc, n);
   }
 }
