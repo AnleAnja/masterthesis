@@ -78,7 +78,7 @@ function Content({ navigation }) {
           Nur mit Navigation verfügbar, siehe Feature "Navigation"
         </Text>
         <Text style={styles.headline3}>Navigation Drawer</Text>
-        <Text style={styles.unavailable}>Verfügbar, TESTEN</Text>
+        <Text style={styles.available}>Verfügbar, swipe left to right</Text>
         <Text style={styles.headline3}>Navigation Rail</Text>
         <Text style={styles.unavailable}>Nicht verfügbar</Text>
         <Text style={styles.headline2}>Grundlegende Android Elemente</Text>
