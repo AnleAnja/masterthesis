@@ -6,11 +6,7 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.Divider
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Home
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,11 +17,6 @@ import androidx.compose.ui.unit.sp
 private enum class BoxState {
     Small,
     Large
-}
-
-private enum class CrossfadeState {
-    Text,
-    Icon
 }
 
 @Composable
@@ -41,8 +32,6 @@ fun AnimationsContent() {
         AnimatedTransition()
         Spacer(modifier = Modifier.height(10.dp))
         AnimatedVisible()
-        Spacer(modifier = Modifier.height(10.dp))
-        AnimatedCrossfade()
     }
 }
 
@@ -53,7 +42,7 @@ fun AnimatedTransition() {
         targetState = boxState, label = ""
     )
     val size by transition.animateDp(label = "") { state ->
-        when(state) {
+        when (state) {
             BoxState.Small -> 64.dp
             BoxState.Large -> 128.dp
         }
@@ -61,7 +50,7 @@ fun AnimatedTransition() {
     Column {
         Button(
             onClick = {
-                boxState = when(boxState) {
+                boxState = when (boxState) {
                     BoxState.Small -> BoxState.Large
                     BoxState.Large -> BoxState.Small
                 }
@@ -91,34 +80,6 @@ fun AnimatedVisible() {
                 modifier = Modifier
                     .size(128.dp)
                     .background(Color.LightGray)
-            )
-        }
-    }
-}
-
-@Composable
-fun AnimatedCrossfade() {
-    var scene by remember { mutableStateOf(CrossfadeState.Text) }
-    Column {
-        Button(
-            onClick = {
-                scene = when(scene) {
-                    CrossfadeState.Text -> CrossfadeState.Icon
-                    CrossfadeState.Icon -> CrossfadeState.Text
-                }
-            }
-        ) {
-            Text("Crossfade")
-        }
-        when(scene) {
-            CrossfadeState.Text -> Text(
-                text = "Text",
-                fontSize = 18.sp
-            )
-            CrossfadeState.Icon -> Icon(
-                imageVector = Icons.Rounded.Home,
-                contentDescription = "Phone",
-                modifier = Modifier.size(30.dp)
             )
         }
     }
