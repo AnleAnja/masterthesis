@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:monstradore/interactiondesign/interactiondesign.dart';
 import 'package:monstradore/acceleration/acceleration.dart';
 import 'package:monstradore/uiux/uielements.dart';
 import 'package:monstradore/multimedia/multimedia.dart';
@@ -105,6 +106,8 @@ class _OverviewViewState extends State<OverviewView> {
                         return const UIElements();
                       case 'Gesten':
                         return const Gestures();
+                      case 'Interaktionsdesign':
+                        return const InteractionDesign();
                       case 'Navigation':
                         return const Navigation();
                       case 'Eingabemethoden':
