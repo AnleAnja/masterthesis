@@ -5,7 +5,6 @@ import android.hardware.biometrics.BiometricManager
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.CancellationSignal
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -24,10 +23,10 @@ import androidx.core.content.ContextCompat
 @Composable
 fun FingerprintContent(activity: Activity) {
     val success = remember { mutableStateOf("") }
+    val authInProgress = remember { mutableStateOf(false) }
+
     val cancellationSignal = CancellationSignal()
-    cancellationSignal.setOnCancelListener {
-        //doesn't get called after cancel is clicked on the biometrics prompt
-    }
+    cancellationSignal.setOnCancelListener {}
 
     val context = LocalContext.current
     val executor = remember { ContextCompat.getMainExecutor(activity) }
@@ -36,12 +35,18 @@ fun FingerprintContent(activity: Activity) {
         .setSubtitle("Fingerprint")
         .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
         .build()
-    biometricPrompt.authenticate(cancellationSignal, executor, object :
-        BiometricPrompt.AuthenticationCallback() {
-        override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
-            success.value = "Fingerabdruck akzeptiert"
-        }
-    })
+    if (!authInProgress.value) {
+        biometricPrompt.authenticate(cancellationSignal, executor, object :
+            BiometricPrompt.AuthenticationCallback() {
+            init {
+                authInProgress.value = true
+            }
+
+            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
+                success.value = "Fingerabdruck akzeptiert"
+            }
+        })
+    }
 
     Column(
         modifier = Modifier.padding(10.dp)
@@ -53,5 +58,4 @@ fun FingerprintContent(activity: Activity) {
         )
         Text(success.value)
     }
-
 }
