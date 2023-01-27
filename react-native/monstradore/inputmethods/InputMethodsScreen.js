@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
   headline3: {
     fontSize: 18,
   },
+    input: {
+        height: 40,
+        borderWidth: 1,
+        padding: 10,
+    },
 });
 
 export default InputMethodsScreen;

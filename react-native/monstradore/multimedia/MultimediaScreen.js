@@ -1,6 +1,7 @@
 import {Text, View, StyleSheet, Button} from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import Video from 'react-native-video';
+import {IconButton} from 'react-native-paper';
 
 function MultimediaScreen() {
     try {
@@ -14,8 +15,16 @@ function MultimediaScreen() {
         <View style={styles.container}>
             <Text style={styles.headline3}>Audio</Text>
             <View style={styles.audioRow}>
-                <Button title="Play" onPress={SoundPlayer.play}/>
-                <Button title="Pause" onPress={SoundPlayer.pause}/>
+                <IconButton
+                    icon="play"
+                    size={20}
+                    onPress={SoundPlayer.play}
+                />
+                <IconButton
+                    icon="pause"
+                    size={20}
+                    onPress={SoundPlayer.pause}
+                />
             </View>
             <Text style={styles.headline3}>Video</Text>
             <View style={styles.videoRow}>

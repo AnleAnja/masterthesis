@@ -38,7 +38,9 @@ function FileAccessScreen() {
                 <Button title="Datei speichern" onPress={saveFile}/>
                 <Button title="Datei laden" onPress={displayFile}/>
             </View>
-            <Text style={{fontSize: 25}}>{content}</Text>
+            <View style={styles.row}>
+                <Text style={{fontSize: 25}}>{content}</Text>
+            </View>
         </View>
     );
 }
@@ -53,9 +55,9 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     row: {
-        flex: 1,
+        display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-start',
+        "align-items": 'flex-start',
     },
 });
 

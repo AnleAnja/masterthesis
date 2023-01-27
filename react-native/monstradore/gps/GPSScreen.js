@@ -15,7 +15,7 @@ function GPSScreen() {
             setLat(position.coords.latitude.toString());
             setLong(position.coords.longitude.toString());
         },
-        error => Alert.alert('Error', JSON.stringify(error)),
+        error => console.log('Error', JSON.stringify(error)),
         {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
     return(

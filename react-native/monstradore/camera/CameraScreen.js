@@ -1,7 +1,7 @@
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import {useEffect, useRef, useState} from 'react';
-
+import {IconButton} from 'react-native-paper';
 
 function CameraScreen() {
     const [permission, setPermission] = useState(null);
@@ -45,7 +45,12 @@ function CameraScreen() {
                 ref={camera}
                 photo={true}
             />
-            <Button title={"O"} onPress={takePhoto}></Button>
+            <IconButton
+                icon="camera-iris"
+                size={40}
+                onPress={takePhoto}
+                // style={StyleSheet.captureButton}
+            />
         </View>
     );
 }
@@ -57,8 +62,6 @@ const styles = StyleSheet.create({
     },
     captureButton: {
         position: 'absolute',
-        alignSelf: 'center',
-        bottom: 15,
     },
 })
 
