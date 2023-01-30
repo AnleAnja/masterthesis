@@ -9,6 +9,7 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import FileSelector from "vue-file-selector";
+import "./registerServiceWorker";
 
 const vuetify = createVuetify({
   components,
