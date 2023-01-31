@@ -1,0 +1,84 @@
+Date : 2023-01-31 15:25:35
+Directory : /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore
+Total : 41 files,  15185 codes, 24 comments, 147 blanks, all 15356 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |     13,679 |          0 |          2 |     13,681 |
+| vue                |         24 |      1,202 |          1 |        111 |      1,314 |
+| JavaScript         |         10 |        252 |         10 |         25 |        287 |
+| Markdown           |          1 |         19 |          0 |          6 |         25 |
+| HTML               |          1 |         16 |          1 |          1 |         18 |
+| XML                |          2 |          9 |          0 |          2 |         11 |
+| JSON with Comments |          1 |          8 |         12 |          0 |         20 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |         41 |     15,185 |         24 |        147 |     15,356 |
+| . (Files)                                                                                           |          7 |     13,738 |         13 |         12 |     13,763 |
+| public                                                                                              |          2 |         19 |          1 |          2 |         22 |
+| public (Files)                                                                                      |          1 |         16 |          1 |          1 |         18 |
+| public/img                                                                                          |          1 |          3 |          0 |          1 |          4 |
+| public/img/icons                                                                                    |          1 |          3 |          0 |          1 |          4 |
+| src                                                                                                 |         32 |      1,428 |         10 |        133 |      1,571 |
+| src (Files)                                                                                         |          3 |         70 |          1 |         10 |         81 |
+| src/assets                                                                                          |          1 |          6 |          0 |          1 |          7 |
+| src/components                                                                                      |          1 |        121 |          0 |         11 |        132 |
+| src/plugins                                                                                         |          2 |         14 |          8 |          6 |         28 |
+| src/router                                                                                          |          1 |        109 |          0 |          4 |        113 |
+| src/store                                                                                           |          1 |          8 |          0 |          2 |         10 |
+| src/views                                                                                           |         23 |      1,100 |          1 |         99 |      1,200 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                            | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/.eslintrc.js                           | JavaScript         |         18 |          0 |          1 |         19 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/README.md                              | Markdown           |         19 |          0 |          6 |         25 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/babel.config.js                        | JavaScript         |          3 |          0 |          1 |          4 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/jsconfig.json                          | JSON with Comments |          8 |         12 |          0 |         20 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/package-lock.json                      | JSON               |     13,628 |          0 |          1 |     13,629 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/package.json                           | JSON               |         51 |          0 |          1 |         52 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/public/img/icons/safari-pinned-tab.svg | XML                |          3 |          0 |          1 |          4 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/public/index.html                      | HTML               |         16 |          1 |          1 |         18 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/App.vue                            | vue                |         15 |          0 |          3 |         18 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/assets/logo.svg                    | XML                |          6 |          0 |          1 |          7 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/components/HelloWorld.vue          | vue                |        121 |          0 |         11 |        132 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/main.js                            | JavaScript         |         24 |          0 |          4 |         28 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/plugins/vuetify.js                 | JavaScript         |          4 |          3 |          3 |         10 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/plugins/webfontloader.js           | JavaScript         |         10 |          5 |          3 |         18 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/registerServiceWorker.js           | JavaScript         |         31 |          1 |          3 |         35 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/router/index.js                    | JavaScript         |        109 |          0 |          4 |        113 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/store/index.js                     | JavaScript         |          8 |          0 |          2 |         10 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/AccelerationView.vue         | vue                |         48 |          0 |          5 |         53 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/AndroidElementsView.vue      | vue                |         83 |          0 |          4 |         87 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/AnimationsView.vue           | vue                |         45 |          0 |          4 |         49 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/CameraView.vue               | vue                |        122 |          0 |         12 |        134 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/EmptyView.vue                | vue                |          5 |          0 |          1 |          6 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/FileAccessView.vue           | vue                |         51 |          1 |          3 |         55 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/GPSView.vue                  | vue                |         29 |          0 |          6 |         35 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/GalleryView.vue              | vue                |         38 |          0 |          4 |         42 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/GesturesView.vue             | vue                |         37 |          0 |          5 |         42 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/HomeView.vue                 | vue                |         14 |          0 |          5 |         19 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/IOSElementsView.vue          | vue                |         16 |          0 |          3 |         19 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/InputMethodsView.vue         | vue                |         12 |          0 |          3 |         15 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/InteractionDesignView.vue    | vue                |         56 |          0 |          4 |         60 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/MultimediaView.vue           | vue                |         44 |          0 |          3 |         47 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/NavigationView.vue           | vue                |         43 |          0 |          3 |         46 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/NetworkcallView.vue          | vue                |         34 |          0 |          4 |         38 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/ObjectsView.vue              | vue                |         14 |          0 |          2 |         16 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/OverviewView.vue             | vue                |         90 |          0 |          6 |         96 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/PerformanceView.vue          | vue                |         57 |          0 |          4 |         61 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/PersistenceView.vue          | vue                |        110 |          0 |          9 |        119 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/PhotoView.vue                | vue                |         18 |          0 |          3 |         21 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/UIElementsView.vue           | vue                |        100 |          0 |          4 |        104 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/src/views/worker.js                    | JavaScript         |         34 |          0 |          2 |         36 |
+| /Users/anja/Documents/GitHub/masterthesis/vue-js/monstradore/vue.config.js                          | JavaScript         |         11 |          1 |          2 |         14 |
+| Total                                                                                               |                    |     15,185 |         24 |        147 |     15,356 |
++-----------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

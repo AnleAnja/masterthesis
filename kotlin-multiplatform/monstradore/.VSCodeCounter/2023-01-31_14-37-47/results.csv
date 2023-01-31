@@ -1,0 +1,46 @@
+"filename", "language", "XML", "Batch", "Properties", "Swift", "JSON", "C++", "Ruby", "Markdown", "Objective-C", "comment", "blank", "total"
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/AndroidManifest.xml", "XML", 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 35
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/layout/activity_main.xml", "XML", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 19
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/colors.xml", "XML", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/strings.xml", "XML", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/styles.xml", "XML", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/xml/data_extraction_rules.xml", "XML", 5, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 36
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradle.properties", "Properties", 0, 0, 7, 0, 0, 0, 0, 0, 0, 4, 3, 14
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradle/wrapper/gradle-wrapper.properties", "Properties", 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradlew.bat", "Batch", 0, 68, 0, 0, 0, 0, 0, 0, 0, 0, 22, 90
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Local Podspecs/shared.podspec.json", "JSON", 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 1, 29
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-acknowledgements.markdown", "Markdown", 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 4
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-dummy.m", "Objective-C", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 6
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-umbrella.h", "C++", 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 4, 17
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/AccentColor.colorset/Contents.json", "JSON", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 11
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/Contents.json", "JSON", 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 0, 98
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/Contents.json", "JSON", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 7
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/sample.imageset/Contents.json", "JSON", 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/sampleobject.imageset/Contents.json", "JSON", 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/MainView.swift", "Swift", 0, 0, 0, 66, 0, 0, 0, 0, 0, 5, 7, 78
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Preview Content/Preview Assets.xcassets/Contents.json", "JSON", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 6
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/acceleration/AccelerationView.swift", "Swift", 0, 0, 0, 37, 0, 0, 0, 0, 0, 7, 6, 50
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/animations/AnimationsView.swift", "Swift", 0, 0, 0, 50, 0, 0, 0, 0, 0, 12, 6, 68
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/appaccess/AppAccessView.swift", "Swift", 0, 0, 0, 86, 0, 0, 0, 0, 0, 13, 30, 129
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/fileaccess/FileAccessView.swift", "Swift", 0, 0, 0, 39, 0, 0, 0, 0, 0, 12, 4, 55
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/fingerprint/FingerprintView.swift", "Swift", 0, 0, 0, 33, 0, 0, 0, 0, 0, 13, 7, 53
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gestures/GestureView.swift", "Swift", 0, 0, 0, 32, 0, 0, 0, 0, 0, 12, 8, 52
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gps/GPSView.swift", "Swift", 0, 0, 0, 19, 0, 0, 0, 0, 0, 12, 7, 38
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gps/LocationManager.swift", "Swift", 0, 0, 0, 37, 0, 0, 0, 0, 0, 7, 11, 55
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/hardwarefunctions/CameraView.swift", "Swift", 0, 0, 0, 13, 0, 0, 0, 0, 0, 12, 4, 29
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/hardwarefunctions/ImagePickerView.swift", "Swift", 0, 0, 0, 25, 0, 0, 0, 0, 0, 7, 15, 47
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/iOSApp.swift", "Swift", 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/inputmethods/InputMethodsView.swift", "Swift", 0, 0, 0, 19, 0, 0, 0, 0, 0, 12, 4, 35
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/interactiondesign/InteractionDesignView.swift", "Swift", 0, 0, 0, 15, 0, 0, 0, 0, 0, 12, 4, 31
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/multimedia/MultimediaView.swift", "Swift", 0, 0, 0, 32, 0, 0, 0, 0, 0, 12, 5, 49
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/navigation/NavigationElementsView.swift", "Swift", 0, 0, 0, 32, 0, 0, 0, 0, 0, 12, 6, 50
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/networkcall/NetworkCallView.swift", "Swift", 0, 0, 0, 20, 0, 0, 0, 0, 0, 12, 4, 36
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/objects/ObjectView.swift", "Swift", 0, 0, 0, 12, 0, 0, 0, 0, 0, 12, 4, 28
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/performance/PerformanceView.swift", "Swift", 0, 0, 0, 40, 0, 0, 0, 0, 0, 12, 5, 57
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/persistence/PersistenceView.swift", "Swift", 0, 0, 0, 26, 0, 0, 0, 0, 0, 12, 4, 42
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/AndroidElementsView.swift", "Swift", 0, 0, 0, 8, 0, 0, 0, 0, 0, 12, 4, 24
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/UIElementsView.swift", "Swift", 0, 0, 0, 141, 0, 0, 0, 0, 0, 12, 9, 162
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/iOSElementsView.swift", "Swift", 0, 0, 0, 39, 0, 0, 0, 0, 0, 12, 6, 57
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/shared/shared.podspec", "Ruby", 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 4, 39
+"/Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/shared/src/androidMain/AndroidManifest.xml", "XML", 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"Total", "-", 74, 68, 12, 830, 191, 13, 35, 3, 5, 280, 211, 1722

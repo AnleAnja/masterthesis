@@ -1,0 +1,123 @@
+Date : 2023-01-31 14:37:47
+Directory : /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore
+Total : 44 files,  1231 codes, 280 comments, 211 blanks, all 1722 lines
+
+Languages
++-------------+------------+------------+------------+------------+------------+
+| language    | files      | code       | comment    | blank      | total      |
++-------------+------------+------------+------------+------------+------------+
+| Swift       |         23 |        830 |        244 |        162 |      1,236 |
+| JSON        |          7 |        191 |          0 |          4 |        195 |
+| XML         |          7 |         74 |         31 |          9 |        114 |
+| Batch       |          1 |         68 |          0 |         22 |         90 |
+| Ruby        |          1 |         35 |          0 |          4 |         39 |
+| C++         |          1 |         13 |          0 |          4 |         17 |
+| Properties  |          2 |         12 |          5 |          4 |         21 |
+| Objective-C |          1 |          5 |          0 |          1 |          6 |
+| Markdown    |          1 |          3 |          0 |          1 |          4 |
++-------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                                          | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                             |         44 |      1,231 |        280 |        211 |      1,722 |
+| . (Files)                                                                                                                                                     |          2 |         75 |          4 |         25 |        104 |
+| androidApp                                                                                                                                                    |          6 |         72 |         31 |          9 |        112 |
+| androidApp/src                                                                                                                                                |          6 |         72 |         31 |          9 |        112 |
+| androidApp/src/main                                                                                                                                           |          6 |         72 |         31 |          9 |        112 |
+| androidApp/src/main (Files)                                                                                                                                   |          1 |         30 |          0 |          5 |         35 |
+| androidApp/src/main/res                                                                                                                                       |          5 |         42 |         31 |          4 |         77 |
+| androidApp/src/main/res/layout                                                                                                                                |          1 |         17 |          0 |          2 |         19 |
+| androidApp/src/main/res/values                                                                                                                                |          3 |         20 |          0 |          2 |         22 |
+| androidApp/src/main/res/xml                                                                                                                                   |          1 |          5 |         31 |          0 |         36 |
+| gradle                                                                                                                                                        |          1 |          5 |          1 |          1 |          7 |
+| gradle/wrapper                                                                                                                                                |          1 |          5 |          1 |          1 |          7 |
+| iosApp                                                                                                                                                        |         33 |      1,042 |        244 |        172 |      1,458 |
+| iosApp/Pods                                                                                                                                                   |          4 |         49 |          0 |          7 |         56 |
+| iosApp/Pods/Local Podspecs                                                                                                                                    |          1 |         28 |          0 |          1 |         29 |
+| iosApp/Pods/Target Support Files                                                                                                                              |          3 |         21 |          0 |          6 |         27 |
+| iosApp/Pods/Target Support Files/Pods-iosApp                                                                                                                  |          3 |         21 |          0 |          6 |         27 |
+| iosApp/iosApp                                                                                                                                                 |         29 |        993 |        244 |        165 |      1,402 |
+| iosApp/iosApp (Files)                                                                                                                                         |          2 |         75 |          5 |          9 |         89 |
+| iosApp/iosApp/Assets.xcassets                                                                                                                                 |          5 |        157 |          0 |          3 |        160 |
+| iosApp/iosApp/Assets.xcassets (Files)                                                                                                                         |          1 |          6 |          0 |          1 |          7 |
+| iosApp/iosApp/Assets.xcassets/AccentColor.colorset                                                                                                            |          1 |         11 |          0 |          0 |         11 |
+| iosApp/iosApp/Assets.xcassets/AppIcon.appiconset                                                                                                              |          1 |         98 |          0 |          0 |         98 |
+| iosApp/iosApp/Assets.xcassets/sample.imageset                                                                                                                 |          1 |         21 |          0 |          1 |         22 |
+| iosApp/iosApp/Assets.xcassets/sampleobject.imageset                                                                                                           |          1 |         21 |          0 |          1 |         22 |
+| iosApp/iosApp/Preview Content                                                                                                                                 |          1 |          6 |          0 |          0 |          6 |
+| iosApp/iosApp/Preview Content/Preview Assets.xcassets                                                                                                         |          1 |          6 |          0 |          0 |          6 |
+| iosApp/iosApp/acceleration                                                                                                                                    |          1 |         37 |          7 |          6 |         50 |
+| iosApp/iosApp/animations                                                                                                                                      |          1 |         50 |         12 |          6 |         68 |
+| iosApp/iosApp/appaccess                                                                                                                                       |          1 |         86 |         13 |         30 |        129 |
+| iosApp/iosApp/fileaccess                                                                                                                                      |          1 |         39 |         12 |          4 |         55 |
+| iosApp/iosApp/fingerprint                                                                                                                                     |          1 |         33 |         13 |          7 |         53 |
+| iosApp/iosApp/gestures                                                                                                                                        |          1 |         32 |         12 |          8 |         52 |
+| iosApp/iosApp/gps                                                                                                                                             |          2 |         56 |         19 |         18 |         93 |
+| iosApp/iosApp/hardwarefunctions                                                                                                                               |          2 |         38 |         19 |         19 |         76 |
+| iosApp/iosApp/inputmethods                                                                                                                                    |          1 |         19 |         12 |          4 |         35 |
+| iosApp/iosApp/interactiondesign                                                                                                                               |          1 |         15 |         12 |          4 |         31 |
+| iosApp/iosApp/multimedia                                                                                                                                      |          1 |         32 |         12 |          5 |         49 |
+| iosApp/iosApp/navigation                                                                                                                                      |          1 |         32 |         12 |          6 |         50 |
+| iosApp/iosApp/networkcall                                                                                                                                     |          1 |         20 |         12 |          4 |         36 |
+| iosApp/iosApp/objects                                                                                                                                         |          1 |         12 |         12 |          4 |         28 |
+| iosApp/iosApp/performance                                                                                                                                     |          1 |         40 |         12 |          5 |         57 |
+| iosApp/iosApp/persistence                                                                                                                                     |          1 |         26 |         12 |          4 |         42 |
+| iosApp/iosApp/uiux                                                                                                                                            |          3 |        188 |         36 |         19 |        243 |
+| shared                                                                                                                                                        |          2 |         37 |          0 |          4 |         41 |
+| shared (Files)                                                                                                                                                |          1 |         35 |          0 |          4 |         39 |
+| shared/src                                                                                                                                                    |          1 |          2 |          0 |          0 |          2 |
+| shared/src/androidMain                                                                                                                                        |          1 |          2 |          0 |          0 |          2 |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| filename                                                                                                                                                      | language    | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/AndroidManifest.xml                                            | XML         |         30 |          0 |          5 |         35 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/layout/activity_main.xml                                   | XML         |         17 |          0 |          2 |         19 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/colors.xml                                          | XML         |          6 |          0 |          0 |          6 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/strings.xml                                         | XML         |          7 |          0 |          0 |          7 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/values/styles.xml                                          | XML         |          7 |          0 |          2 |          9 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/androidApp/src/main/res/xml/data_extraction_rules.xml                              | XML         |          5 |         31 |          0 |         36 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradle.properties                                                                  | Properties  |          7 |          4 |          3 |         14 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradle/wrapper/gradle-wrapper.properties                                           | Properties  |          5 |          1 |          1 |          7 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/gradlew.bat                                                                        | Batch       |         68 |          0 |         22 |         90 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Local Podspecs/shared.podspec.json                                     | JSON        |         28 |          0 |          1 |         29 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-acknowledgements.markdown | Markdown    |          3 |          0 |          1 |          4 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-dummy.m                   | Objective-C |          5 |          0 |          1 |          6 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/Pods/Target Support Files/Pods-iosApp/Pods-iosApp-umbrella.h                | C++         |         13 |          0 |          4 |         17 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/AccentColor.colorset/Contents.json                   | JSON        |         11 |          0 |          0 |         11 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/Contents.json                     | JSON        |         98 |          0 |          0 |         98 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/Contents.json                                        | JSON        |          6 |          0 |          1 |          7 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/sample.imageset/Contents.json                        | JSON        |         21 |          0 |          1 |         22 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Assets.xcassets/sampleobject.imageset/Contents.json                  | JSON        |         21 |          0 |          1 |         22 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/MainView.swift                                                       | Swift       |         66 |          5 |          7 |         78 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/Preview Content/Preview Assets.xcassets/Contents.json                | JSON        |          6 |          0 |          0 |          6 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/acceleration/AccelerationView.swift                                  | Swift       |         37 |          7 |          6 |         50 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/animations/AnimationsView.swift                                      | Swift       |         50 |         12 |          6 |         68 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/appaccess/AppAccessView.swift                                        | Swift       |         86 |         13 |         30 |        129 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/fileaccess/FileAccessView.swift                                      | Swift       |         39 |         12 |          4 |         55 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/fingerprint/FingerprintView.swift                                    | Swift       |         33 |         13 |          7 |         53 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gestures/GestureView.swift                                           | Swift       |         32 |         12 |          8 |         52 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gps/GPSView.swift                                                    | Swift       |         19 |         12 |          7 |         38 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/gps/LocationManager.swift                                            | Swift       |         37 |          7 |         11 |         55 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/hardwarefunctions/CameraView.swift                                   | Swift       |         13 |         12 |          4 |         29 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/hardwarefunctions/ImagePickerView.swift                              | Swift       |         25 |          7 |         15 |         47 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/iOSApp.swift                                                         | Swift       |          9 |          0 |          2 |         11 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/inputmethods/InputMethodsView.swift                                  | Swift       |         19 |         12 |          4 |         35 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/interactiondesign/InteractionDesignView.swift                        | Swift       |         15 |         12 |          4 |         31 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/multimedia/MultimediaView.swift                                      | Swift       |         32 |         12 |          5 |         49 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/navigation/NavigationElementsView.swift                              | Swift       |         32 |         12 |          6 |         50 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/networkcall/NetworkCallView.swift                                    | Swift       |         20 |         12 |          4 |         36 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/objects/ObjectView.swift                                             | Swift       |         12 |         12 |          4 |         28 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/performance/PerformanceView.swift                                    | Swift       |         40 |         12 |          5 |         57 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/persistence/PersistenceView.swift                                    | Swift       |         26 |         12 |          4 |         42 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/AndroidElementsView.swift                                       | Swift       |          8 |         12 |          4 |         24 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/UIElementsView.swift                                            | Swift       |        141 |         12 |          9 |        162 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/iosApp/iosApp/uiux/iOSElementsView.swift                                           | Swift       |         39 |         12 |          6 |         57 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/shared/shared.podspec                                                              | Ruby        |         35 |          0 |          4 |         39 |
+| /Users/anja/Documents/GitHub/masterthesis/kotlin-multiplatform/monstradore/shared/src/androidMain/AndroidManifest.xml                                         | XML         |          2 |          0 |          0 |          2 |
+| Total                                                                                                                                                         |             |      1,231 |        280 |        211 |      1,722 |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
