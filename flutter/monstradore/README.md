@@ -1,6 +1,6 @@
 # monstradore
 
-A new Flutter project.
+Flutter demo app
 
 ## Getting Started
 
