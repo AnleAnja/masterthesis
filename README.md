@@ -9,4 +9,5 @@ Installation and Setup guides are linked in the respective folders for the diffe
 ## Additional Links
 
 * Vue.js PWA Deployment via GitHub pages: [Vue.js PWA](https://anleanja.github.io/vuejs-pwa/)
-* Bonus App for an automatic weighted evaluation: [Flutter App]()
+* Bonus App for an automatic weighted evaluation: [Flutter App](https://github.com/AnleAnja/evaldore)
+* Deployment of the Bonus App via GitHub pages: [evaldore]()
